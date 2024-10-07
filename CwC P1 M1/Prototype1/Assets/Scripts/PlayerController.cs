@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Camera mainCamera;
+    public Camera frontCamera;
     private float speed = 20f;
     private float turnSpeed = 45f;
     private float forwardInput;
     private float horizontalInput;
+
+    public KeyCode switchKey;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +30,21 @@ public class PlayerController : MonoBehaviour
 
         //turns the car left and right, based on horizontal input
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+
+
+        if(Input.GetKeyDown(switchKey))
+        {
+            if(mainCamera.enabled == true){
+                mainCamera.enabled = false;
+                frontCamera.enabled = true;
+            }
+            else{
+                mainCamera.enabled = true;
+                frontCamera.enabled = false;
+            }
+
+        }
+
+
     }
 }
