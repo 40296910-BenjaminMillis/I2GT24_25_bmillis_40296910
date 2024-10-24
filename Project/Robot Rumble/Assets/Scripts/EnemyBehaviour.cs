@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-
     [SerializeField] Transform playerTransform;
     [SerializeField] Transform firePosition;
     [SerializeField] GameObject projectile;
@@ -17,7 +16,7 @@ public class EnemyBehaviour : MonoBehaviour
         shotCooldown = shotDelay;
     }
     
-    void Update() {
+    void Update(){
         Aiming();    
     }
 
@@ -32,12 +31,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-
-
     void Shoot(){
         // Create instance of projectile, which will fly in the direction the enemy was facing
         Instantiate(projectile, firePosition.position, transform.rotation);
     }
-
-
 }

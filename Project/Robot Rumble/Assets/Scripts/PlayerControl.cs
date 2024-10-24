@@ -12,8 +12,10 @@ public class PlayerControl : MonoBehaviour
     [Header("Movement")]
     [SerializeField] Camera playerCamera;
     [SerializeField] float moveSpeed = 1000f;
+    
     [Header("Jumping")]
     [SerializeField] float jumpHeight = 10f;
+
     [Header("Camera")]
     [SerializeField] float lookSpeed = 5f;
     [SerializeField] float lookXLimit = 90f; //restrict the angle you can move the camera up and down
@@ -24,8 +26,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform firePosition;
     [SerializeField] LineRenderer fireLine;
     [SerializeField] ParticleSystem fireBlast;
-    
-
 
     Rigidbody rb;
     Vector3 moveDirection;

@@ -12,14 +12,11 @@ public class Projectile : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-
     }
-
     
     void Update(){
         rb.velocity = transform.forward * projectileSpeed;
     }
-
 
     void OnTriggerEnter(Collider other) {
         // Checking for both players and enemies to allow for friendly fire
@@ -34,6 +31,6 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
+
 
 }

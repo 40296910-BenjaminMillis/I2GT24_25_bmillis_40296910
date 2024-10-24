@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
     [SerializeField] int health = 3;
 
     //Pass in either positive or negative values to 
@@ -19,5 +18,9 @@ public class Health : MonoBehaviour
 
     public virtual void Die(){
         Destroy(gameObject);
+    }
+
+    public float GetHealth(){
+        return health;
     }
 }
