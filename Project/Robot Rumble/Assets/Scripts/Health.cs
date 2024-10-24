@@ -17,9 +17,7 @@ public class Health : MonoBehaviour
         Debug.Log("health: " + health);
     }
 
-    void Die(){
-        //check if player or enemy
-        //-todo-
+    public virtual void Die(){
         Destroy(gameObject);
     }
 }

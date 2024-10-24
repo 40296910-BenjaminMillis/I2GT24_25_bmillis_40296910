@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyHealth : Health
+public class PlayerHealth : Health
 {
     public override void Die(){
         base.Die();
-        //add to the overall score (global game object?)
+        //Remove control from the game, display game over
     }
 }

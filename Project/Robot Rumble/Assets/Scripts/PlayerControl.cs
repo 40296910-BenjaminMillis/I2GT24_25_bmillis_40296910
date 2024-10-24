@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] ParticleSystem fireBlast;
     
 
+
     Rigidbody rb;
     Vector3 moveDirection;
 
@@ -73,7 +74,6 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-
     void Shoot(){
         if(Input.GetButton("Fire1") && !fireLine.enabled){
             RaycastHit hit;
@@ -84,7 +84,7 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Shot Hit");
                 if(hit.collider.CompareTag("Enemy")){
                     Debug.Log("Shot Hit Enemy");
-                    var hitReciver = hit.collider.gameObject.GetComponent<EnemyHealth>();
+                    var hitReciver = hit.collider.gameObject.GetComponent<Health>();
                     hitReciver.UpdateHealth(-1); //should damage be stored as a SerializeField?
                     PlayHitEffect(hit.point); //Only want a hit effect if it hits the enemy
                 }
@@ -109,7 +109,6 @@ public class PlayerControl : MonoBehaviour
 
     // Play impact point effect
     void PlayHitEffect(Vector3 hitLocation){
-        
         ParticleSystem instance = Instantiate(fireBlast, hitLocation, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
