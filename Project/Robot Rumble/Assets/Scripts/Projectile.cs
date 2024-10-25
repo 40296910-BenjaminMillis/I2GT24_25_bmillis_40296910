@@ -24,13 +24,6 @@ public class Projectile : MonoBehaviour
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-projectileDamage);
         }
-    }
-
-    // Remove projectile on collision
-    void OnCollisionEnter(Collision other) {
         Destroy(gameObject);
     }
-
-
-
 }
