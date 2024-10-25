@@ -6,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float projectileSpeed = 1f;
-    [SerializeField] int projectileDamage = -1;
+    [SerializeField] int projectileDamage = 1;
 
     Rigidbody rb;
 
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
         // Checking for both players and enemies to allow for friendly fire
         if(other.tag == "Player" || other.tag == "Enemy"){ 
             Health targetHealth = other.GetComponent<Health>();
-            targetHealth.UpdateHealth(projectileDamage);
+            targetHealth.UpdateHealth(-projectileDamage);
         }
     }
 
