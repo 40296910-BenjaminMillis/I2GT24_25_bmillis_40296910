@@ -77,7 +77,7 @@ public class PlayerControl : MonoBehaviour
     void Shoot(){
         if(Input.GetButton("Fire1") && !fireLine.enabled){
             RaycastHit hit;
-            Vector3 hitLocation = Vector3.zero;
+            Vector3 hitLocation;
 
             //Check if the ray collides with anything
             if(Physics.Raycast(firePosition.position, firePosition.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)){

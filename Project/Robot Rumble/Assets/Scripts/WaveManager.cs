@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour
 {
     
     [SerializeField] List<EnemyBehaviour> enemySelection = new List<EnemyBehaviour>(); // A list that the wave manager chooses from to spawn new enemies
+    [SerializeField] int xSpread;
+    [SerializeField] int zSpread;
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
@@ -17,20 +19,22 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        //when the enemy count reaches 0: 
-            //the wave number increases
-            //and new enemies are spawned
+        // When the enemy count reaches 0, the wave number increases and new enemies are spawned
         if(enemyCount <= 0){
             waveNumber++;
             enemyCount = 2 * waveNumber;
 
-            //for each enemy type, spawn a random amount of each
-            int enemyRange = enemySelection.Count-1;
-            int rankCount = 0; 
+            int rankCount = 0; // An enemys rank determines its worth during the wave
+            RaycastHit spawnLocation;
             while(rankCount < enemyCount){
-                int randomEnemy = Random.Range(0, enemyRange);
+                int randomEnemy = Random.Range(0, enemySelection.Count-1); //Select a random enemy type to spawn
+
+                //Move the spawner to a random location and cast a ray to spawn the enemy
+                Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
+
                 rankCount += enemySelection[randomEnemy].GetRank();
-                Instantiate(enemySelection[randomEnemy], new Vector3(Random.Range(-20, 20), 2, Random.Range(-20, 20)), transform.rotation);
+                Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
+                Debug.Log(spawnLocation.point);
             }
             
         }
