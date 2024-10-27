@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     
     [Header("Jumping")]
     [SerializeField] float jumpHeight = 10f;
+    [SerializeField] float gravity = 10f;
 
     [Header("Camera")]
     [SerializeField] float lookSpeed = 5f;
@@ -27,37 +28,44 @@ public class PlayerControl : MonoBehaviour
     LineRenderer fireLine;
     [SerializeField] ParticleSystem fireBlast;
 
-    Rigidbody rb;
+    CharacterController controller;
     Vector3 moveDirection;
 
-    bool isGrounded;
     float xRotation = 0;
 
     void Start(){
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
+        //rb = GetComponent<Rigidbody>();
         GameObject fl = GameObject.Find("FireLine");
         fireLine = fl.GetComponent<LineRenderer>();
     }
 
     void FixedUpdate(){
         Move();
-        Jump();
         RotateCamera();
         Shoot();
     }
 
     void Move(){
-        float xMove = Input.GetAxis("Horizontal");
-        float zMove = Input.GetAxis("Vertical");
-        moveDirection = (transform.forward * zMove) + (transform.right * xMove);
-        rb.AddForce(moveDirection.normalized * moveSpeed * Time.deltaTime, ForceMode.Force);
-    }
+        // Running
+        Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+        float movementDirectionY = moveDirection.y;
+        moveDirection = transform.TransformDirection(playerInput);
 
-    void Jump(){
-        if (Input.GetButton("Jump") && isGrounded){
-            isGrounded = false; 
-            rb.velocity += new Vector3(0f, jumpHeight, 0f);        
+        // Jumping
+        if (Input.GetButton("Jump") && controller.isGrounded){
+            moveDirection.y = jumpHeight;
         }
+        else{
+            moveDirection.y = movementDirectionY;
+        }
+        if (!controller.isGrounded)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
+
+        // Add all movement
+        controller.Move(moveDirection * Time.deltaTime);
     }
 
     void RotateCamera(){
@@ -66,12 +74,6 @@ public class PlayerControl : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         firePosition.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-    }
-
-    void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.CompareTag("Ground")){ 
-            isGrounded = true;
-        }
     }
 
     void Shoot(){

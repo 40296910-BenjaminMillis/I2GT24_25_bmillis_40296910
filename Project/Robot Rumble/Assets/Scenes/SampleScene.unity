@@ -191,6 +191,10 @@ PrefabInstance:
       value: rail_middle (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -271,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -355,6 +363,10 @@ PrefabInstance:
       value: rail_middle (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -435,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -719,7 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311699091}
   - component: {fileID: 311699092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -837,6 +853,10 @@ PrefabInstance:
       value: rail_middle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -919,6 +939,10 @@ PrefabInstance:
       value: rail_middle (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -999,6 +1023,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -1351,6 +1379,10 @@ PrefabInstance:
       value: rail_middle (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -1431,6 +1463,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_Name
       value: shape-slope (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_TagString
@@ -1618,6 +1654,10 @@ PrefabInstance:
       value: rail_middle
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -1642,7 +1682,7 @@ GameObject:
   - component: {fileID: 506210721}
   - component: {fileID: 506210722}
   - component: {fileID: 506210723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2055,6 +2095,10 @@ PrefabInstance:
       value: shape-slope
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -2329,6 +2373,10 @@ PrefabInstance:
       value: rail_middle (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -2409,6 +2457,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
       propertyPath: m_Name
       value: shape-cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
       propertyPath: m_TagString
@@ -2834,6 +2886,10 @@ PrefabInstance:
       value: rail_middle (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -3049,6 +3105,10 @@ PrefabInstance:
       value: rail_middle
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -3163,6 +3223,10 @@ PrefabInstance:
       value: rail_middle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -3238,6 +3302,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -3320,6 +3388,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -3775,6 +3847,10 @@ PrefabInstance:
       value: shape-cube (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -3853,6 +3929,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -4106,6 +4186,10 @@ PrefabInstance:
       value: rail_middle (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -4222,6 +4306,10 @@ PrefabInstance:
       value: rail_middle
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -4297,6 +4385,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -4547,6 +4639,10 @@ PrefabInstance:
       value: rail_middle (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -4631,6 +4727,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_Name
       value: shape-slope (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_TagString
@@ -4916,7 +5016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809972648}
   - component: {fileID: 1809972649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5032,6 +5132,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -5358,6 +5462,10 @@ PrefabInstance:
       value: rail_middle (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -5438,6 +5546,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_Name
       value: rail_middle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
@@ -5789,6 +5901,10 @@ PrefabInstance:
       value: rail_middle (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -5880,6 +5996,10 @@ PrefabInstance:
       value: shape-cube
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f306d6eb3eba8c4fa36511b028f5093, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -5901,7 +6021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2052739378}
   - component: {fileID: 2052739379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -6395,6 +6515,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_Name
       value: shape-slope (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 727dac93c0ff1bf4bae175cf22e0f580, type: 3}
       propertyPath: m_TagString

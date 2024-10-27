@@ -92,11 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1396629745213270206}
-  - component: {fileID: 6183356488846739640}
   - component: {fileID: 2321596035864531051}
   - component: {fileID: 9025586526353920248}
   - component: {fileID: 478157829647503475}
-  - component: {fileID: 1688134774180705578}
+  - component: {fileID: 4594625225544556213}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -122,33 +121,6 @@ Transform:
   - {fileID: 3024599101689686512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &6183356488846739640
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4444423873280068899}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!114 &2321596035864531051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 3686616722230876275}
-  moveSpeed: 1500
-  jumpHeight: 10
+  moveSpeed: 20
+  jumpHeight: 15
+  gravity: 20
   lookSpeed: 5
   lookXLimit: 90
   layersToHit:
@@ -171,7 +144,6 @@ MonoBehaviour:
     m_Bits: 64
   fireCooldown: 0.5
   firePosition: {fileID: 3024599101689686512}
-  fireLine: {fileID: 1155643031787613565, guid: 1d508af74f9be60498057af4de312938, type: 3}
   fireBlast: {fileID: 6535403625793782721, guid: c20a2b7b970a5eb40bb72dd7eea272d2, type: 3}
 --- !u!136 &9025586526353920248
 CapsuleCollider:
@@ -190,7 +162,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1.878609
@@ -209,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
---- !u!65 &1688134774180705578
-BoxCollider:
+--- !u!143 &4594625225544556213
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,8 +200,13 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5303913573466728408
 GameObject:
   m_ObjectHideFlags: 0
