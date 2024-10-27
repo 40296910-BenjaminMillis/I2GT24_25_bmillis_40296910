@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] LayerMask layersToHit;
     [SerializeField] float fireCooldown = 0.5f;
     [SerializeField] Transform firePosition;
-    [SerializeField] LineRenderer fireLine;
+    LineRenderer fireLine;
     [SerializeField] ParticleSystem fireBlast;
 
     Rigidbody rb;
@@ -35,8 +35,8 @@ public class PlayerControl : MonoBehaviour
 
     void Start(){
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        GameObject fl = GameObject.Find("FireLine");
+        fireLine = fl.GetComponent<LineRenderer>();
     }
 
     void FixedUpdate(){

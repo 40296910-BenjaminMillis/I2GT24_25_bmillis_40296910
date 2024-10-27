@@ -6,7 +6,10 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     public override void Die(){
+        //Remove player and control from the game
         base.Die();
-        //Remove control from the game, display game over
+        //Get the game manager to end the game
+        GameStateManager gameStateManager = FindObjectOfType<GameStateManager>();
+        gameStateManager.EndGame();
     }
 }

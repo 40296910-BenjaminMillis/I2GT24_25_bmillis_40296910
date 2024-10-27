@@ -12,31 +12,41 @@ public class WaveManager : MonoBehaviour
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
 
-    void Start() {
+    bool isRunning; // Denotes if the wave manager is currently active
+
+    // Reset values for a new game
+    public void StartWaves() {
         waveNumber = 0;
-        enemyCount = 0;  
+        enemyCount = 0; 
+        isRunning = true; 
+    }
+
+    public void EndWaves(){
+        isRunning = false;
+        //Keep the enemies from the current game to view from the game over screen
     }
 
     void Update()
     {
-        // When the enemy count reaches 0, the wave number increases and new enemies are spawned
-        if(enemyCount <= 0){
-            waveNumber++;
-            enemyCount = 2 * waveNumber;
+        if(isRunning){
+            // When the enemy count reaches 0, the wave number increases and new enemies are spawned
+            if(enemyCount <= 0){
+                waveNumber++;
+                enemyCount = 2 * waveNumber;
 
-            int rankCount = 0; // An enemys rank determines its worth during the wave
-            RaycastHit spawnLocation;
-            while(rankCount < enemyCount){
-                int randomEnemy = Random.Range(0, enemySelection.Count-1); //Select a random enemy type to spawn
+                int rankCount = 0; // An enemys rank determines its worth during the wave
+                RaycastHit spawnLocation;
+                while(rankCount < enemyCount){
+                    int randomEnemy = Random.Range(0, enemySelection.Count-1); //Select a random enemy type to spawn
 
-                //Move the spawner to a random location and cast a ray to spawn the enemy
-                Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
+                    //Move the spawner to a random location and cast a ray to spawn the enemy
+                    Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
-                rankCount += enemySelection[randomEnemy].GetRank();
-                Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
-                Debug.Log(spawnLocation.point);
+                    rankCount += enemySelection[randomEnemy].GetRank();
+                    Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
+                    Debug.Log(spawnLocation.point);
+                }
             }
-            
         }
     }
 
@@ -45,5 +55,14 @@ public class WaveManager : MonoBehaviour
     public void UpdateEnemyCount(int value){
         enemyCount += value;
         Debug.Log("enemy count: " + enemyCount);
+    }
+
+    // Remove all enemies currently in the game. Used after game over
+    public void ClearEnemies(){
+        EnemyBehaviour[] allEnemies = FindObjectsOfType<EnemyBehaviour>();
+        Debug.Log(allEnemies.Length);
+    	foreach(EnemyBehaviour enemy in allEnemies) {
+        	Destroy(enemy.gameObject);
+    	}
     }
 }

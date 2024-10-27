@@ -18,9 +18,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     float shotCooldown;
 
-    void Start(){
+    void Awake(){
         shotCooldown = shotDelay;
-        GameObject player = GameObject.Find("Player");
+        PlayerControl player = FindObjectOfType<PlayerControl>();
         playerTransform = player.transform;
     }
     
@@ -29,13 +29,15 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     void Aiming(){
-        transform.LookAt(playerTransform.position);
-        if(shotCooldown <= 0){
-            Shoot();
-            shotCooldown = shotDelay;
-        }
-        else{
-            shotCooldown -= Time.deltaTime;
+        if(playerTransform != null){
+            transform.LookAt(playerTransform.position);
+            if(shotCooldown <= 0){
+                Shoot();
+                shotCooldown = shotDelay;
+            }
+            else{
+                shotCooldown -= Time.deltaTime;
+            }
         }
     }
 
