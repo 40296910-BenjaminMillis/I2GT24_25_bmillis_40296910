@@ -88,5 +88,6 @@ public class UIManager : MonoBehaviour
         gameOverUI.enabled = false;
         gameUI.enabled = false;
         menuUI.enabled = true;
+        gameStateManager.GetComponent<WaveManager>().ClearEnemies();
     }
 }

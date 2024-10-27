@@ -28,7 +28,7 @@ public class GameStateManager : MonoBehaviour
         waveManager.StartWaves();
     }
 
-    //called when player is no longer in existance
+    // Called when player is no longer in existence
     public void EndGame(){
         // Disable enemy waves
         waveManager.EndWaves();

@@ -30,7 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Aiming(){
         if(playerTransform != null){
-            transform.LookAt(playerTransform.position);
+            transform.LookAt(playerTransform.position + Vector3.up);
             if(shotCooldown <= 0){
                 Shoot();
                 shotCooldown = shotDelay;

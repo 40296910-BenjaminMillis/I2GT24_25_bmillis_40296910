@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float projectileSpeed = 1f;
     [SerializeField] int projectileDamage = 1;
+    [SerializeField] float projectileLifetime = 20f;
 
     Rigidbody rb;
 
@@ -15,6 +16,11 @@ public class Projectile : MonoBehaviour
     }
     
     void Update(){
+        // Remove the projectile if it has existed as long as the set lifetime
+        projectileLifetime -= Time.deltaTime;
+        if(projectileLifetime <= 0){
+            Destroy(gameObject);
+        }
         rb.velocity = transform.forward * projectileSpeed;
     }
 
