@@ -25,15 +25,16 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] LayerMask layersToHit;
     [SerializeField] float fireCooldown = 0.5f;
     [SerializeField] Transform firePosition;
-    LineRenderer fireLine;
     [SerializeField] ParticleSystem hitSpark;
 
     CharacterController controller;
     Vector3 moveDirection;
-
     float xRotation = 0;
+    LineRenderer fireLine;
+    AudioPlayer audioPlayer;
 
     void Start(){
+        audioPlayer = FindObjectOfType<AudioPlayer>();
         controller = GetComponent<CharacterController>();
         fireLine = GameObject.Find("FireLine").GetComponent<LineRenderer>();
         fireLine.enabled = false;
@@ -75,6 +76,7 @@ public class PlayerControl : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
 
+    // I might want to have this in its own script, if I want more than 1 gun
     void Shoot(){
         if(Input.GetButton("Fire1") && !fireLine.enabled){
             RaycastHit hit;
@@ -86,8 +88,8 @@ public class PlayerControl : MonoBehaviour
                 if(hit.collider.CompareTag("Enemy")){
                     Debug.Log("Shot Hit Enemy");
                     var hitReciver = hit.collider.gameObject.GetComponent<Health>();
-                    hitReciver.UpdateHealth(-1); //should damage be stored as a SerializeField?
-                    PlayHitEffect(hit.point); //Only want a hit effect if it hits the enemy
+                    hitReciver.UpdateHealth(-1);
+                    PlayHitEffect(hit.point);
                 }
                 hitLocation = hit.point;
             }
@@ -95,6 +97,7 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Did not Hit");
                 hitLocation = firePosition.TransformDirection(Vector3.forward) * 1000;
             }
+            audioPlayer.PlayShootingClip();
             StartCoroutine(PlayFireLineEffect(hitLocation));
         }
     }
@@ -112,6 +115,5 @@ public class PlayerControl : MonoBehaviour
     void PlayHitEffect(Vector3 hitLocation){
         ParticleSystem instance = Instantiate(hitSpark, hitLocation, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
-
     }
 }

@@ -25,9 +25,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] TextMeshProUGUI finalScoreText;
     ScoreManager scoreManager;
-
 
     void Start() {
         menuUI.enabled = true;
@@ -45,9 +45,11 @@ public class UIManager : MonoBehaviour
         else if(gameUI.enabled){
             healthBar.value = playerHealth.GetHealth();
             scoreText.text = scoreManager.GetScore().ToString();
+            if(gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString() != waveText.text){
+                waveText.text = gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString();
+            }
         }
     }
-
 
     public void StartGame(){
         //disable menu and game over ui
@@ -61,6 +63,7 @@ public class UIManager : MonoBehaviour
         //set up game UI
         playerHealth = FindObjectOfType<PlayerHealth>();
         healthBar.maxValue = playerHealth.GetHealth();
+        healthBar.value = playerHealth.GetHealth();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

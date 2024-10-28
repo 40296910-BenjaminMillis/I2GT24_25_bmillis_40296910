@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 3;
 
     //Pass in either positive or negative values to 
-    public void UpdateHealth(int value){
+    public virtual void UpdateHealth(int value){
         health += value;
         if(health <= 0){
             Die();

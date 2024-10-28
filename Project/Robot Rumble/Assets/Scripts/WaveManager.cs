@@ -12,7 +12,6 @@ public class WaveManager : MonoBehaviour
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
-
     bool isRunning; // Denotes if the wave manager is currently active
 
     // Reset values for a new game
@@ -33,7 +32,7 @@ public class WaveManager : MonoBehaviour
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
             if(enemyCount <= 0){
                 waveNumber++;
-                enemyCount = 2 * waveNumber;
+                enemyCount = 3 * waveNumber;
 
                 int rankCount = 0; // An enemys rank determines its worth during the wave
                 RaycastHit spawnLocation;
@@ -69,5 +68,10 @@ public class WaveManager : MonoBehaviour
     	foreach(EnemyBehaviour enemy in allEnemies) {
         	Destroy(enemy.gameObject);
     	}
+    }
+
+
+    public int GetWaveNumber(){
+        return waveNumber;
     }
 }
