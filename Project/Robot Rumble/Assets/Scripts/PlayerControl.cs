@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -18,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float gravity = 10f;
 
     [Header("Camera")]
-    [SerializeField] float lookSpeed = 5f;
+    [SerializeField] float lookSpeed = 5f; //5f for a desktop build, 1.5f for webgl build
     [SerializeField] float lookXLimit = 90f; //restrict the angle you can move the camera up and down
 
     [Header("Shooting")]

@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1396629745213270206}
   - component: {fileID: 2321596035864531051}
-  - component: {fileID: 9025586526353920248}
   - component: {fileID: 478157829647503475}
   - component: {fileID: 4594625225544556213}
   m_Layer: 0
@@ -145,29 +144,6 @@ MonoBehaviour:
   fireCooldown: 0.5
   firePosition: {fileID: 3024599101689686512}
   hitSpark: {fileID: 6535403625793782721, guid: c20a2b7b970a5eb40bb72dd7eea272d2, type: 3}
---- !u!136 &9025586526353920248
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4444423873280068899}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.878609
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &478157829647503475
 MonoBehaviour:
   m_ObjectHideFlags: 0
