@@ -71,7 +71,6 @@ public class PlayerControl : MonoBehaviour
         xRotation += -Input.GetAxis("Mouse Y") * lookSpeed;
         xRotation = Mathf.Clamp(xRotation, -lookXLimit, lookXLimit);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        firePosition.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
 
