@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<EnemyBehaviour> enemySelection = new List<EnemyBehaviour>(); // A list that the wave manager chooses from to spawn new enemies
     [SerializeField] int xSpread;
     [SerializeField] int zSpread;
+    [SerializeField] ParticleSystem spawnEffect;
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
@@ -43,6 +44,10 @@ public class WaveManager : MonoBehaviour
                     Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
                     rankCount += enemySelection[randomEnemy].GetRank();
+
+                    ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
+                    Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+
                     Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
                     Debug.Log(spawnLocation.point);
                 }

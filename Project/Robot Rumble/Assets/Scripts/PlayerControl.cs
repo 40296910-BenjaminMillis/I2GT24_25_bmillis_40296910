@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float fireCooldown = 0.5f;
     [SerializeField] Transform firePosition;
     LineRenderer fireLine;
-    [SerializeField] ParticleSystem fireBlast;
+    [SerializeField] ParticleSystem hitSpark;
 
     CharacterController controller;
     Vector3 moveDirection;
@@ -35,9 +35,8 @@ public class PlayerControl : MonoBehaviour
 
     void Start(){
         controller = GetComponent<CharacterController>();
-        //rb = GetComponent<Rigidbody>();
-        GameObject fl = GameObject.Find("FireLine");
-        fireLine = fl.GetComponent<LineRenderer>();
+        fireLine = GameObject.Find("FireLine").GetComponent<LineRenderer>();
+        fireLine.enabled = false;
     }
 
     void FixedUpdate(){
@@ -111,7 +110,7 @@ public class PlayerControl : MonoBehaviour
 
     // Play impact point effect
     void PlayHitEffect(Vector3 hitLocation){
-        ParticleSystem instance = Instantiate(fireBlast, hitLocation, Quaternion.identity);
+        ParticleSystem instance = Instantiate(hitSpark, hitLocation, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
     }
