@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         // Checking for both players and enemies to allow for friendly fire
-        if(other.tag == "Player" || other.tag == "Enemy"){ 
+        if(other.CompareTag("Player") || other.CompareTag("Enemy")){ 
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-projectileDamage);
         }

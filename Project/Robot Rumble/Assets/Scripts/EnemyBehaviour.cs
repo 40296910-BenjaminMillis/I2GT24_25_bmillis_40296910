@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Enemy Stats")]
     [SerializeField] int rank = 1; //Determines the scoring of the enemy, from actual score to how they are weighted in spawning
+    [SerializeField] float gravity = 10f;
 
     [Header("Projectile Stats")]
     [SerializeField] GameObject projectile;
@@ -17,15 +18,18 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] Transform firePosition;
 
     float shotCooldown;
+    Rigidbody rb;
 
     void Awake(){
         shotCooldown = shotDelay;
         PlayerControl player = FindObjectOfType<PlayerControl>();
         playerTransform = player.transform;
+        rb = GetComponent<Rigidbody>();
     }
     
     void Update(){
         Aiming();    
+        rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
     }
 
     void Aiming(){

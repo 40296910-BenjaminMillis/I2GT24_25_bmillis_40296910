@@ -9,13 +9,13 @@ public class KillFloor : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         // Deplete all enemy health if they touch the killfloor
-        if(other.tag == "Enemy"){
+        if(other.CompareTag("Enemy")){
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-targetHealth.GetHealth()); 
         }
 
         // The player will lose some of health if they touch the floor, and respawn at the center of the stage
-        else if(other.tag == "Player"){
+        else if(other.CompareTag("Player")){
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-damage); 
 

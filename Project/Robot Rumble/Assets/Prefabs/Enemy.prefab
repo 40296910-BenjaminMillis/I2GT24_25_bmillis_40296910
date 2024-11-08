@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rank: 1
+  gravity: 200
   projectile: {fileID: 4507166726983873659, guid: 91875a1a7b5ddb74aa7fb298c6c0017a, type: 3}
   shotDelay: 2
   firePosition: {fileID: 1176253794713104238}

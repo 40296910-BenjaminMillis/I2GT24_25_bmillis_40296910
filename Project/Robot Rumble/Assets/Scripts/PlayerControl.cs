@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] Camera playerCamera;
-    [SerializeField] float moveSpeed = 1000f;
+    [SerializeField] float walkSpeed = 20f;
     
     [Header("Jumping")]
     [SerializeField] float jumpHeight = 10f;
@@ -26,28 +26,47 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform firePosition;
     [SerializeField] ParticleSystem hitSpark;
 
+
+    [Header("Dashing")]
+    [SerializeField] float dashSpeed = 25f;
+    [SerializeField] float dashForce = 5f; // How far enemies will be launched by a dash collision
+    [SerializeField] float dashCooldown = 2f;
+
     CharacterController controller;
     Vector3 moveDirection;
     float xRotation = 0;
     LineRenderer fireLine;
     AudioPlayer audioPlayer;
+    float moveSpeed; 
+    Collider dashCollider;
 
     void Start(){
         audioPlayer = FindObjectOfType<AudioPlayer>();
         controller = GetComponent<CharacterController>();
         fireLine = GameObject.Find("FireLine").GetComponent<LineRenderer>();
         fireLine.enabled = false;
+        moveSpeed = walkSpeed; 
+        dashCollider = GetComponent<BoxCollider>();
     }
 
     void FixedUpdate(){
         Move();
         RotateCamera();
         Shoot();
+        if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled){
+            StartCoroutine(Dash());
+        }
     }
 
     void Move(){
         // Running
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+        Debug.Log("");
+        // If not moving and trying to dash, move forward
+        // Currently causes the player to move forward if dashing in a direction and then stopping
+        // if(playerInput == new Vector3(0, 0, 0) && dashCollider.enabled){
+        //     playerInput = new Vector3(0, 0, 1) * moveSpeed;
+        // }
         float movementDirectionY = moveDirection.y;
         moveDirection = transform.TransformDirection(playerInput);
 
@@ -58,8 +77,7 @@ public class PlayerControl : MonoBehaviour
         else{
             moveDirection.y = movementDirectionY;
         }
-        if (!controller.isGrounded)
-        {
+        if (!controller.isGrounded){
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
@@ -72,6 +90,30 @@ public class PlayerControl : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -lookXLimit, lookXLimit);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+    }
+
+    // Move the player forward temporarily at a faster speed
+    IEnumerator Dash(){
+        moveSpeed = dashSpeed; 
+        playerCamera.fieldOfView = 80;
+        dashCollider.enabled = true;
+        yield return new WaitForSeconds(dashCooldown);
+        
+        moveSpeed = walkSpeed;
+        playerCamera.fieldOfView = 90;
+        dashCollider.enabled = false;
+        Debug.Log("dash end");
+    }
+
+    // If the player collides with an enemy while dashing, bounce them forward and slightly upward
+    void OnTriggerEnter(Collider other){
+        if(dashCollider.enabled && other.CompareTag("Enemy")){
+
+            Vector3 awayFromPlayer = other.transform.position - transform.position;
+
+            other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
+            Debug.Log("bounce");
+        }
     }
 
     // I might want to have this in its own script, if I want more than 1 gun
@@ -114,4 +156,9 @@ public class PlayerControl : MonoBehaviour
         ParticleSystem instance = Instantiate(hitSpark, hitLocation, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
     }
+
+
+
+
+
 }
