@@ -145,9 +145,10 @@ MonoBehaviour:
   fireCooldown: 0.5
   firePosition: {fileID: 3024599101689686512}
   hitSpark: {fileID: 6535403625793782721, guid: c20a2b7b970a5eb40bb72dd7eea272d2, type: 3}
-  dashSpeed: 50
+  dashSpeed: 65
   dashForce: 13.5
-  dashCooldown: 0.5
+  dashDuration: 0.4
+  dashDelay: 1.5
 --- !u!114 &478157829647503475
 MonoBehaviour:
   m_ObjectHideFlags: 0

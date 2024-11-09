@@ -18,8 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] Camera menuCamera;
     [SerializeField] Vector3 menuCameraPanSpeed = new Vector3(0.25f, 0, 0);
 
-    [Header("Player Health")]
+    [Header("Player Information")]
     [SerializeField] Slider healthBar;
+    [SerializeField] GameObject dashCooldownBar;
+    PlayerControl player;
     PlayerHealth playerHealth;
 
     [Header("Score")]
@@ -44,6 +46,12 @@ public class UIManager : MonoBehaviour
         else if(gameUI.enabled){
             healthBar.value = playerHealth.GetHealth();
             scoreText.text = scoreManager.GetScore().ToString();
+            dashCooldownBar.GetComponent<Slider>().value = player.getDashCooldown();
+            if(dashCooldownBar.GetComponent<Slider>().value == 0)
+                dashCooldownBar.SetActive(false);
+            else
+                dashCooldownBar.SetActive(true);
+
             if(gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString() != waveText.text){
                 waveText.text = gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString();
             }
@@ -60,7 +68,9 @@ public class UIManager : MonoBehaviour
         gameStateManager.StartGame();
 
         //set up game UI
-        playerHealth = FindObjectOfType<PlayerHealth>();
+        player = FindObjectOfType<PlayerControl>();
+        dashCooldownBar.GetComponent<Slider>().maxValue = player.getDashDelay();
+        playerHealth = player.GetComponent<PlayerHealth>();
         healthBar.maxValue = playerHealth.GetHealth();
         healthBar.value = playerHealth.GetHealth();
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class AudioPlayer : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] AudioClip shootingClip;
     [SerializeField] [Range(0f, 1f)] float shootingVolume = 1f;
+
+    [Header("Dash")]
+    [SerializeField] AudioClip dashWooshClip;
+    [SerializeField] [Range(0f, 1f)] float dashWooshVolume = 1f;
+    [SerializeField] AudioClip dashHitClip;
+    [SerializeField] [Range(0f, 1f)] float dashHitVolume = 1f;
 
     [Header("Explosion")]
     [SerializeField] AudioClip explosionClip;
@@ -39,5 +46,13 @@ public class AudioPlayer : MonoBehaviour
             Vector3 cameraPos = Camera.main.transform.position;
             AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
         }
+    }
+
+    public void PlayDashWooshClip(){
+        PlayClip(dashWooshClip, dashWooshVolume);
+    }
+
+    public void PlayDashHitClip(){
+        PlayClip(dashHitClip, dashHitVolume);
     }
 }

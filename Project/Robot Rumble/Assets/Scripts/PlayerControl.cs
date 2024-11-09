@@ -30,14 +30,15 @@ public class PlayerControl : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
     [SerializeField] float dashForce = 5f; // How far enemies will be launched by a dash collision
-    [SerializeField] float dashCooldown = 2f;
+    [SerializeField] float dashDuration = 0.5f; // How long the dash lasts
+    [SerializeField] float dashDelay = 2f;
+    float dashCooldown = 0;
 
     CharacterController controller;
     Vector3 moveDirection;
     float xRotation = 0;
     LineRenderer fireLine;
     AudioPlayer audioPlayer;
-    float moveSpeed; 
     Collider dashCollider;
 
     void Start(){
@@ -45,7 +46,6 @@ public class PlayerControl : MonoBehaviour
         controller = GetComponent<CharacterController>();
         fireLine = GameObject.Find("FireLine").GetComponent<LineRenderer>();
         fireLine.enabled = false;
-        moveSpeed = walkSpeed; 
         dashCollider = GetComponent<BoxCollider>();
     }
 
@@ -53,20 +53,27 @@ public class PlayerControl : MonoBehaviour
         Move();
         RotateCamera();
         Shoot();
-        if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled){
+        if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled && dashCooldown <= 0){
+            dashCooldown = dashDelay;
             StartCoroutine(Dash());
         }
+        dashCooldown -= Time.deltaTime;
     }
 
     void Move(){
         // Running
-        Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+        Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * walkSpeed, 0f, Input.GetAxis("Vertical") * walkSpeed);
         Debug.Log("");
-        // If not moving and trying to dash, move forward
-        // Currently causes the player to move forward if dashing in a direction and then stopping
-        // if(playerInput == new Vector3(0, 0, 0) && dashCollider.enabled){
-        //     playerInput = new Vector3(0, 0, 1) * moveSpeed;
-        // }
+        // If trying to dash, move forward
+        if(dashCollider.enabled){
+            if(playerCamera.fieldOfView > 80)
+                playerCamera.fieldOfView -= 4;
+            playerInput = new Vector3(Input.GetAxis("Horizontal") * walkSpeed / 1.5f, 0, 1 * dashSpeed);
+        }
+        else if(playerCamera.fieldOfView < 90){
+            playerCamera.fieldOfView += 2; 
+        }
+
         float movementDirectionY = moveDirection.y;
         moveDirection = transform.TransformDirection(playerInput);
 
@@ -94,25 +101,22 @@ public class PlayerControl : MonoBehaviour
 
     // Move the player forward temporarily at a faster speed
     IEnumerator Dash(){
-        moveSpeed = dashSpeed; 
-        playerCamera.fieldOfView = 80;
+        audioPlayer.PlayDashWooshClip();
+        //playerCamera.fieldOfView = 80;
         dashCollider.enabled = true;
-        yield return new WaitForSeconds(dashCooldown);
+        yield return new WaitForSeconds(dashDuration);
         
-        moveSpeed = walkSpeed;
-        playerCamera.fieldOfView = 90;
+        //playerCamera.fieldOfView = 90;
         dashCollider.enabled = false;
-        Debug.Log("dash end");
     }
 
     // If the player collides with an enemy while dashing, bounce them forward and slightly upward
     void OnTriggerEnter(Collider other){
         if(dashCollider.enabled && other.CompareTag("Enemy")){
-
-            Vector3 awayFromPlayer = other.transform.position - transform.position;
-
+            Vector3 awayFromPlayer = (other.transform.position - transform.position)*2;
             other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
-            Debug.Log("bounce");
+            PlayHitEffect(other.transform.position);
+            audioPlayer.PlayDashHitClip();
         }
     }
 
@@ -157,8 +161,11 @@ public class PlayerControl : MonoBehaviour
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
     }
 
+    public float getDashCooldown(){
+        return dashCooldown;
+    }
 
-
-
-
+    public float getDashDelay(){
+        return dashDelay;
+    }
 }
