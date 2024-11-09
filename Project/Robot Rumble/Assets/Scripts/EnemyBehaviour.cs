@@ -19,6 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     float shotCooldown;
     Rigidbody rb;
+    bool isActive = true;
 
     void Awake(){
         shotCooldown = shotDelay;
@@ -28,7 +29,9 @@ public class EnemyBehaviour : MonoBehaviour
     }
     
     void Update(){
-        Aiming();    
+        if(isActive){
+            Aiming();
+        }
         rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
     }
 
@@ -48,6 +51,10 @@ public class EnemyBehaviour : MonoBehaviour
     void Shoot(){
         // Create instance of projectile, which will fly in the direction the enemy was facing
         Instantiate(projectile, firePosition.position, transform.rotation);
+    }
+
+    public void SetIsActive(bool isActive){
+        this.isActive = isActive;
     }
 
     public int GetRank(){

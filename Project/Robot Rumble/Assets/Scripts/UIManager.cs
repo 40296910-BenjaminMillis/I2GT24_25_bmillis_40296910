@@ -95,7 +95,6 @@ public class UIManager : MonoBehaviour
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
     }
 
-
     public void LoadMainMenu(){
         gameOverUI.enabled = false;
         gameUI.enabled = false;

@@ -63,7 +63,6 @@ public class PlayerControl : MonoBehaviour
     void Move(){
         // Running
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * walkSpeed, 0f, Input.GetAxis("Vertical") * walkSpeed);
-        Debug.Log("");
         // If trying to dash, move forward
         if(dashCollider.enabled){
             if(playerCamera.fieldOfView > 80)
