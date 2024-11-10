@@ -8,7 +8,7 @@ public class PlayerGrabAndThrow : MonoBehaviour
     [Header("Crosshair Images")]
     [SerializeField] RawImage crosshairDefault;
     [SerializeField] RawImage crosshairGrab;
-    //[SerializeField] RawImage crosshairThrow;
+    [SerializeField] RawImage crosshairThrow;
 
     [Header("Grab Settings")]
     [SerializeField] GameObject grabIndicator;
@@ -19,21 +19,31 @@ public class PlayerGrabAndThrow : MonoBehaviour
     [SerializeField] float throwBaseSpeed = 20f;
     [SerializeField] float throwChargeSpeed = 4f;
     [SerializeField] float throwChargeBonusMax = 20f;
+    [SerializeField] GameObject throwChargeSlider;
     float throwChargeBonus = 0f;
 
     GameObject heldObject = null;
     UIManager uiManager;
 
+    private void Start() {
+        throwChargeSlider.GetComponent<Slider>().maxValue = throwChargeBonusMax;
+    }
+
     void Update(){
-        Grab();
-        if(heldObject != null){
+        
+        if(heldObject == null){
+            crosshairThrow.enabled = false;
+            throwChargeSlider.SetActive(false);
+            Grab();
+        }
+        else{
             Throw();
         }
     }
 
     void Grab(){
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, grabPickupDistance) && heldObject == null){
+        if(Physics.Raycast(transform.position, transform.forward, out hit, grabPickupDistance)){
             if (hit.transform.CompareTag("Enemy")) {
                 //update cursor to indacte we can pick up the enemy
                 crosshairGrab.enabled = true;
@@ -44,6 +54,9 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
                     //disable all enemy update behaviour
                     heldObject.GetComponent<EnemyBehaviour>().SetIsActive(false);
+                    crosshairGrab.enabled = false;
+                    crosshairThrow.enabled = true;
+                    throwChargeSlider.SetActive(true);
                 }        
             }
         }
@@ -67,6 +80,7 @@ public class PlayerGrabAndThrow : MonoBehaviour
             if(throwChargeBonus < throwChargeBonusMax)
                 throwChargeBonus += throwChargeSpeed * Time.deltaTime;
             Debug.Log("charging throw: " + throwChargeBonus);
+            throwChargeSlider.GetComponent<Slider>().value = throwChargeBonus;
         }
 
         //release, throw the object based on power multiplier
@@ -79,6 +93,9 @@ public class PlayerGrabAndThrow : MonoBehaviour
             throwChargeBonus = 0;
             //in enemybehaviour, turn off behaviour if in the air?
             //set the throw properties in (a "ThrowBehaviour" script?)
+            crosshairThrow.enabled = false;
+            throwChargeSlider.GetComponent<Slider>().value = 0;
+            throwChargeSlider.SetActive(false);
         }
 
         else{
