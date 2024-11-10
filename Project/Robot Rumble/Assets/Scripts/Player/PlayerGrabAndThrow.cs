@@ -11,7 +11,6 @@ public class PlayerGrabAndThrow : MonoBehaviour
     [SerializeField] RawImage crosshairThrow;
 
     [Header("Grab Settings")]
-    [SerializeField] GameObject grabIndicator;
     [SerializeField] float grabPickupDistance = 5f;
     [SerializeField] Transform holdPosition;
 

@@ -31,6 +31,12 @@ public class EnemyBehaviour : MonoBehaviour
     void Update(){
         if(isActive){
             Aiming();
+            //[serialized] enemyAttackType.attack
+            //[serialized] enemyMovementType.move
+            //these would act like interface classes
+            //enemies can mix and mash attack types and movement types
+
+
         }
         rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
     }
