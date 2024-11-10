@@ -53,6 +53,14 @@ public class EnemyBehaviour : MonoBehaviour
         Instantiate(projectile, firePosition.position, transform.rotation);
     }
 
+    void OnTriggerEnter(Collider collider) {
+        if(collider.CompareTag("Enemy")){
+            var hitReciver = collider.gameObject.GetComponent<Health>();
+            hitReciver.UpdateHealth(-1);
+        }
+    }
+
+
     public void SetIsActive(bool isActive){
         this.isActive = isActive;
     }

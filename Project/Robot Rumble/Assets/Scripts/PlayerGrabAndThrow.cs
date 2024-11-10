@@ -16,7 +16,10 @@ public class PlayerGrabAndThrow : MonoBehaviour
     [SerializeField] Transform holdPosition;
 
     [Header("Throw Settings")]
-    [SerializeField] float throwSpeed = 20f;
+    [SerializeField] float throwBaseSpeed = 20f;
+    [SerializeField] float throwChargeSpeed = 4f;
+    [SerializeField] float throwChargeBonusMax = 20f;
+    float throwChargeBonus = 0f;
 
     GameObject heldObject = null;
     UIManager uiManager;
@@ -24,7 +27,6 @@ public class PlayerGrabAndThrow : MonoBehaviour
     void Update(){
         Grab();
         if(heldObject != null){
-            MoveHeldEnemy();
             Throw();
         }
     }
@@ -38,7 +40,6 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
                 if(Input.GetMouseButton(1)){
                     heldObject = hit.transform.gameObject;
-                    heldObject.GetComponent<Rigidbody>().isKinematic = true;
                     heldObject.GetComponent<Collider>().enabled = false;
 
                     //disable all enemy update behaviour
@@ -53,20 +54,36 @@ public class PlayerGrabAndThrow : MonoBehaviour
         }
     }
 
-    
-    void MoveHeldEnemy(){
-        //follow the hold
-        heldObject.transform.position = holdPosition.position;
-        heldObject.transform.rotation = holdPosition.rotation;
+    void MoveHeldObject(Transform position){
+        //follow the hold position
+        heldObject.transform.position = position.position;
+        heldObject.transform.rotation = position.rotation;
     }
 
-
     void Throw(){
-        //charge shot?
-        //detach the enemy from player
-        //re-enable rigidbody and collision
-        //move the enemy away from the player
-        //set moving enemy to hurt other enemies (isTrigger?)
+        //charge the throw, up to a maxiumum
+        if(Input.GetMouseButton(1)){
+            //reel the grabbed object backward and increase a power each update
+            if(throwChargeBonus < throwChargeBonusMax)
+                throwChargeBonus += throwChargeSpeed * Time.deltaTime;
+            Debug.Log("charging throw: " + throwChargeBonus);
+        }
+
+        //release, throw the object based on power multiplier
+        if(Input.GetMouseButtonUp(1)){
+            heldObject.GetComponent<Rigidbody>().AddForce(((holdPosition.forward*2) + (holdPosition.up)) * (throwBaseSpeed + throwChargeBonus), ForceMode.Impulse);
+
+            heldObject.GetComponent<Collider>().enabled = true;
+            heldObject.GetComponent<Collider>().isTrigger = true;
+            heldObject = null;
+            throwChargeBonus = 0;
+            //in enemybehaviour, turn off behaviour if in the air?
             //set the throw properties in (a "ThrowBehaviour" script?)
+        }
+
+        else{
+            MoveHeldObject(holdPosition);
+        }
+            
     }
 }
