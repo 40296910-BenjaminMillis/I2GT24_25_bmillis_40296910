@@ -369,7 +369,6 @@ MonoBehaviour:
   crosshairDefault: {fileID: 6508752552795197543}
   crosshairGrab: {fileID: 8476844618585071336}
   crosshairThrow: {fileID: 4062195014756871579}
-  grabIndicator: {fileID: 0}
   grabPickupDistance: 5
   holdPosition: {fileID: 7861669205579334622}
   throwBaseSpeed: 20

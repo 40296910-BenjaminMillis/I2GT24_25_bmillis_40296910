@@ -41,8 +41,6 @@ public class EnemyBehaviour : MonoBehaviour
             //[serialized] enemyMovementType.move
             //these would act like interface classes
             //enemies can mix and mash attack types and movement types
-
-
         }
         //rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
     }
@@ -90,9 +88,11 @@ public class EnemyBehaviour : MonoBehaviour
             // -where do i want to define this?
 
         yield return new WaitForSeconds(2);
-        isActive = true;
-        proneTriggerCollider.enabled = false;
-        trailRenderer.enabled = false;
+        if(proneTriggerCollider){ // Make sure that the enemy still exists when re-enabling
+            isActive = true;
+            proneTriggerCollider.enabled = false;
+            trailRenderer.enabled = false;
+        }
     }
 
 }

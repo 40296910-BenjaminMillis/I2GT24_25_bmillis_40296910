@@ -55,7 +55,7 @@ public class PlayerControl : MonoBehaviour
         Shoot();
         if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled && dashCooldown <= 0){
             dashCooldown = dashDelay;
-            StartCoroutine(Dash());
+            //StartCoroutine(Dash());
         }
         dashCooldown -= Time.deltaTime;
     }
@@ -114,6 +114,7 @@ public class PlayerControl : MonoBehaviour
         if(dashCollider.enabled && other.CompareTag("Enemy")){
             Vector3 awayFromPlayer = (other.transform.position - transform.position)*2;
             other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
+            StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
             PlayHitEffect(other.transform.position);
             audioPlayer.PlayDashHitClip();
         }
