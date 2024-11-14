@@ -26,7 +26,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform firePosition;
     [SerializeField] ParticleSystem hitSpark;
 
-
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
     [SerializeField] float dashForce = 5f; // How far enemies will be launched by a dash collision
@@ -55,7 +54,7 @@ public class PlayerControl : MonoBehaviour
         Shoot();
         if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled && dashCooldown <= 0){
             dashCooldown = dashDelay;
-            //StartCoroutine(Dash());
+            StartCoroutine(Dash());
         }
         dashCooldown -= Time.deltaTime;
     }
@@ -101,11 +100,8 @@ public class PlayerControl : MonoBehaviour
     // Move the player forward temporarily at a faster speed
     IEnumerator Dash(){
         audioPlayer.PlayDashWooshClip();
-        //playerCamera.fieldOfView = 80;
         dashCollider.enabled = true;
         yield return new WaitForSeconds(dashDuration);
-        
-        //playerCamera.fieldOfView = 90;
         dashCollider.enabled = false;
     }
 

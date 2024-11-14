@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] int rank = 1; //Determines the scoring of the enemy, from actual score to how they are weighted in spawning
     [SerializeField] float gravity = 10f;
 
+    //will add this to attack type
     [Header("Projectile Stats")]
     [SerializeField] GameObject projectile;
     [SerializeField] float shotDelay = 5;
@@ -16,6 +17,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Positions")]
     [SerializeField] Transform firePosition;
     [SerializeField] Collider proneTriggerCollider;
+
+    MoveType moveType;
+    AttackType attackType;
 
     Transform playerTransform;
     float shotCooldown;
@@ -26,23 +30,25 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Awake(){
         shotCooldown = shotDelay;
-        PlayerControl player = FindObjectOfType<PlayerControl>();
-        playerTransform = player.transform;
+        playerTransform = FindObjectOfType<PlayerControl>().transform;
         rb = GetComponent<Rigidbody>();
         enemyCollider = GetComponent<Collider>();
         trailRenderer = GetComponent<TrailRenderer>();
-        
+        moveType = GetComponent<MoveType>();
+        //attackType = GetComponent<AttackType>();
     }
     
     void Update(){
         if(isActive){
-            Aiming();
-            //[serialized] enemyAttackType.attack
-            //[serialized] enemyMovementType.move
-            //these would act like interface classes
-            //enemies can mix and mash attack types and movement types
+            //Aiming();
+            if(moveType)
+                moveType.Move();
+
+            // enemyAttackType.attack
+
+            rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
         }
-        //rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
+        
     }
 
     void Aiming(){
@@ -88,7 +94,7 @@ public class EnemyBehaviour : MonoBehaviour
             // -where do i want to define this?
 
         yield return new WaitForSeconds(2);
-        if(proneTriggerCollider){ // Make sure that the enemy still exists when re-enabling
+        if(proneTriggerCollider != null){ // Make sure that the enemy still exists when re-enabling
             isActive = true;
             proneTriggerCollider.enabled = false;
             trailRenderer.enabled = false;

@@ -42,12 +42,14 @@ GameObject:
   - component: {fileID: 4457398272841508619}
   - component: {fileID: 1122223867434519422}
   - component: {fileID: 1775320934111323785}
+  - component: {fileID: -7577130575044358127}
+  - component: {fileID: 398680843506063859}
   - component: {fileID: 9012478718237305783}
   - component: {fileID: 7154143831197801575}
-  - component: {fileID: 398680843506063859}
   - component: {fileID: 8791879590357300336}
+  - component: {fileID: 7434374228991496197}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: PursueEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,6 +108,48 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!135 &-7577130575044358127
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.3
+  m_Center: {x: 0, y: 0, z: 0.5}
+--- !u!65 &398680843506063859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 2.3, y: 2.8, z: 2.3378873}
+  m_Center: {x: 0, y: 0, z: 0.50616884}
 --- !u!114 &9012478718237305783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,32 +178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rank: 1
-  gravity: 10
+  gravity: 1
   projectile: {fileID: 4507166726983873659, guid: 91875a1a7b5ddb74aa7fb298c6c0017a, type: 3}
   shotDelay: 2
   firePosition: {fileID: 1176253794713104238}
   proneTriggerCollider: {fileID: 852269373168069223}
---- !u!65 &398680843506063859
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.3, y: 2.8, z: 2.3378873}
-  m_Center: {x: 0, y: 0, z: 0.50616884}
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3
@@ -273,6 +296,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7434374228991496197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1000
+  turnSpeed: 0.5
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0
