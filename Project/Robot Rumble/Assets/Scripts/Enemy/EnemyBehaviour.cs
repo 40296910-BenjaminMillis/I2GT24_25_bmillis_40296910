@@ -13,12 +13,15 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float shotDelay = 5;
 
-    [Header("Locations")]
-    Transform playerTransform;
+    [Header("Positions")]
     [SerializeField] Transform firePosition;
+    [SerializeField] Collider proneTriggerCollider;
 
+    Transform playerTransform;
     float shotCooldown;
     Rigidbody rb;
+    Collider enemyCollider;
+    TrailRenderer trailRenderer;
     bool isActive = true;
 
     void Awake(){
@@ -26,6 +29,9 @@ public class EnemyBehaviour : MonoBehaviour
         PlayerControl player = FindObjectOfType<PlayerControl>();
         playerTransform = player.transform;
         rb = GetComponent<Rigidbody>();
+        enemyCollider = GetComponent<Collider>();
+        trailRenderer = GetComponent<TrailRenderer>();
+        
     }
     
     void Update(){
@@ -38,7 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
         }
-        rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
+        //rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
     }
 
     void Aiming(){
@@ -61,11 +67,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy")){
-            var hitReciver = collider.gameObject.GetComponent<Health>();
-            hitReciver.UpdateHealth(-1);
+            collider.gameObject.GetComponent<Health>().UpdateHealth(-1);
+            GetComponent<Health>().UpdateHealth(-1);
         }
     }
-
 
     public void SetIsActive(bool isActive){
         this.isActive = isActive;
@@ -74,4 +79,20 @@ public class EnemyBehaviour : MonoBehaviour
     public int GetRank(){
         return rank;
     }
+
+    // Activated when the enemy is sent flying by a dash or throw
+    public IEnumerator MakeProne(){
+        isActive = false;
+        proneTriggerCollider.enabled = true;
+        trailRenderer.enabled = true;
+
+        // -different enemy types do different effects while prone (explode? piercing? bouncy?)
+            // -where do i want to define this?
+
+        yield return new WaitForSeconds(2);
+        isActive = true;
+        proneTriggerCollider.enabled = false;
+        trailRenderer.enabled = false;
+    }
+
 }

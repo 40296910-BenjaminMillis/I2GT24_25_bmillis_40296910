@@ -84,15 +84,18 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
         //release, throw the object based on power multiplier
         if(Input.GetMouseButtonUp(1)){
-            heldObject.GetComponent<Rigidbody>().AddForce(((holdPosition.forward*2) + (holdPosition.up)) * (throwBaseSpeed + throwChargeBonus), ForceMode.Impulse);
-
             heldObject.GetComponent<Collider>().enabled = true;
-            heldObject.GetComponent<Collider>().isTrigger = true;
+            heldObject.GetComponent<Rigidbody>().AddForce(((holdPosition.forward*2) + (holdPosition.up)) * (throwBaseSpeed + throwChargeBonus), ForceMode.Impulse);
+            //heldObject.GetComponent<Rigidbody>().AddTorque(throwChargeBonus, 0, throwChargeBonus, ForceMode.Impulse); 
+            //torque effects the angle it is thrown at
+            //probably want to only apply torque to the enemy model? maybe in .MakeProne?
+
+            StartCoroutine(heldObject.GetComponent<EnemyBehaviour>().MakeProne());
+
             heldObject = null;
             throwChargeBonus = 0;
-            //in enemybehaviour, turn off behaviour if in the air?
-            //set the throw properties in (a "ThrowBehaviour" script?)
             crosshairThrow.enabled = false;
+
             throwChargeSlider.GetComponent<Slider>().value = 0;
             throwChargeSlider.SetActive(false);
         }
