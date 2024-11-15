@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class MoveRanged : MoveType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Ranged, to run away from the player if they get too close
 }

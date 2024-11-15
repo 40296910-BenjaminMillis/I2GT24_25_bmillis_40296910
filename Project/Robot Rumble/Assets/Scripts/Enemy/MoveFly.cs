@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class MoveFly : MoveType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Flight, hover at a set height above the ground
 }

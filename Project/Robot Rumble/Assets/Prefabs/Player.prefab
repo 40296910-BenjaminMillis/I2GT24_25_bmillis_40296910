@@ -371,9 +371,9 @@ MonoBehaviour:
   crosshairThrow: {fileID: 4062195014756871579}
   grabPickupDistance: 5
   holdPosition: {fileID: 7861669205579334622}
-  throwBaseSpeed: 20
-  throwChargeSpeed: 15
-  throwChargeBonusMax: 20
+  throwBaseSpeed: 10
+  throwChargeSpeed: 25
+  throwChargeBonusMax: 50
   throwChargeSlider: {fileID: 6406110658517657720}
 --- !u!1 &4994328267155383259
 GameObject:

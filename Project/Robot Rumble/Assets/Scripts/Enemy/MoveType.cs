@@ -14,10 +14,18 @@ public abstract class MoveType : MonoBehaviour
     }
 
     public virtual void Move(){
-        // Need to check player position
-        // Going to have 3 of these:
-            // Persuit, to follow the player
-            // Ranged, to run away from the player if they get too close
-            // Flight, hover at a set height above the ground
+
+    }
+
+    protected IEnumerator RotateTowardsPlayer()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
+        float rotationTime = 0f;
+        while (rotationTime < turnSpeed)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnSpeed);
+            yield return null;
+            rotationTime += Time.deltaTime;
+        }
     }
 }
