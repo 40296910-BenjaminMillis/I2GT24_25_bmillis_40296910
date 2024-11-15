@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class MoveType : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed = 1000f;
-    [SerializeField] protected float turnSpeed = 100f;
+    [SerializeField] protected float turnSpeed = 0.5f;
 
     protected Transform playerTransform;
 
