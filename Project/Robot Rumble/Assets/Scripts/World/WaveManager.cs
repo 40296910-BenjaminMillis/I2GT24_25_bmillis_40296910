@@ -37,7 +37,7 @@ public class WaveManager : MonoBehaviour
                 int rankCount = 0; // An enemys rank determines its worth during the wave
                 RaycastHit spawnLocation;
                 while(rankCount < enemyCount){
-                    int randomEnemy = Random.Range(0, enemySelection.Count-1); //Select a random enemy type to spawn
+                    int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn
 
                     //Move the spawner to a random location and cast a ray to spawn the enemy
                     Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);

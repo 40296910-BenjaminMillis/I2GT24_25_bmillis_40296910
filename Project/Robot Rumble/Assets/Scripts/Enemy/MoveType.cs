@@ -6,15 +6,18 @@ public abstract class MoveType : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed = 1000f;
     [SerializeField] protected float turnSpeed = 0.5f;
-
+    protected Rigidbody enemyRb;
     protected Transform playerTransform;
 
     void Start(){
+        enemyRb = gameObject.GetComponent<Rigidbody>();
         playerTransform = FindObjectOfType<PlayerControl>().transform;
     }
 
     public virtual void Move(){
-
+        if(playerTransform == null){
+            return;
+        }
     }
 
     protected IEnumerator RotateTowardsPlayer()

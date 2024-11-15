@@ -4,25 +4,19 @@ using UnityEngine;
 
 public abstract class AttackType : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] protected float attackDelay;
+
+    protected float attackCooldown;
+    protected Transform playerTransform;
+
+    void Start(){
+        attackCooldown = Random.Range(attackDelay, attackDelay*2f); // Randomise the cooldown on start to make enemies not attack at the same time
+        playerTransform = FindObjectOfType<PlayerControl>().transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public void Attack(){
-        // Going to make a good number of these
-            // Projectile, exactly like what I've go in EnemyBehaviour
-                // Can probably be used for multiple kinds of Projectile, based on speed etc
-            // Bounce, to launch the target away
-            // Particle? I plan to do a flamethrower type attack, but I need to check how this would actually work
-                //I think you can check for particle collisions
+    public virtual void Attack(){
+        if(playerTransform == null){
+            return;
+        }
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MoveRanged : MoveType
 {
+    [Header("Ranged Settings")]
     [SerializeField] float runAwayDistance = 15f; // How close the player can get before the enemy starts running away
     [SerializeField] float followDistance = 30f; // How far they player is when they enemy starts following
 
     public override void Move(){
+        base.Move();
         StartCoroutine(RotateTowardsPlayer());
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);
@@ -15,17 +17,17 @@ public class MoveRanged : MoveType
 
         // Run away from player if they get too close
         if(distance <= runAwayDistance){
-            gameObject.GetComponent<Rigidbody>().AddForce(lookDirection * -moveSpeed * Time.deltaTime);
+            enemyRb.AddForce(lookDirection * -moveSpeed * Time.deltaTime);
         }
 
         // Run towards from player if they get too far
         else if(distance > followDistance){
-            gameObject.GetComponent<Rigidbody>().AddForce(lookDirection * moveSpeed * Time.deltaTime);
+            enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
         }
 
         // Stop moving
         else{
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+            enemyRb.velocity = new Vector3(0, enemyRb.velocity.y, 0);
         }
     }
 }

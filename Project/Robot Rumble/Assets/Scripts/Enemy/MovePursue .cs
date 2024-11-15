@@ -7,8 +7,9 @@ public class MovePursue  : MoveType
     // Move towards the player based on moveSpeed
     // Turn to face the player based on turnSpeed
     public override void Move(){
+        base.Move();
         Vector3 lookDirection = (playerTransform.position - transform.position).normalized;
         StartCoroutine(RotateTowardsPlayer());
-        gameObject.GetComponent<Rigidbody>().AddForce(lookDirection * moveSpeed * Time.deltaTime);
+        enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
     }
 }

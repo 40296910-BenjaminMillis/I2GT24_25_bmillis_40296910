@@ -5,17 +5,8 @@ using UnityEngine.UIElements;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [Header("Enemy Stats")]
     [SerializeField] int rank = 1; //Determines the scoring of the enemy, from actual score to how they are weighted in spawning
     [SerializeField] float gravity = 10f;
-
-    //will add this to attack type
-    [Header("Projectile Stats")]
-    [SerializeField] GameObject projectile;
-    [SerializeField] float shotDelay = 5;
-
-    [Header("Positions")]
-    [SerializeField] Transform firePosition;
     [SerializeField] Collider proneTriggerCollider;
 
     MoveType moveType;
@@ -29,45 +20,25 @@ public class EnemyBehaviour : MonoBehaviour
     bool isActive = true;
 
     void Awake(){
-        shotCooldown = shotDelay;
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         rb = GetComponent<Rigidbody>();
         enemyCollider = GetComponent<Collider>();
         trailRenderer = GetComponent<TrailRenderer>();
         moveType = GetComponent<MoveType>();
-        //attackType = GetComponent<AttackType>();
+        attackType = GetComponent<AttackType>();
     }
     
     void Update(){
         if(isActive){
-            //Aiming();
             if(moveType)
                 moveType.Move();
-
-            // enemyAttackType.attack
+            if(attackType)
+                attackType.Attack();
 
             rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
         }
-        
     }
 
-    void Aiming(){
-        if(playerTransform != null){
-            transform.LookAt(playerTransform.position + Vector3.up);
-            if(shotCooldown <= 0){
-                Shoot();
-                shotCooldown = shotDelay;
-            }
-            else{
-                shotCooldown -= Time.deltaTime;
-            }
-        }
-    }
-
-    void Shoot(){
-        // Create instance of projectile, which will fly in the direction the enemy was facing
-        Instantiate(projectile, firePosition.position, transform.rotation);
-    }
 
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy")){

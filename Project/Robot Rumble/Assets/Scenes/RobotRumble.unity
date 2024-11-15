@@ -681,6 +681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySelection:
+  - {fileID: 7154143831197801575, guid: 7db67a62525918f44a197936975d3842, type: 3}
+  - {fileID: 7154143831197801575, guid: 76315c1197450e24c810b02bef4eb273, type: 3}
   - {fileID: 7154143831197801575, guid: 0e4bebdc9b35fde4c84a17b83e0dd152, type: 3}
   xSpread: 0
   zSpread: 0
@@ -3577,7 +3579,7 @@ Transform:
   m_GameObject: {fileID: 788284037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 250, y: 1, z: 250}
   m_ConstrainProportionsScale: 0
   m_Children: []
