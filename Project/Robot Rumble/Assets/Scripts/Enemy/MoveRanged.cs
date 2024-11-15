@@ -7,8 +7,6 @@ public class MoveRanged : MoveType
     [SerializeField] float runAwayDistance = 15f; // How close the player can get before the enemy starts running away
     [SerializeField] float followDistance = 30f; // How far they player is when they enemy starts following
 
-    //bool isRunningAway;
-
     public override void Move(){
         StartCoroutine(RotateTowardsPlayer());
 
@@ -17,7 +15,6 @@ public class MoveRanged : MoveType
 
         // Run away from player if they get too close
         if(distance <= runAwayDistance){
-            //isRunningAway = true;
             gameObject.GetComponent<Rigidbody>().AddForce(lookDirection * -moveSpeed * Time.deltaTime);
         }
 

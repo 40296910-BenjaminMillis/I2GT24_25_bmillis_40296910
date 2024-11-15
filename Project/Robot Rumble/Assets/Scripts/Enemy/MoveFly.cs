@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveFly : MoveType
-{
-    // Flight, hover at a set height above the ground
+public class MoveFly : MoveRanged
+{    
+    [SerializeField] float hoverHeight = 10f; // The height the enemy tries to stay above the ground
+    [SerializeField] float hoverStrength = 10f; // How much the enemy bounces back after getting below the hover height
 
-    // Same as ranged? keep distance?
-        // keep a specific distance from the ground
-        // keep a set distance from the player, but get closer (so they dont go too far to the glass)
+    public override void Move(){
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, new Vector3(0, -1, 0), out hit, hoverHeight)){ 
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, hoverStrength, 0);
+        }
+
+       base.Move();
+    }
 }
