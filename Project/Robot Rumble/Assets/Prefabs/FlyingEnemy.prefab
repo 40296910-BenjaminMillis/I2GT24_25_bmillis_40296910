@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rank: 1
+  rank: 2
   gravity: 1
   proneTriggerCollider: {fileID: 852269373168069223}
 --- !u!96 &8791879590357300336
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e49dabc16d319e4fbb97c0a23173c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 1
+  attackDelay: 3.5
   projectile: {fileID: 4507166726983873659, guid: 91875a1a7b5ddb74aa7fb298c6c0017a, type: 3}
   firePosition: {fileID: 247311239970431324}
 --- !u!1 &4609599072426316513

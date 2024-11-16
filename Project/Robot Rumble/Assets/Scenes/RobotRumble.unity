@@ -683,7 +683,7 @@ MonoBehaviour:
   enemySelection:
   - {fileID: 7154143831197801575, guid: 7db67a62525918f44a197936975d3842, type: 3}
   - {fileID: 7154143831197801575, guid: 76315c1197450e24c810b02bef4eb273, type: 3}
-  - {fileID: 7154143831197801575, guid: 0e4bebdc9b35fde4c84a17b83e0dd152, type: 3}
+  - {fileID: 7154143831197801575, guid: 408fc36100ac2d444a9dd8fad258564e, type: 3}
   xSpread: 0
   zSpread: 0
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}

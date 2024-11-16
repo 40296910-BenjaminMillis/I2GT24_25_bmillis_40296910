@@ -9,7 +9,9 @@ public class MoveRanged : MoveType
     [SerializeField] float followDistance = 30f; // How far they player is when they enemy starts following
 
     public override void Move(){
-        base.Move();
+        if(playerTransform == null){
+            return;
+        }
         StartCoroutine(RotateTowardsPlayer());
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);

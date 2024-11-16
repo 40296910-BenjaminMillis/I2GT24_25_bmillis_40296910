@@ -15,12 +15,10 @@ public abstract class MoveType : MonoBehaviour
     }
 
     public virtual void Move(){
-        if(playerTransform == null){
-            return;
-        }
+        
     }
 
-    protected IEnumerator RotateTowardsPlayer()
+    virtual protected IEnumerator RotateTowardsPlayer()
     {
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         float rotationTime = 0f;

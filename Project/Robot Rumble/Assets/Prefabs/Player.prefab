@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 4594625225544556213}
   - component: {fileID: 5130203361460814013}
   - component: {fileID: 4597571863917748368}
+  - component: {fileID: 8893569771036795028}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -375,6 +376,18 @@ MonoBehaviour:
   throwChargeSpeed: 25
   throwChargeBonusMax: 50
   throwChargeSlider: {fileID: 6406110658517657720}
+--- !u!114 &8893569771036795028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444423873280068899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e287a20d032ef4ca0f655f8bfffa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4994328267155383259
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,12 @@ public class PlayerControl : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
+    // Prevent movement and fling the player in a specified direction
+    public void Launch(Vector3 direction){
+        controller.Move(direction * Time.deltaTime);
+    }
+
+
     void RotateCamera(){
         xRotation += -Input.GetAxis("Mouse Y") * lookSpeed;
         xRotation = Mathf.Clamp(xRotation, -lookXLimit, lookXLimit);

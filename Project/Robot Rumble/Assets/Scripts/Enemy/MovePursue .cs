@@ -7,9 +7,26 @@ public class MovePursue  : MoveType
     // Move towards the player based on moveSpeed
     // Turn to face the player based on turnSpeed
     public override void Move(){
-        base.Move();
-        Vector3 lookDirection = (playerTransform.position - transform.position).normalized;
+        if(playerTransform == null){
+            return;
+        }
         StartCoroutine(RotateTowardsPlayer());
+        Vector3 lookDirection = (
+            new Vector3(playerTransform.position.x, 0, playerTransform.position.z) 
+            - new Vector3(transform.position.x, 0, transform.position.z)).normalized;
         enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
+    }
+
+    protected override IEnumerator RotateTowardsPlayer(){
+        Quaternion targetRotation = Quaternion.LookRotation(
+            new Vector3(playerTransform.position.x, 0, playerTransform.position.z) 
+            - new Vector3(transform.position.x, 0, transform.position.z));
+        float rotationTime = 0f;
+        while (rotationTime < turnSpeed)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnSpeed);
+            yield return null;
+            rotationTime += Time.deltaTime;
+        }
     }
 }

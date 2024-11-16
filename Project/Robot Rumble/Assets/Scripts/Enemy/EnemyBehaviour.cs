@@ -39,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-
+    //this could be specified by enemytype, same with the prone script?
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy")){
             collider.gameObject.GetComponent<Health>().UpdateHealth(-1);
