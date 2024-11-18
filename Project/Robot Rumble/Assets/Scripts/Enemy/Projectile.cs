@@ -16,10 +16,11 @@ public class Projectile : MonoBehaviour
     }
     
     void Update(){
+        Debug.Log("using base projectile script");
         // Remove the projectile if it has existed as long as the set lifetime
         projectileLifetime -= Time.deltaTime;
         if(projectileLifetime <= 0){
-            Destroy(gameObject);
+            RemoveProjectile();
         }
         rb.velocity = transform.forward * projectileSpeed;
     }
@@ -29,12 +30,17 @@ public class Projectile : MonoBehaviour
         if(other.CompareTag("Player")){ 
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-projectileDamage);
+            RemoveProjectile();
         }
         else if(other.CompareTag("Enemy")){
             // Ignore the enemy and pass through them
         }
         else{
-            Destroy(gameObject);
+            RemoveProjectile();
         }
+    }
+
+    virtual protected void RemoveProjectile(){
+        Destroy(gameObject);
     }
 }

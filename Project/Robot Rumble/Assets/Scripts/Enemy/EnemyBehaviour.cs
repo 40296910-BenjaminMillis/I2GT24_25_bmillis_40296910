@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] int rank = 1; //Determines the scoring of the enemy, from actual score to how they are weighted in spawning
     [SerializeField] float gravity = 10f;
     [SerializeField] Collider proneTriggerCollider;
+    [SerializeField] bool immovable;
 
     MoveType moveType;
     AttackType attackType;
@@ -18,6 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
     Collider enemyCollider;
     TrailRenderer trailRenderer;
     bool isActive = true;
+
 
     void Awake(){
         playerTransform = FindObjectOfType<PlayerControl>().transform;
@@ -53,6 +55,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int GetRank(){
         return rank;
+    }
+
+    public bool GetImmovable(){
+        return immovable;
     }
 
     // Activated when the enemy is sent flying by a dash or throw

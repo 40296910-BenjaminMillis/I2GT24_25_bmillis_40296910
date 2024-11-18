@@ -128,6 +128,7 @@ MonoBehaviour:
   rank: 3
   gravity: 10
   proneTriggerCollider: {fileID: 852269373168069223}
+  canBeMoved: 0
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3

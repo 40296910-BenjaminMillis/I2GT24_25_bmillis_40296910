@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  pointsOnKill: 100
   deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
 --- !u!114 &7154143831197801575
 MonoBehaviour:
@@ -159,6 +158,7 @@ MonoBehaviour:
   rank: 1
   gravity: 1
   proneTriggerCollider: {fileID: 852269373168069223}
+  canBeMoved: 0
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3

@@ -115,11 +115,13 @@ public class PlayerControl : MonoBehaviour
     // If the player collides with an enemy while dashing, bounce them forward and slightly upward
     void OnTriggerEnter(Collider other){
         if(dashCollider.enabled && other.CompareTag("Enemy")){
-            Vector3 awayFromPlayer = (other.transform.position - transform.position)*2;
-            other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
-            StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
-            PlayHitEffect(other.transform.position);
-            audioPlayer.PlayDashHitClip();
+            if(!other.GetComponent<EnemyBehaviour>().GetImmovable()){
+                Vector3 awayFromPlayer = (other.transform.position - transform.position)*2;
+                other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
+                StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
+                PlayHitEffect(other.transform.position);
+                audioPlayer.PlayDashHitClip();
+            }
         }
     }
 
