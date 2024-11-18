@@ -26,10 +26,15 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         // Checking for both players and enemies to allow for friendly fire
-        if(other.CompareTag("Player") || other.CompareTag("Enemy")){ 
+        if(other.CompareTag("Player")){ 
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-projectileDamage);
         }
-        Destroy(gameObject);
+        else if(other.CompareTag("Enemy")){
+            // Ignore the enemy and pass through them
+        }
+        else{
+            Destroy(gameObject);
+        }
     }
 }

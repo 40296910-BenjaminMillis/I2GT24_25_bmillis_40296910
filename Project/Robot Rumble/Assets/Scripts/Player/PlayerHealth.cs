@@ -8,6 +8,7 @@ public class PlayerHealth : Health
     [SerializeField] float invincibilityFrameLength = 0.5f;
     AudioPlayer audioPlayer;
     float invincibilityFrameTime = 0;
+    bool tempoaryInvincibility;
 
     void Awake(){
         audioPlayer = FindObjectOfType<AudioPlayer>();  
@@ -19,7 +20,7 @@ public class PlayerHealth : Health
     }
 
     public override void UpdateHealth(int value){
-        if(invincibilityFrameTime <= 0){
+        if(invincibilityFrameTime <= 0 && !tempoaryInvincibility){
             invincibilityFrameTime = invincibilityFrameLength;
             base.UpdateHealth(value);
             audioPlayer.PlayPlayerDamageClip();
@@ -36,5 +37,11 @@ public class PlayerHealth : Health
 
     void OnParticleCollision(){
         UpdateHealth(-1);
+    }
+
+    public IEnumerator SetTempoaryInvincibility(float duration){
+        tempoaryInvincibility = true;
+        yield return new WaitForSeconds(duration);
+        tempoaryInvincibility = false;
     }
 }

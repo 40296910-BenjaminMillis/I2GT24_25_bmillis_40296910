@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  invincibilityFrameLength: 0.75
 --- !u!143 &4594625225544556213
 CharacterController:
   m_ObjectHideFlags: 0

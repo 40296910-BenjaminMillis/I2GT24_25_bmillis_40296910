@@ -37,18 +37,19 @@ public class WaveManager : MonoBehaviour
                 int rankCount = 0; // An enemys rank determines its worth during the wave
                 RaycastHit spawnLocation;
                 while(rankCount < enemyCount){
-                    int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn
+                    int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
+                    if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyCount){
+                        //Move the spawner to a random location and cast a ray to spawn the enemy
+                        Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
-                    //Move the spawner to a random location and cast a ray to spawn the enemy
-                    Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
+                        rankCount += enemySelection[randomEnemy].GetRank();
 
-                    rankCount += enemySelection[randomEnemy].GetRank();
+                        ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
+                        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
-                    ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
-                    Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
-
-                    Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
-                    Debug.Log(spawnLocation.point);
+                        Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
+                        Debug.Log(spawnLocation.point);
+                    }
                 }
             }
         }
