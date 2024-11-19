@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas menuUI;
     [SerializeField] Canvas gameUI;
     [SerializeField] Canvas gameOverUI;
+    [SerializeField] Canvas pauseUI;
 
     [Header("State Manager")]
     [SerializeField] GameStateManager gameStateManager;
@@ -30,10 +31,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI finalScoreText;
     ScoreManager scoreManager;
 
+    float pauseCooldown = 0;
+
     void Start() {
         menuUI.enabled = true;
         gameUI.enabled = false;
         gameOverUI.enabled = false;
+        pauseUI.enabled = false;
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
@@ -44,6 +48,12 @@ public class UIManager : MonoBehaviour
             menuCamera.transform.Translate(menuCameraPanSpeed);
         }
         else if(gameUI.enabled){
+            if(Input.GetKey(KeyCode.Tab) && pauseCooldown <=0){
+                TogglePauseMenu();
+                pauseCooldown = 0.3f;
+            }
+            pauseCooldown -= Time.unscaledDeltaTime;
+
             healthBar.value = playerHealth.GetHealth();
             scoreText.text = scoreManager.GetScore().ToString();
             dashCooldownBar.GetComponent<Slider>().value = player.getDashCooldown();
@@ -74,8 +84,7 @@ public class UIManager : MonoBehaviour
         healthBar.maxValue = playerHealth.GetHealth();
         healthBar.value = playerHealth.GetHealth();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        ToggleCursorOff();
         gameUI.enabled = true;
     }
 
@@ -86,8 +95,7 @@ public class UIManager : MonoBehaviour
     public void LoadGameOver(){
         //disable the game UI, enable game over UI
         gameUI.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        ToggleCursorOn();
         gameOverUI.enabled = true;
         menuCamera.enabled = true;
         
@@ -96,9 +104,39 @@ public class UIManager : MonoBehaviour
     }
 
     public void LoadMainMenu(){
+        if(FindObjectOfType<PlayerControl>())
+            Destroy(FindObjectOfType<PlayerControl>().gameObject);
+
+        menuCamera.enabled = true;
+        ToggleCursorOn();
+        Time.timeScale = 1f;
         gameOverUI.enabled = false;
         gameUI.enabled = false;
+        pauseUI.enabled = false;
         menuUI.enabled = true;
         gameStateManager.GetComponent<WaveManager>().ClearEnemies();
+    }
+
+    public void TogglePauseMenu(){
+        if(!pauseUI.enabled){
+            ToggleCursorOn();
+            Time.timeScale = 0f;
+            pauseUI.enabled = true;
+        }
+        else{
+            ToggleCursorOff();
+            Time.timeScale = 1f;
+            pauseUI.enabled = false;
+        }
+    }
+
+    void ToggleCursorOn(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    void ToggleCursorOff(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

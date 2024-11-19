@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     }
     
     void Update(){
-        Debug.Log("using base projectile script");
         // Remove the projectile if it has existed as long as the set lifetime
         projectileLifetime -= Time.deltaTime;
         if(projectileLifetime <= 0){
