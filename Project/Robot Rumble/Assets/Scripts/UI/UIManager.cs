@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     void Update(){
         // While the menu is up, pan the menu camera around the arena
-        if(menuUI.enabled || gameOverUI.enabled){
+        if(menuCamera.enabled){
             menuCamera.transform.LookAt(Vector3.zero);
             menuCamera.transform.Translate(menuCameraPanSpeed * Time.deltaTime);
         }
@@ -76,6 +76,7 @@ public class UIManager : MonoBehaviour
         menuUI.enabled = false;
         gameOverUI.enabled = false;
         menuCamera.enabled = false;
+        menuCamera.GetComponent<AudioListener>().enabled = false;
 
         // GameManager Setup
         gameStateManager.StartGame();
@@ -91,6 +92,7 @@ public class UIManager : MonoBehaviour
         gameUI.enabled = true;
     }
 
+    // Currently unused, as the game is run on Unity Play and does not need one
     public void QuitGame(){
         Application.Quit();
     }
@@ -101,6 +103,7 @@ public class UIManager : MonoBehaviour
         ToggleCursorOn();
         gameOverUI.enabled = true;
         menuCamera.enabled = true;
+        menuCamera.GetComponent<AudioListener>().enabled = true;
         
         // Score text
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
@@ -117,6 +120,7 @@ public class UIManager : MonoBehaviour
         gameUI.enabled = false;
         pauseUI.enabled = false;
         menuUI.enabled = true;
+        menuCamera.GetComponent<AudioListener>().enabled = true;
         gameStateManager.GetComponent<WaveManager>().ClearEnemies();
     }
 

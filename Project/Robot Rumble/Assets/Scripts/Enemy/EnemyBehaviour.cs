@@ -20,7 +20,6 @@ public class EnemyBehaviour : MonoBehaviour
     TrailRenderer trailRenderer;
     bool isActive = true;
 
-
     void Awake(){
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         rb = GetComponent<Rigidbody>();

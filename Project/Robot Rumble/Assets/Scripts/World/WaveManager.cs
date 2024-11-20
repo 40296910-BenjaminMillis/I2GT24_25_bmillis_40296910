@@ -78,7 +78,6 @@ public class WaveManager : MonoBehaviour
     	}
     }
 
-
     public int GetWaveNumber(){
         return waveNumber;
     }
