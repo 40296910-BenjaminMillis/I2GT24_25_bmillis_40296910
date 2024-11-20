@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rank: 1
+  rank: 4
   gravity: 10
   proneTriggerCollider: {fileID: 0}
   immovable: 0

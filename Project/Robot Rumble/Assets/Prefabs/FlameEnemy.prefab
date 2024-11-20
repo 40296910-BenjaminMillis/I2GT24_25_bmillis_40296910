@@ -128,7 +128,7 @@ MonoBehaviour:
   rank: 3
   gravity: 10
   proneTriggerCollider: {fileID: 852269373168069223}
-  canBeMoved: 0
+  immovable: 0
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1000
-  turnSpeed: 0.5
+  turnSpeed: 0.65
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0

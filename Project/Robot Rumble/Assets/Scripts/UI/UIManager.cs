@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas gameUI;
     [SerializeField] Canvas gameOverUI;
     [SerializeField] Canvas pauseUI;
+    [SerializeField] Canvas settingsUI;
 
     [Header("State Manager")]
     [SerializeField] GameStateManager gameStateManager;
@@ -32,12 +33,14 @@ public class UIManager : MonoBehaviour
     ScoreManager scoreManager;
 
     float pauseCooldown = 0;
+    Canvas lastCanvas;
 
     void Start() {
         menuUI.enabled = true;
         gameUI.enabled = false;
         gameOverUI.enabled = false;
         pauseUI.enabled = false;
+        settingsUI.enabled = false;
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
@@ -45,10 +48,10 @@ public class UIManager : MonoBehaviour
         //while the menu is up, pan the menu camera around the arena
         if(menuUI.enabled || gameOverUI.enabled){
             menuCamera.transform.LookAt(Vector3.zero);
-            menuCamera.transform.Translate(menuCameraPanSpeed);
+            menuCamera.transform.Translate(menuCameraPanSpeed * Time.deltaTime);
         }
         else if(gameUI.enabled){
-            if(Input.GetKey(KeyCode.Tab) && pauseCooldown <=0){
+            if(Input.GetKey(KeyCode.Tab) && pauseCooldown <=0 && !settingsUI.enabled){
                 TogglePauseMenu();
                 pauseCooldown = 0.3f;
             }
@@ -128,6 +131,27 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1f;
             pauseUI.enabled = false;
         }
+    }
+
+    public void ToggleSettingsMenu(){
+        if(!settingsUI.enabled){
+            if(pauseUI.enabled){
+                pauseUI.enabled = false;
+                lastCanvas = pauseUI;
+            }
+            else if(menuUI.enabled){
+                menuUI.enabled = false;
+                lastCanvas = menuUI;
+            }
+            settingsUI.enabled = true;
+        }
+        else{
+            settingsUI.enabled = false;
+        }
+    }
+
+    public void Return(){
+        lastCanvas.enabled = true;
     }
 
     void ToggleCursorOn(){

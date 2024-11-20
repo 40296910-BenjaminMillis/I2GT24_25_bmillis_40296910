@@ -23,10 +23,16 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip playerDamageClip;
     [SerializeField] [Range(0f, 1f)] float playerDamageVolume = 1f;
 
+    float volumeLevel = 1;
+
     static AudioPlayer instance;
 
     private void Awake() {
         instance = this;
+    }
+
+    public void SetVolumeLevel(float volumeLevel){
+        this.volumeLevel = volumeLevel;
     }
 
     public void PlayShootingClip(){
@@ -44,7 +50,7 @@ public class AudioPlayer : MonoBehaviour
     void PlayClip(AudioClip clip, float volume){
         if(clip != null){
             Vector3 cameraPos = Camera.main.transform.position;
-            AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
+            AudioSource.PlayClipAtPoint(clip, cameraPos, volume * volumeLevel);
         }
     }
 
