@@ -31,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     
     void Update(){
-        if(isActive){
+        if(isActive && playerTransform){
             if(moveType)
                 moveType.Move();
             if(attackType)

@@ -15,7 +15,7 @@ public class GameStateManager : MonoBehaviour
 
 
     public void StartGame(){
-        // Spawn the player (could do with this being its own script?)
+        // Spawn the player
         RaycastHit spawnLocation;
         Physics.Raycast(new Vector3(0, 40, -40), Vector3.down, out spawnLocation, Mathf.Infinity);
         currentPlayer = Instantiate(player, spawnLocation.point + Vector3.up, transform.rotation);
@@ -30,8 +30,9 @@ public class GameStateManager : MonoBehaviour
 
     // Called when player is no longer in existence
     public void EndGame(){
-        // Disable enemy waves
+        // Disable enemy waves, keep enemies but remove projectiles
         waveManager.EndWaves();
+        waveManager.ClearProjectiles();
 
         // Go to game over UI
         UIManager uiManager = FindObjectOfType<UIManager>();

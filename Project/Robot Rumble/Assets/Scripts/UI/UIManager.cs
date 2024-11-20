@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     }
 
     void Update(){
-        //while the menu is up, pan the menu camera around the arena
+        // While the menu is up, pan the menu camera around the arena
         if(menuUI.enabled || gameOverUI.enabled){
             menuCamera.transform.LookAt(Vector3.zero);
             menuCamera.transform.Translate(menuCameraPanSpeed * Time.deltaTime);
@@ -72,15 +72,15 @@ public class UIManager : MonoBehaviour
     }
 
     public void StartGame(){
-        //disable menu and game over ui
+        // Disable menu and game over ui
         menuUI.enabled = false;
         gameOverUI.enabled = false;
         menuCamera.enabled = false;
 
-        //gameManager Setup
+        // GameManager Setup
         gameStateManager.StartGame();
 
-        //set up game UI
+        // Set up game UI
         player = FindObjectOfType<PlayerControl>();
         dashCooldownBar.GetComponent<Slider>().maxValue = player.getDashDelay();
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -96,13 +96,13 @@ public class UIManager : MonoBehaviour
     }
 
     public void LoadGameOver(){
-        //disable the game UI, enable game over UI
+        // Disable the game UI, enable game over UI
         gameUI.enabled = false;
         ToggleCursorOn();
         gameOverUI.enabled = true;
         menuCamera.enabled = true;
         
-        //score text
+        // Score text
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
     }
 

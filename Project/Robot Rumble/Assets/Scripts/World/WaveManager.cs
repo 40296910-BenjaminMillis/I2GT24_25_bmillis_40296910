@@ -56,7 +56,6 @@ public class WaveManager : MonoBehaviour
     }
 
     //remove from enemy count when enemy is destroyed
-    //(in the future, enemies could be worth more than 1 point, so keeping this open for now)
     public void UpdateEnemyCount(int value){
         enemyCount += value;
         Debug.Log("enemy count: " + enemyCount);
@@ -68,6 +67,14 @@ public class WaveManager : MonoBehaviour
         Debug.Log(allEnemies.Length);
     	foreach(EnemyBehaviour enemy in allEnemies) {
         	Destroy(enemy.gameObject);
+    	}
+    }
+
+    public void ClearProjectiles(){
+        Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
+        Debug.Log(allProjectiles.Length);
+    	foreach(Projectile projectile in allProjectiles) {
+        	Destroy(projectile.gameObject);
     	}
     }
 
