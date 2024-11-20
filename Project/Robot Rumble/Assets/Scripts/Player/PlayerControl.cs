@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float gravity = 10f;
 
     [Header("Camera")]
-    [SerializeField] float lookSpeed = 5f; //5f for a desktop build, 1.5f for webgl build
+    [SerializeField] float lookSensitivity = 5f; //5f for a desktop build, 1.5f for webgl build
     [SerializeField] float lookXLimit = 90f; //restrict the angle you can move the camera up and down
 
     [Header("Shooting")]
@@ -46,6 +46,8 @@ public class PlayerControl : MonoBehaviour
         fireLine = GameObject.Find("FireLine").GetComponent<LineRenderer>();
         fireLine.enabled = false;
         dashCollider = GetComponent<BoxCollider>();
+
+        SetLookSensitivity();
     }
 
     void FixedUpdate(){
@@ -97,10 +99,10 @@ public class PlayerControl : MonoBehaviour
 
 
     void RotateCamera(){
-        xRotation += -Input.GetAxis("Mouse Y") * lookSpeed;
+        xRotation += -Input.GetAxis("Mouse Y") * lookSensitivity;
         xRotation = Mathf.Clamp(xRotation, -lookXLimit, lookXLimit);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSensitivity, 0);
     }
 
     // Move the player forward temporarily at a faster speed
@@ -172,5 +174,9 @@ public class PlayerControl : MonoBehaviour
 
     public float getDashDelay(){
         return dashDelay;
+    }
+
+    public void SetLookSensitivity(){
+        lookSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
 }

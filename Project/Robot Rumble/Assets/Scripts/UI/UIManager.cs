@@ -143,6 +143,7 @@ public class UIManager : MonoBehaviour
                 menuUI.enabled = false;
                 lastCanvas = menuUI;
             }
+            settingsUI.GetComponent<SettingsManager>().LoadSettingsValues();
             settingsUI.enabled = true;
         }
         else{
