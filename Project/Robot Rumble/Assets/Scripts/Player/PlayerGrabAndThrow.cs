@@ -12,6 +12,7 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
     [Header("Grab Settings")]
     [SerializeField] float grabPickupDistance = 5f;
+    [SerializeField] Transform grabPosition;
     [SerializeField] Transform holdPosition;
 
     [Header("Throw Settings")]
@@ -42,8 +43,12 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
     void Grab(){
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, grabPickupDistance)){
+        
+        if(Physics.Raycast(grabPosition.position, grabPosition.forward, out hit, grabPickupDistance)){
+            
+            Debug.Log(hit.transform.gameObject.tag);
             if (hit.transform.CompareTag("Enemy") && !hit.transform.gameObject.GetComponent<EnemyBehaviour>().GetImmovable()) {
+                Debug.DrawRay(grabPosition.position, grabPosition.forward * hit.distance, Color.yellow);
                 //update cursor to indacte we can pick up the enemy
                 crosshairGrab.enabled = true;
 

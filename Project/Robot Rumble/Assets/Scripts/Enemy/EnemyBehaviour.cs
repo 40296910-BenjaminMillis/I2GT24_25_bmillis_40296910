@@ -30,10 +30,10 @@ public class EnemyBehaviour : MonoBehaviour
     }
     
     void Update(){
-        if(isActive && playerTransform){
+        if(isActive){
             if(moveType)
                 moveType.Move();
-            if(attackType)
+            if(attackType && playerTransform)
                 attackType.Attack();
 
             rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity

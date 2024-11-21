@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8140983680522848400}
   - component: {fileID: 6324192040239314013}
   - component: {fileID: 8476844618585071336}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CrosshairGrab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4786598138434924998}
   - component: {fileID: 8671656481220113177}
   - component: {fileID: 4062195014756871579}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CrosshairThrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 416809334036995865}
   - component: {fileID: 7522692728405227311}
   - component: {fileID: 3775577704304244009}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 5130203361460814013}
   - component: {fileID: 4597571863917748368}
   - component: {fileID: 8893569771036795028}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   walkSpeed: 20
   jumpHeight: 15
   gravity: 20
-  lookSpeed: 5
+  lookSensitivity: 5
   lookXLimit: 90
   layersToHit:
     serializedVersion: 2
@@ -372,6 +372,7 @@ MonoBehaviour:
   crosshairGrab: {fileID: 8476844618585071336}
   crosshairThrow: {fileID: 4062195014756871579}
   grabPickupDistance: 5
+  grabPosition: {fileID: 4425439704896336371}
   holdPosition: {fileID: 7861669205579334622}
   throwBaseSpeed: 10
   throwChargeSpeed: 25
@@ -400,7 +401,7 @@ GameObject:
   - component: {fileID: 8835411230157673588}
   - component: {fileID: 1486809719344967483}
   - component: {fileID: 7300448226657629713}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3024599101689686512}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8832087319269950182}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +543,7 @@ GameObject:
   - component: {fileID: 4425439704896336371}
   - component: {fileID: 3686616722230876275}
   - component: {fileID: 4079160197110048415}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -636,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7862318244428158093}
   - component: {fileID: 1597770112312134630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ThrowChargeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7861669205579334622}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GrabHoldPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +758,7 @@ GameObject:
   - component: {fileID: 5310628439737342147}
   - component: {fileID: 6653659324420920388}
   - component: {fileID: 8670499621302969662}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +862,7 @@ GameObject:
   - component: {fileID: 4969182848426860452}
   - component: {fileID: 5793974016955526813}
   - component: {fileID: 6508752552795197543}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CrosshairDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -997,6 +998,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c9f8390a069fc6e4ea6668ea2293dc4a, type: 3}
       propertyPath: m_Name
       value: blasterH
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9f8390a069fc6e4ea6668ea2293dc4a, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
