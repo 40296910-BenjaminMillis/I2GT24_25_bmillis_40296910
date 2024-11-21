@@ -45,8 +45,6 @@ public class PlayerGrabAndThrow : MonoBehaviour
         RaycastHit hit;
         
         if(Physics.Raycast(grabPosition.position, grabPosition.forward, out hit, grabPickupDistance)){
-            
-            Debug.Log(hit.transform.gameObject.tag);
             if (hit.transform.CompareTag("Enemy") && !hit.transform.gameObject.GetComponent<EnemyBehaviour>().GetImmovable()) {
                 Debug.DrawRay(grabPosition.position, grabPosition.forward * hit.distance, Color.yellow);
                 //update cursor to indacte we can pick up the enemy

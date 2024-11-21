@@ -9,22 +9,21 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] float gravity = 10f;
     [SerializeField] Collider proneTriggerCollider;
     [SerializeField] bool immovable;
+    [SerializeField] TrailRenderer trailRenderer;
 
     MoveType moveType;
     AttackType attackType;
-
     Transform playerTransform;
     float shotCooldown;
     Rigidbody rb;
     Collider enemyCollider;
-    TrailRenderer trailRenderer;
+
     bool isActive = true;
 
     void Awake(){
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         rb = GetComponent<Rigidbody>();
         enemyCollider = GetComponent<Collider>();
-        trailRenderer = GetComponent<TrailRenderer>();
         moveType = GetComponent<MoveType>();
         attackType = GetComponent<AttackType>();
     }

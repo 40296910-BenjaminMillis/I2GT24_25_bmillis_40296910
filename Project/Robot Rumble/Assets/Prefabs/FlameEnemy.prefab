@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6148440959179475016}
   - component: {fileID: 9012478718237305783}
   - component: {fileID: 7154143831197801575}
-  - component: {fileID: 8791879590357300336}
   - component: {fileID: 7434374228991496197}
   m_Layer: 6
   m_Name: FlameEnemy
@@ -39,6 +38,7 @@ Transform:
   - {fileID: 4461796988427765689}
   - {fileID: 6886055630587385865}
   - {fileID: 811451068384997836}
+  - {fileID: 3088514435308561243}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1122223867434519422
@@ -129,14 +129,61 @@ MonoBehaviour:
   gravity: 10
   proneTriggerCollider: {fileID: 852269373168069223}
   immovable: 0
---- !u!96 &8791879590357300336
+  trailRenderer: {fileID: 5196418024976331191}
+--- !u!114 &7434374228991496197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1000
+  turnSpeed: 0.65
+--- !u!1 &4148697819103290055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3088514435308561243}
+  - component: {fileID: 5196418024976331191}
+  m_Layer: 6
+  m_Name: ProneTrail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3088514435308561243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148697819103290055}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4457398272841508619}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &5196418024976331191
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
+  m_GameObject: {fileID: 4148697819103290055}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -242,20 +289,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &7434374228991496197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1000
-  turnSpeed: 0.65
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0
