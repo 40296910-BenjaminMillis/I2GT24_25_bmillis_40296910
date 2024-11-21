@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5122210178885995316}
   - component: {fileID: 1341701339458352773}
   - component: {fileID: 3621884216058019875}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
-  m_Direction: 1
+  m_Direction: 2
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &5122210178885995316
 Rigidbody:
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2048781185744933058}
   - component: {fileID: 8408582646406898934}
   - component: {fileID: 3369506214170473366}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5738415027922207504}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 6431286992165692938}
   - component: {fileID: 7405324851221152142}
   - component: {fileID: 5647150677896792680}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 730990959170301185}
   - component: {fileID: 580244476161243430}
   - component: {fileID: 9150537045292949517}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RocketSmokeTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

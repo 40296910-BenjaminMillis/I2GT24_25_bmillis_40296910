@@ -148,7 +148,7 @@ MonoBehaviour:
   rank: 3
   gravity: 10
   proneTriggerCollider: {fileID: 852269373168069223}
-  canBeMoved: 0
+  immovable: 0
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3
@@ -300,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4461796988427765689}
   - component: {fileID: 852269373168069223}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

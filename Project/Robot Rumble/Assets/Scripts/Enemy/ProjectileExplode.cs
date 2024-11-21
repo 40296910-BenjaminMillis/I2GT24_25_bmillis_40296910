@@ -25,7 +25,7 @@ public class ProjectileExplode : Projectile
 
     void Explode(){
         ParticleSystem instance = Instantiate(explosion, transform.position, Quaternion.identity);
-
+        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach(Collider hit in colliders){
