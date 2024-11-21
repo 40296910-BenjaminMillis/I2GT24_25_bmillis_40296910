@@ -14,7 +14,16 @@ public class MovePursue  : MoveType
         Vector3 lookDirection = (
             new Vector3(playerTransform.position.x, 0, playerTransform.position.z) 
             - new Vector3(transform.position.x, 0, transform.position.z)).normalized;
-        enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+
+        // Run towards the player
+        if(distance > 5){
+            enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
+        }
+        //Stop before getting too close (to be not on top of the player)
+        else{
+            enemyRb.velocity = new Vector3(0, enemyRb.velocity.y, 0);
+        }
     }
 
     protected override IEnumerator RotateTowardsPlayer(){

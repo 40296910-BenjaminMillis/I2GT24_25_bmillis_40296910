@@ -8,10 +8,12 @@ public abstract class AttackType : MonoBehaviour
 
     protected float attackCooldown;
     protected Transform playerTransform;
+    protected AudioPlayer audioPlayer;
 
     void Start(){
-        attackCooldown = Random.Range(attackDelay, attackDelay*2f); // Randomise the cooldown on start to make enemies not attack at the same time
+        attackCooldown = Random.Range(attackDelay, attackDelay*1.5f); // Randomise the cooldown on start to make enemies not attack at the same time
         playerTransform = FindObjectOfType<PlayerControl>().transform;
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     public virtual void Attack(){

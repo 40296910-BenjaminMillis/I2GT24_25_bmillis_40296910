@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9012478718237305783}
   - component: {fileID: 7154143831197801575}
   - component: {fileID: 7434374228991496197}
+  - component: {fileID: 6347980873609660764}
   m_Layer: 6
   m_Name: FlameEnemy
   m_TagString: Enemy
@@ -144,6 +145,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1000
   turnSpeed: 0.65
+--- !u!114 &6347980873609660764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118cb745a3231c2408d0fc49ef0f1505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4148697819103290055
 GameObject:
   m_ObjectHideFlags: 0

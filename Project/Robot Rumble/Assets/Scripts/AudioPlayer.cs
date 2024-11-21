@@ -23,8 +23,15 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip playerDamageClip;
     [SerializeField] [Range(0f, 1f)] float playerDamageVolume = 1f;
 
-    float volumeLevel = 1;
+    [Header("Enemy Projectile")]
+    [SerializeField] AudioClip enemyProjectileClip;
+    [SerializeField] [Range(0f, 1f)] float enemyProjectileVolume = 1f;
 
+    [Header("Flames")]
+    [SerializeField] AudioClip flamesClip;
+    [SerializeField] [Range(0f, 1f)] float flamesVolume = 1f;
+
+    float volumeLevel = 1;
     static AudioPlayer instance;
 
     private void Awake() {
@@ -33,6 +40,13 @@ public class AudioPlayer : MonoBehaviour
 
     public void SetVolumeLevel(float volumeLevel){
         this.volumeLevel = volumeLevel;
+    }
+
+    void PlayClip(AudioClip clip, float volume){
+        if(clip != null){
+            Vector3 cameraPos = Camera.main.transform.position;
+            AudioSource.PlayClipAtPoint(clip, cameraPos, volume * volumeLevel);
+        }
     }
 
     public void PlayShootingClip(){
@@ -47,18 +61,19 @@ public class AudioPlayer : MonoBehaviour
         PlayClip(playerDamageClip, playerDamageVolume);
     }
 
-    void PlayClip(AudioClip clip, float volume){
-        if(clip != null){
-            Vector3 cameraPos = Camera.main.transform.position;
-            AudioSource.PlayClipAtPoint(clip, cameraPos, volume * volumeLevel);
-        }
-    }
-
     public void PlayDashWooshClip(){
         PlayClip(dashWooshClip, dashWooshVolume);
     }
 
     public void PlayDashHitClip(){
         PlayClip(dashHitClip, dashHitVolume);
+    }
+
+    public void PlayEnemyProjectileClip(){
+        PlayClip(enemyProjectileClip, enemyProjectileVolume);
+    }
+
+    public void PlayFlamesClip(){
+        PlayClip(flamesClip, flamesVolume);
     }
 }

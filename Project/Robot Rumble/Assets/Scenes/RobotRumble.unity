@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 100
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
+  m_AmbientSkyColor: {r: 0.3056603, g: 0.3056603, b: 0.3056603, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -6732,6 +6732,10 @@ MonoBehaviour:
   explosionVolume: 1
   playerDamageClip: {fileID: 8300000, guid: a0980f2089e7b8748b0e342d3839e0b7, type: 3}
   playerDamageVolume: 1
+  enemyProjectileClip: {fileID: 8300000, guid: 9552d22c2c6b6e64fa03a469cefbafc5, type: 3}
+  enemyProjectileVolume: 1
+  flamesClip: {fileID: 8300000, guid: 089dc24d192aac042985c725c4ccf461, type: 3}
+  flamesVolume: 1
 --- !u!82 &1380092917
 AudioSource:
   m_ObjectHideFlags: 0
