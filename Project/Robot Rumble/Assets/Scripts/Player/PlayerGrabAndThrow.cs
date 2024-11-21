@@ -78,12 +78,12 @@ public class PlayerGrabAndThrow : MonoBehaviour
             //reel the grabbed object backward and increase a power each update
             if(throwChargeBonus < throwChargeBonusMax)
                 throwChargeBonus += throwChargeSpeed * Time.deltaTime;
-            Debug.Log("charging throw: " + throwChargeBonus);
             throwChargeSlider.GetComponent<Slider>().value = throwChargeBonus;
         }
 
         //release, throw the object based on power multiplier
         if(Input.GetMouseButtonUp(1)){
+            Debug.Log("Throw charge: " + throwChargeBonus);
             heldObject.GetComponent<Collider>().enabled = true;
             heldObject.GetComponent<Rigidbody>().AddForce(((holdPosition.forward*2) + (holdPosition.up)) * (throwBaseSpeed + throwChargeBonus), ForceMode.Impulse);
             //heldObject.GetComponent<Rigidbody>().AddTorque(throwChargeBonus, 0, throwChargeBonus, ForceMode.Impulse); 
