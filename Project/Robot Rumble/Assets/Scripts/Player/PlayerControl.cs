@@ -84,19 +84,17 @@ public class PlayerControl : MonoBehaviour
         else{
             moveDirection.y = movementDirectionY;
         }
-        if (!controller.isGrounded){
+        if (controller.isGrounded){
+            moveDirection.y = 0;
+        }
+        else{
             moveDirection.y -= gravity * Time.deltaTime;
         }
+        Debug.Log(moveDirection.y);
 
         // Add all movement
         controller.Move(moveDirection * Time.deltaTime);
     }
-
-    // Prevent movement and fling the player in a specified direction
-    public void Launch(Vector3 direction){
-        controller.Move(direction * Time.deltaTime);
-    }
-
 
     void RotateCamera(){
         xRotation += -Input.GetAxis("Mouse Y") * lookSensitivity;

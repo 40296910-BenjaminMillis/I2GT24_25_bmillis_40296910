@@ -15,21 +15,22 @@ public class AttackFlip : AttackType
 
 
     void OnTriggerStay(Collider other){
-        //flip the sucker
-        //do we need to check the type? YES, because player does not use rigidbody
+        // Flip the sucker!
+        
+        // I will need to change this, as this conflicts with the ontrigger of enemybehaviour
+        // I will probably make new scripts for that for each enemy type
 
         if(attackCooldown <= 0){
-            //Vector3 awayFromAttacker = other.transform.position - transform.position;
             if(other.tag == "Player"){
                 // The player needs their own script to handle the force applied to them
-                other.GetComponent<ImpactReceiver>().AddImpact(transform.forward + (Vector3.up*2), launchForce);
+                other.GetComponent<ImpactReceiver>().AddImpact(transform.forward + Vector3.up, launchForce);
             }
             
-
-            if(other.tag == "Enemy"){
-                other.GetComponent<Rigidbody>().AddForce((transform.forward + (Vector3.up*2)) * launchForce, ForceMode.Impulse);
-                StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
-            }
+            // Disabled for now, it sort of works but has weird interactions with prone enemies
+            // if(other.tag == "Enemy"){
+            //     other.GetComponent<Rigidbody>().AddForce((transform.forward + (Vector3.up*2)) * launchForce, ForceMode.Impulse);
+            //     StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
+            // }
             attackCooldown = attackDelay;
         }
     }
