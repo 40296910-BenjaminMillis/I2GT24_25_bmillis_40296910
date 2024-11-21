@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     [SerializeField] float invincibilityFrameLength = 0.5f;
+    [SerializeField] PlayerCamera playerCamera;
     AudioPlayer audioPlayer;
     float invincibilityFrameTime = 0;
     bool tempoaryInvincibility;
@@ -24,6 +25,7 @@ public class PlayerHealth : Health
             invincibilityFrameTime = invincibilityFrameLength;
             base.UpdateHealth(value);
             audioPlayer.PlayPlayerDamageClip();
+            StartCoroutine(playerCamera.ScreenShake());
         }
     }
 
