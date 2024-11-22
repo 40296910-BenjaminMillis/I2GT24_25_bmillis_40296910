@@ -90,9 +90,6 @@ public class PlayerControl : MonoBehaviour
         if (!controller.isGrounded){
             moveDirection.y -= gravity * Time.deltaTime;
         }
-
-        Debug.Log(moveDirection.y);
-
         // Add all movement
         controller.Move(moveDirection * Time.deltaTime);
     }
@@ -106,7 +103,7 @@ public class PlayerControl : MonoBehaviour
 
     // Move the player forward temporarily at a faster speed
     IEnumerator Dash(){
-        audioPlayer.PlayDashWooshClip();
+        audioPlayer.PlayDashWooshClip(this.transform.position);
         dashCollider.enabled = true;
         StartCoroutine(GetComponent<PlayerHealth>().SetTempoaryInvincibility(dashDuration));
         yield return new WaitForSeconds(dashDuration);
@@ -121,7 +118,7 @@ public class PlayerControl : MonoBehaviour
                 other.GetComponent<Rigidbody>().AddForce((awayFromPlayer + Vector3.up) * dashForce, ForceMode.Impulse);
                 StartCoroutine(other.GetComponent<EnemyBehaviour>().MakeProne());
                 PlayHitEffect(other.transform.position);
-                audioPlayer.PlayDashHitClip();
+                audioPlayer.PlayDashHitClip(this.transform.position);
             }
         }
     }
@@ -147,7 +144,7 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Did not Hit");
                 hitLocation = firePosition.TransformDirection(Vector3.forward) * 1000;
             }
-            audioPlayer.PlayShootingClip();
+            audioPlayer.PlayShootingClip(this.transform.position);
             StartCoroutine(PlayFireLineEffect(hitLocation));
         }
     }

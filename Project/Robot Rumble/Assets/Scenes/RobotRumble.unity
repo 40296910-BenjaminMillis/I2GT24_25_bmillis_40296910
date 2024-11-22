@@ -6723,7 +6723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingClip: {fileID: 8300000, guid: e980978ae23bc324ea83f75c5486cfe6, type: 3}
-  shootingVolume: 0.5
+  shootingVolume: 0.15
   dashWooshClip: {fileID: 8300000, guid: 659fe3a89d282a442b88f5376687df47, type: 3}
   dashWooshVolume: 1
   dashHitClip: {fileID: 8300000, guid: 8a3b0d0c8c697ae479a35194b88c9fcb, type: 3}
@@ -6733,7 +6733,7 @@ MonoBehaviour:
   playerDamageClip: {fileID: 8300000, guid: a0980f2089e7b8748b0e342d3839e0b7, type: 3}
   playerDamageVolume: 1
   enemyProjectileClip: {fileID: 8300000, guid: 9552d22c2c6b6e64fa03a469cefbafc5, type: 3}
-  enemyProjectileVolume: 1
+  enemyProjectileVolume: 0.9
   flamesClip: {fileID: 8300000, guid: 089dc24d192aac042985c725c4ccf461, type: 3}
   flamesVolume: 1
 --- !u!82 &1380092917

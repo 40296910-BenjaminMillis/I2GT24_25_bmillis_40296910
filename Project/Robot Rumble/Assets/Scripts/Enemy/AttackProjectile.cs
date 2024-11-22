@@ -26,6 +26,6 @@ public class AttackProjectile : AttackType
     void Shoot(){
         // Create instance of projectile, which will fly in the direction the enemy was facing
         Instantiate(projectile, firePosition.transform.position, transform.rotation);
-        audioPlayer.PlayEnemyProjectileClip();
+        audioPlayer.PlayEnemyProjectileClip(this.transform.position);
     }
 }

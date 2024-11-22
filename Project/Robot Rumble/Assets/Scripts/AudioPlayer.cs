@@ -42,38 +42,37 @@ public class AudioPlayer : MonoBehaviour
         this.volumeLevel = volumeLevel;
     }
 
-    void PlayClip(AudioClip clip, float volume){
+    void PlayClip(AudioClip clip, float volume, Vector3 position){
         if(clip != null){
-            Vector3 cameraPos = Camera.main.transform.position;
-            AudioSource.PlayClipAtPoint(clip, cameraPos, volume * volumeLevel);
+            AudioSource.PlayClipAtPoint(clip, position, volume * volumeLevel);
         }
     }
 
-    public void PlayShootingClip(){
-        PlayClip(shootingClip, shootingVolume);
+    public void PlayShootingClip(Vector3 position){
+        PlayClip(shootingClip, shootingVolume, position);
     }
 
-    public void PlayExplosionClip(){
-        PlayClip(explosionClip, explosionVolume);
+    public void PlayExplosionClip(Vector3 position){
+        PlayClip(explosionClip, explosionVolume, position);
     }
 
-    public void PlayPlayerDamageClip(){
-        PlayClip(playerDamageClip, playerDamageVolume);
+    public void PlayPlayerDamageClip(Vector3 position){
+        PlayClip(playerDamageClip, playerDamageVolume, position);
     }
 
-    public void PlayDashWooshClip(){
-        PlayClip(dashWooshClip, dashWooshVolume);
+    public void PlayDashWooshClip(Vector3 position){
+        PlayClip(dashWooshClip, dashWooshVolume, position);
     }
 
-    public void PlayDashHitClip(){
-        PlayClip(dashHitClip, dashHitVolume);
+    public void PlayDashHitClip(Vector3 position){
+        PlayClip(dashHitClip, dashHitVolume, position);
     }
 
-    public void PlayEnemyProjectileClip(){
-        PlayClip(enemyProjectileClip, enemyProjectileVolume);
+    public void PlayEnemyProjectileClip(Vector3 position){
+        PlayClip(enemyProjectileClip, enemyProjectileVolume, position);
     }
 
-    public void PlayFlamesClip(){
-        PlayClip(flamesClip, flamesVolume);
+    public void PlayFlamesClip(Vector3 position){
+        PlayClip(flamesClip, flamesVolume, position);
     }
 }

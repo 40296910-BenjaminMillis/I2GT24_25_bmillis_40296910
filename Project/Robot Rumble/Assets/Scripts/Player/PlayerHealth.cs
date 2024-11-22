@@ -24,7 +24,7 @@ public class PlayerHealth : Health
         if(invincibilityFrameTime <= 0 && !tempoaryInvincibility){
             invincibilityFrameTime = invincibilityFrameLength;
             base.UpdateHealth(value);
-            audioPlayer.PlayPlayerDamageClip();
+            audioPlayer.PlayPlayerDamageClip(this.transform.position);
             StartCoroutine(playerCamera.ScreenShake());
         }
     }
