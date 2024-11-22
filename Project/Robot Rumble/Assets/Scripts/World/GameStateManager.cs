@@ -8,9 +8,11 @@ public class GameStateManager : MonoBehaviour
     GameObject currentPlayer;
     ScoreManager scoreManager;
     WaveManager waveManager;
+    Leaderboard leaderboard;
     void Start() {
         scoreManager = GetComponent<ScoreManager>();
         waveManager = GetComponent<WaveManager>();
+        leaderboard = FindObjectOfType<Leaderboard>();
     }
 
 
@@ -37,6 +39,7 @@ public class GameStateManager : MonoBehaviour
         // Go to game over UI
         UIManager uiManager = FindObjectOfType<UIManager>();
         uiManager.LoadGameOver();
+        leaderboard.GetLeaderboard();
     }
 
 }
