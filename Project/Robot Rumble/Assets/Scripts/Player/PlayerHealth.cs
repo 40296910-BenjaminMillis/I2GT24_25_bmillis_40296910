@@ -42,8 +42,13 @@ public class PlayerHealth : Health
     }
 
     public IEnumerator SetTempoaryInvincibility(float duration){
+    //check if invincibility is already in place
+        Debug.Log("invincibility of " + duration);
         tempoaryInvincibility = true;
+        //set healthbar to blue? or do something at least tempoary to indicate invincibility
+        //could enable a ui element for "shield" bar over the healthbar, translucent
         yield return new WaitForSeconds(duration);
+        Debug.Log("invincibility of " + duration + " seconds is over");
         tempoaryInvincibility = false;
     }
 }

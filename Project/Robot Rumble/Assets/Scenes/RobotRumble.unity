@@ -1127,6 +1127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140381a8cf847a944bb13e89c7e8829e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupList:
+  - {fileID: 7694537541435361893, guid: b0c25b73f86ab2c44b1e572542d4ec86, type: 3}
+  powerupScoreReq: 1500
 --- !u!4 &201487568
 Transform:
   m_ObjectHideFlags: 0
@@ -12853,7 +12856,7 @@ Transform:
   m_GameObject: {fileID: 1780492365}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 135.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
