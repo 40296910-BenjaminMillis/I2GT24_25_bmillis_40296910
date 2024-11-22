@@ -81,15 +81,16 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButton("Jump") && controller.isGrounded){
             moveDirection.y = jumpHeight;
         }
-        else{
-            moveDirection.y = movementDirectionY;
-        }
-        if (controller.isGrounded){
+        else if(controller.isGrounded){
             moveDirection.y = 0;
         }
         else{
+            moveDirection.y = movementDirectionY;
+        }
+        if (!controller.isGrounded){
             moveDirection.y -= gravity * Time.deltaTime;
         }
+
         Debug.Log(moveDirection.y);
 
         // Add all movement
