@@ -19,7 +19,6 @@ public class Leaderboard : MonoBehaviour
     }
 
     public void GetLeaderboard(){
-        LeaderboardCreator.ResetPlayer();
         LeaderboardCreator.GetLeaderboard(publicKey, (msg => {
             int listLength;
             if(msg.Length < names.Count)

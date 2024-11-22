@@ -43,7 +43,7 @@ public class EnemyBehaviour : MonoBehaviour
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy")){
             collider.gameObject.GetComponent<Health>().UpdateHealth(-1);
-            GetComponent<Health>().UpdateHealth(-1);
+            GetComponent<Health>().UpdateHealth(-1, 2);
         }
     }
 

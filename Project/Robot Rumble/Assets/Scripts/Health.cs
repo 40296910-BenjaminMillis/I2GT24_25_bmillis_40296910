@@ -18,6 +18,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    public virtual void UpdateHealth(int value, int scoreMultiplier){
+    
+    }
+
     public virtual void Die(){
         isDead = true;
         Destroy(gameObject);
