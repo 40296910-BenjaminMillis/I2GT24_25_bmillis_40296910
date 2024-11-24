@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7154143831197801575}
   - component: {fileID: 7434374228991496197}
   - component: {fileID: 6347980873609660764}
+  - component: {fileID: 4306659709313646595}
   m_Layer: 6
   m_Name: FlameEnemy
   m_TagString: Enemy
@@ -157,6 +158,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118cb745a3231c2408d0fc49ef0f1505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDelay: 0
+  flames: {fileID: 0}
+--- !u!114 &4306659709313646595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1e537c209ff514fb0891fe1c716762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 50811731492825968, guid: bec2c2e63b4d9f543809a51863af352a, type: 3}
 --- !u!1 &4148697819103290055
 GameObject:
   m_ObjectHideFlags: 0

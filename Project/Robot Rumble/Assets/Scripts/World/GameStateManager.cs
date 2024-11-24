@@ -32,9 +32,10 @@ public class GameStateManager : MonoBehaviour
 
     // Called when player is no longer in existence
     public void EndGame(){
-        // Disable enemy waves, keep enemies but remove projectiles
+        // Disable enemy waves, keep enemies but remove projectiles and powerups
         waveManager.EndWaves();
         waveManager.ClearProjectiles();
+        waveManager.ClearPowerups();
 
         // Go to game over UI
         UIManager uiManager = FindObjectOfType<UIManager>();

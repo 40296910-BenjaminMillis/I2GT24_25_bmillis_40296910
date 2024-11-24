@@ -6,15 +6,20 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] List<Powerup> powerupList = new List<Powerup>();
     [SerializeField] int powerupScoreReq = 1500;
+    int powerupScore;
     int score;
+
+    void Start(){
+        powerupScore = powerupScoreReq;
+    }
 
 
     void FixedUpdate(){
-        if(score >= powerupScoreReq){
+        if(score >= powerupScore){
             SpawnPowerup();
             
             // Increase the threshold for the next spawn
-            powerupScoreReq *= 2;
+            powerupScore *= 2;
         }
     }
 
@@ -28,6 +33,7 @@ public class ScoreManager : MonoBehaviour
 
     public void ResetScore(){
         score = 0;
+        powerupScore = powerupScoreReq;
     }
 
 

@@ -14,18 +14,17 @@ public class EnemyBehaviour : MonoBehaviour
     MoveType moveType;
     AttackType attackType;
     Transform playerTransform;
-    float shotCooldown;
     Rigidbody rb;
-    Collider enemyCollider;
+    ProneType proneType;
 
     bool isActive = true;
 
     void Awake(){
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         rb = GetComponent<Rigidbody>();
-        enemyCollider = GetComponent<Collider>();
         moveType = GetComponent<MoveType>();
         attackType = GetComponent<AttackType>();
+        proneType = GetComponent<ProneType>();
     }
     
     void Update(){
@@ -36,14 +35,6 @@ public class EnemyBehaviour : MonoBehaviour
                 attackType.Attack();
 
             rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
-        }
-    }
-
-    //this could be specified by enemytype, same with the prone script?
-    void OnTriggerEnter(Collider collider) {
-        if(collider.CompareTag("Enemy")){
-            collider.gameObject.GetComponent<Health>().UpdateHealth(-1);
-            GetComponent<Health>().UpdateHealth(-1, 2);
         }
     }
 
@@ -64,6 +55,7 @@ public class EnemyBehaviour : MonoBehaviour
         isActive = false;
         proneTriggerCollider.enabled = true;
         trailRenderer.enabled = true;
+        proneType.SetIsProne(true);
 
         // -different enemy types do different effects while prone (explode? piercing? bouncy?)
             // -where do i want to define this?
@@ -73,7 +65,7 @@ public class EnemyBehaviour : MonoBehaviour
             isActive = true;
             proneTriggerCollider.enabled = false;
             trailRenderer.enabled = false;
+            proneType.SetIsProne(false);
         }
     }
-
 }

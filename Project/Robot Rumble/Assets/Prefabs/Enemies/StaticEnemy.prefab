@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rank: 4
-  gravity: 10
+  gravity: 40
   proneTriggerCollider: {fileID: 0}
   immovable: 1
+  trailRenderer: {fileID: 0}
 --- !u!65 &398680843506063859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -287,6 +288,7 @@ MonoBehaviour:
   gravity: 10
   proneTriggerCollider: {fileID: 0}
   immovable: 0
+  trailRenderer: {fileID: 0}
 --- !u!114 &2168362307454866904
 MonoBehaviour:
   m_ObjectHideFlags: 0

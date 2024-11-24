@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7154143831197801575}
   - component: {fileID: 7434374228991496197}
   - component: {fileID: 2324780164542006472}
+  - component: {fileID: -9120958893988195993}
   m_Layer: 6
   m_Name: FlipperEnemy
   m_TagString: Enemy
@@ -178,6 +179,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 1
   launchForce: 1000
+--- !u!114 &-9120958893988195993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2ca07238340984cbf475e996f880df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0

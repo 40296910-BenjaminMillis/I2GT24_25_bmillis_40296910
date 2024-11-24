@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int xSpread;
     [SerializeField] int zSpread;
     [SerializeField] ParticleSystem spawnEffect;
+    [SerializeField] int waveIntensity = 3; // Affects how many enemies can spawn each round. Multiplied after each round
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
@@ -32,7 +33,7 @@ public class WaveManager : MonoBehaviour
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
             if(enemyCount <= 0){
                 waveNumber++;
-                enemyCount = 3 * waveNumber;
+                enemyCount = waveIntensity * waveNumber;
 
                 int rankCount = 0; // An enemys rank determines its worth during the wave
                 RaycastHit spawnLocation;
@@ -64,7 +65,6 @@ public class WaveManager : MonoBehaviour
     // Remove all enemies currently in the game. Used after game over
     public void ClearEnemies(){
         EnemyBehaviour[] allEnemies = FindObjectsOfType<EnemyBehaviour>();
-        Debug.Log(allEnemies.Length);
     	foreach(EnemyBehaviour enemy in allEnemies) {
         	Destroy(enemy.gameObject);
     	}
@@ -72,9 +72,15 @@ public class WaveManager : MonoBehaviour
 
     public void ClearProjectiles(){
         Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
-        Debug.Log(allProjectiles.Length);
     	foreach(Projectile projectile in allProjectiles) {
         	Destroy(projectile.gameObject);
+    	}
+    }
+
+    public void ClearPowerups(){
+        Powerup[] allPowerups = FindObjectsOfType<Powerup>();
+    	foreach(Powerup powerup in allPowerups) {
+        	Destroy(powerup.gameObject);
     	}
     }
 

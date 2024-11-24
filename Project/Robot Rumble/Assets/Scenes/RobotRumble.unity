@@ -1167,6 +1167,7 @@ MonoBehaviour:
   xSpread: 0
   zSpread: 0
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}
+  waveIntensity: 3
 --- !u!114 &201487570
 MonoBehaviour:
   m_ObjectHideFlags: 0
