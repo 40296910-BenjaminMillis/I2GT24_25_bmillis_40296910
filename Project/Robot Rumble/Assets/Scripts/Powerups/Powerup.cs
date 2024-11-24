@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public abstract class Powerup : MonoBehaviour
 {
     [SerializeField] GameObject decoration;
-    [SerializeField] float duration = 5f;
+    [SerializeField] protected float duration = 5f;
 
     private void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Player")){
@@ -14,7 +14,7 @@ public class Powerup : MonoBehaviour
         }
     }
 
-    IEnumerator SetPowerup(Collider player){
+    public virtual IEnumerator SetPowerup(Collider player){
         transform.position = Vector3.zero;
         decoration.SetActive(false);
         StartCoroutine(player.GetComponent<PlayerHealth>().SetTempoaryInvincibility(duration));

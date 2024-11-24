@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 740a5a9cc6dadaf468677b925c023692, type: 2}
+  - {fileID: 2100000, guid: ad6a604744c2fe146bb0b98777bfb49c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,12 +126,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3613607895608560631}
-  - component: {fileID: 7694537541435361893}
   - component: {fileID: 8045368191082483080}
   - component: {fileID: 3339522957803730775}
   - component: {fileID: 5269522905831817017}
   m_Layer: 0
-  m_Name: Powerup
+  m_Name: ExplodePowerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,20 +152,6 @@ Transform:
   - {fileID: 710065100574111595}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7694537541435361893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4634137748960017695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92976441926c58245bd9b3ba2e4b2386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decoration: {fileID: 256251404834069460}
-  duration: 5
 --- !u!135 &8045368191082483080
 SphereCollider:
   m_ObjectHideFlags: 0

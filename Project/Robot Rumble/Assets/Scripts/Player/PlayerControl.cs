@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float dashSpeed = 25f;
     [SerializeField] float dashForce = 5f; // How far enemies will be launched by a dash collision
     [SerializeField] float dashDuration = 0.5f; // How long the dash lasts
-    [SerializeField] float dashDelay = 2f;
+    [SerializeField] float dashDelay = 2f; // Determines the length of the dash cooldown, time before the next dash
     float dashCooldown = 0;
 
     CharacterController controller;
@@ -56,7 +56,7 @@ public class PlayerControl : MonoBehaviour
         Shoot();
         if (Input.GetKey(KeyCode.LeftShift) && !dashCollider.enabled && dashCooldown <= 0){
             dashCooldown = dashDelay;
-            StartCoroutine(Dash());
+            StartCoroutine(Dash(dashDuration));
         }
         dashCooldown -= Time.deltaTime;
     }
@@ -102,11 +102,11 @@ public class PlayerControl : MonoBehaviour
     }
 
     // Move the player forward temporarily at a faster speed
-    IEnumerator Dash(){
+    IEnumerator Dash(float duration){
         audioPlayer.PlayDashWooshClip(this.transform.position);
         dashCollider.enabled = true;
-        StartCoroutine(GetComponent<PlayerHealth>().SetTempoaryInvincibility(dashDuration));
-        yield return new WaitForSeconds(dashDuration);
+        StartCoroutine(GetComponent<PlayerHealth>().SetTempoaryInvincibility(duration));
+        yield return new WaitForSeconds(duration);
         dashCollider.enabled = false;
     }
 
@@ -174,5 +174,13 @@ public class PlayerControl : MonoBehaviour
 
     public void SetLookSensitivity(){
         lookSensitivity = PlayerPrefs.GetFloat("sensitivity");
+    }
+
+    public void SetSuperDash(float duration){
+        Debug.Log("setsuperdash");
+        if(!dashCollider.enabled){
+            dashCooldown = duration;
+            StartCoroutine(Dash(duration));
+        }
     }
 }
