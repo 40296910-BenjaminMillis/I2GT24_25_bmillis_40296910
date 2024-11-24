@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1652743173685383760}
   - component: {fileID: 1290701413182999397}
   m_Layer: 0
-  m_Name: RoundExplosion
+  m_Name: SmallRoundExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   damage: 1
   force: 20
   upwardsModifier: 5
-  maxRadius: 10
+  maxRadius: 3.5
   growSpeed: 1.25
 --- !u!1 &1304036264174808320
 GameObject:

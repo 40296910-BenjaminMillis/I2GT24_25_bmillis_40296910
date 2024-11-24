@@ -171,10 +171,7 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileDamage: 1
   projectileLifetime: 20
-  explosionRadius: 5
-  explosionForce: 300
-  upwardsModifier: 2
-  explosion: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
+  explosion: {fileID: 50811731492825968, guid: e30685459a9c1df4eb843cd53a723826, type: 3}
 --- !u!1 &6145528764228884701
 GameObject:
   m_ObjectHideFlags: 0
