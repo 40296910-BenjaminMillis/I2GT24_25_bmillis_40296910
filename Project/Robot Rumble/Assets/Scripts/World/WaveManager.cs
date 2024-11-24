@@ -18,9 +18,9 @@ public class WaveManager : MonoBehaviour
     // Reset values for a new game
     public void StartWaves() {
         waveNumber = 0;
+        GetComponent<ArenaShapeManager>().SwitchArena();
         enemyCount = 0; 
         isRunning = true; 
-        GetComponent<ArenaShapeManager>().SwitchArena();
     }
 
     public void EndWaves(){

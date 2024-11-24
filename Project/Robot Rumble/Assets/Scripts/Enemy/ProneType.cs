@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProneType : MonoBehaviour
 {
+    [SerializeField] protected int damage = 1;
     protected bool isProne;
-    protected int damage = 1;
 
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy") && isProne){

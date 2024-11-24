@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd67ac7e91bd11e4a8ebcd1328e2a481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 1
+  attackDelay: 2
   launchForce: 1000
 --- !u!114 &5130946880330622676
 MonoBehaviour:
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2ca07238340984cbf475e996f880df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,13 @@ public class ArenaMover : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.y >= 0)
+        if(transform.position.y >= -0.5)
             rising = false;
         if(transform.position.y <= -25)
             lowering = false;
 
         if(rising)
-            transform.Translate(new Vector3(0, 15, 0) * Time.deltaTime);
+            transform.Translate(new Vector3(0, 20, 0) * Time.deltaTime);
         else if(lowering)
             transform.Translate(new Vector3(0, -15, 0) * Time.deltaTime);
     }
