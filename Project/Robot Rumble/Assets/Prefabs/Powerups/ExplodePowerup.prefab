@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 8045368191082483080}
   - component: {fileID: 3339522957803730775}
   - component: {fileID: 5269522905831817017}
+  - component: {fileID: 426886798918307337}
   m_Layer: 0
   m_Name: ExplodePowerup
   m_TagString: Untagged
@@ -221,6 +222,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &426886798918307337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4634137748960017695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7116eb72672ca2d4384003fef0c9e564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decoration: {fileID: 256251404834069460}
+  duration: 7
 --- !u!1 &5769083368507657497
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +362,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.65471697, g: 0.9924142, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5157298, b: 0, a: 1}
   m_Intensity: 1.5
   m_Range: 25
   m_SpotAngle: 30

@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float fireCooldown = 0.5f;
     [SerializeField] Transform firePosition;
     [SerializeField] ParticleSystem hitSpark;
+    [SerializeField] GameObject explosionSphere;
 
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
@@ -39,6 +40,7 @@ public class PlayerControl : MonoBehaviour
     LineRenderer fireLine;
     AudioPlayer audioPlayer;
     Collider dashCollider;
+    bool hasExplodingShots;
 
     void Start(){
         audioPlayer = FindObjectOfType<AudioPlayer>();
@@ -139,6 +141,10 @@ public class PlayerControl : MonoBehaviour
                     PlayHitEffect(hit.point);
                 }
                 hitLocation = hit.point;
+
+                if(hasExplodingShots){
+                    GameObject instance = Instantiate(explosionSphere, hitLocation, Quaternion.identity);
+                }
             }
             else{
                 Debug.Log("Did not Hit");
@@ -148,6 +154,7 @@ public class PlayerControl : MonoBehaviour
             StartCoroutine(PlayFireLineEffect(hitLocation));
         }
     }
+
 
     // A line to represent a laser blast
     IEnumerator PlayFireLineEffect(Vector3 hitLocation){
@@ -177,10 +184,17 @@ public class PlayerControl : MonoBehaviour
     }
 
     public void SetSuperDash(float duration){
-        Debug.Log("setsuperdash");
+        Debug.Log("set super dash");
         if(!dashCollider.enabled){
             dashCooldown = duration;
             StartCoroutine(Dash(duration));
         }
+    }
+
+    public IEnumerator SetExplodingShot(float duration){
+        Debug.Log("set exploding shot");
+        hasExplodingShots = true;
+        yield return new WaitForSeconds(duration);
+        hasExplodingShots = false;
     }
 }

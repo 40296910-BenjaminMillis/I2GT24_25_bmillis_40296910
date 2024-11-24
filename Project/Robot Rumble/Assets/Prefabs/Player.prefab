@@ -291,6 +291,7 @@ MonoBehaviour:
   fireCooldown: 0.5
   firePosition: {fileID: 3024599101689686512}
   hitSpark: {fileID: 6535403625793782721, guid: c20a2b7b970a5eb40bb72dd7eea272d2, type: 3}
+  explosionSphere: {fileID: 50811731492825968, guid: bec2c2e63b4d9f543809a51863af352a, type: 3}
   dashSpeed: 65
   dashForce: 13.5
   dashDuration: 0.4
