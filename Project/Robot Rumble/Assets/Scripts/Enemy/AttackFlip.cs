@@ -23,7 +23,7 @@ public class AttackFlip : AttackType
         if(attackCooldown <= 0){
             if(other.tag == "Player"){
                 // The player needs their own script to handle the force applied to them
-                other.GetComponent<ImpactReceiver>().AddImpact(transform.forward + Vector3.up, launchForce);
+                other.GetComponent<ImpactReceiver>().AddImpact((transform.forward*1.5f) + Vector3.up, launchForce);
             }
             
             // Disabled for now, it sort of works but has weird interactions with prone enemies

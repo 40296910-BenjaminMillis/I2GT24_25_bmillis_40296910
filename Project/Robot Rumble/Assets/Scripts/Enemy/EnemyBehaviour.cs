@@ -57,9 +57,6 @@ public class EnemyBehaviour : MonoBehaviour
         trailRenderer.enabled = true;
         proneType.SetIsProne(true);
 
-        // -different enemy types do different effects while prone (explode? piercing? bouncy?)
-            // -where do i want to define this?
-
         yield return new WaitForSeconds(2);
         if(proneTriggerCollider != null){ // Make sure that the enemy still exists when re-enabling
             isActive = true;

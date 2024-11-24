@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7154143831197801575}
   - component: {fileID: 7434374228991496197}
   - component: {fileID: 2324780164542006472}
-  - component: {fileID: -9120958893988195993}
+  - component: {fileID: 5130946880330622676}
   m_Layer: 6
   m_Name: FlipperEnemy
   m_TagString: Enemy
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rank: 3
-  gravity: 10
+  gravity: 40
   proneTriggerCollider: {fileID: 852269373168069223}
   immovable: 0
   trailRenderer: {fileID: 829549338367536216}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1500
+  moveSpeed: 2500
   turnSpeed: 0.5
 --- !u!114 &2324780164542006472
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 1
   launchForce: 1000
---- !u!114 &-9120958893988195993
+--- !u!114 &5130946880330622676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

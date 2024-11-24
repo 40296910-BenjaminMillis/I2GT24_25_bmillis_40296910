@@ -7,7 +7,7 @@ public class KillFloor : MonoBehaviour
     [SerializeField] int damage = 1;
     [SerializeField] Vector3 locationToRespawn = new Vector3(0, 40, 0); 
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerStay(Collider other) {
         // Deplete all enemy health if they touch the killfloor
         if(other.CompareTag("Enemy")){
             Health targetHealth = other.GetComponent<Health>();
