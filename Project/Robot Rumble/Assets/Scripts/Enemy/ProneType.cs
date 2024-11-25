@@ -9,8 +9,8 @@ public class ProneType : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Enemy") && isProne){
-            collider.gameObject.GetComponent<Health>().UpdateHealth(-1, 2);
-            GetComponent<Health>().UpdateHealth(-1, 2);
+            collider.gameObject.GetComponent<Health>().UpdateHealth(-damage, 2);
+            GetComponent<Health>().UpdateHealth(-damage, 2);
         }
     }
 

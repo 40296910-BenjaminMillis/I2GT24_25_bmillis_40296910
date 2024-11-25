@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int zSpread;
     [SerializeField] ParticleSystem spawnEffect;
     [SerializeField] int waveIntensity = 3; // Affects how many enemies can spawn each round. Multiplied after each round
+    [SerializeField] float spawnWaitTime = 2.5f; // Time before spawning enemies
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyCount; // The current number of enemies that exist
@@ -37,19 +38,20 @@ public class WaveManager : MonoBehaviour
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
                 enemyCount = waveIntensity * waveNumber;
                 StartCoroutine(SpawnEnemies());
+                GetComponent<StageEffects>().WaveEndEffect();
             }
         }
     }
 
     IEnumerator SpawnEnemies(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(spawnWaitTime);
         int rankCount = 0; // An enemys rank determines its worth during the wave
         RaycastHit spawnLocation;
         while(rankCount < enemyCount){
             int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
             if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyCount){
                 //Move the spawner to a random location and cast a ray to spawn the enemy
-                Physics.Raycast(new Vector3(Random.Range(-45, 45), 40, Random.Range(-45, 45)), Vector3.down, out spawnLocation, Mathf.Infinity);
+                Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
                 rankCount += enemySelection[randomEnemy].GetRank();
 
@@ -89,6 +91,12 @@ public class WaveManager : MonoBehaviour
     	foreach(Powerup powerup in allPowerups) {
         	Destroy(powerup.gameObject);
     	}
+    }
+
+    public void ClearAll(){
+        ClearEnemies();
+        ClearProjectiles();
+        ClearPowerups();
     }
 
     public int GetWaveNumber(){

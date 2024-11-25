@@ -12,6 +12,7 @@ public class Explosion : MonoBehaviour
 
     private void Start() {
         ExplodingShot();
+        FindObjectOfType<AudioPlayer>().PlayExplosionClip(transform.position);    
     }
 
     void FixedUpdate()

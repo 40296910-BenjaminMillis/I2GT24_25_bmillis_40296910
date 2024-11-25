@@ -23,13 +23,21 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip playerDamageClip;
     [SerializeField] [Range(0f, 1f)] float playerDamageVolume = 1f;
 
-    [Header("Enemy Projectile")]
+    [Header("Enemy")]
     [SerializeField] AudioClip enemyProjectileClip;
     [SerializeField] [Range(0f, 1f)] float enemyProjectileVolume = 1f;
-
+    [SerializeField] AudioClip enemyDeathClip;
+    [SerializeField] [Range(0f, 1f)] float enemyDeathVolume = 1f;
+    [SerializeField] AudioClip enemyKillfloorClip;
+    [SerializeField] [Range(0f, 1f)] float enemyKillfloorVolume = 1f;
+    
     [Header("Flames")]
     [SerializeField] AudioClip flamesClip;
     [SerializeField] [Range(0f, 1f)] float flamesVolume = 1f;
+
+    [Header("Wave Sounds")]
+    [SerializeField] AudioClip waveEndClip;
+    [SerializeField] [Range(0f, 1f)] float waveEndVolume = 1f;
 
     float volumeLevel = 1;
     static AudioPlayer instance;
@@ -72,7 +80,19 @@ public class AudioPlayer : MonoBehaviour
         PlayClip(enemyProjectileClip, enemyProjectileVolume, position);
     }
 
+    public void PlayEnemyDeathClip(Vector3 position){
+        PlayClip(enemyDeathClip, enemyDeathVolume, position);
+    }
+
+        public void PlayEnemyKillfloorClip(Vector3 position){
+        PlayClip(enemyKillfloorClip, enemyKillfloorVolume, position);
+    }
+
     public void PlayFlamesClip(Vector3 position){
         PlayClip(flamesClip, flamesVolume, position);
+    }
+
+    public void PlayWaveEnd(Vector3 position){
+        PlayClip(waveEndClip, waveEndVolume, position);
     }
 }

@@ -37,7 +37,7 @@ public class EnemyHealth : Health
     public override void Die(){
         CalculateScore();
         waveManager.UpdateEnemyCount(-rank);
-        audioPlayer.PlayExplosionClip(this.transform.position);
+        audioPlayer.PlayEnemyDeathClip(this.transform.position);
         ParticleSystem instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
         base.Die();

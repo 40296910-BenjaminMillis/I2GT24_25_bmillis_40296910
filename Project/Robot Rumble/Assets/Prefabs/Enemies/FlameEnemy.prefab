@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDelay: 0
-  flames: {fileID: 0}
+  flames: {fileID: 7962589181138354880, guid: 53a90dc722e3b184f9058371cd201b59, type: 3}
 --- !u!114 &4306659709313646595
 MonoBehaviour:
   m_ObjectHideFlags: 0

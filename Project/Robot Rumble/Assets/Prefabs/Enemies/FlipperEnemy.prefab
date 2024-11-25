@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2500
-  turnSpeed: 0.5
+  moveSpeed: 2700
+  turnSpeed: 0.4
 --- !u!114 &2324780164542006472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd67ac7e91bd11e4a8ebcd1328e2a481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 2
+  attackDelay: 1
   launchForce: 1000
 --- !u!114 &5130946880330622676
 MonoBehaviour:
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2ca07238340984cbf475e996f880df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0

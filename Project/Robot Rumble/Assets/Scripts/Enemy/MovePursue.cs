@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePursue  : MoveType
+public class MovePursue : MoveType
 {
     // Move towards the player based on moveSpeed
     // Turn to face the player based on turnSpeed
