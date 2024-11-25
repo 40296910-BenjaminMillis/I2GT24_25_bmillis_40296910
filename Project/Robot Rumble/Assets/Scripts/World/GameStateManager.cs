@@ -13,6 +13,7 @@ public class GameStateManager : MonoBehaviour
         scoreManager = GetComponent<ScoreManager>();
         waveManager = GetComponent<WaveManager>();
         leaderboard = FindObjectOfType<Leaderboard>();
+        GetComponent<StageEffects>().MainMenuEffect();
     }
 
 
@@ -41,6 +42,8 @@ public class GameStateManager : MonoBehaviour
         UIManager uiManager = FindObjectOfType<UIManager>();
         uiManager.LoadGameOver();
         leaderboard.GetLeaderboard();
+
+        GetComponent<StageEffects>().MainMenuEffect();
     }
 
 }

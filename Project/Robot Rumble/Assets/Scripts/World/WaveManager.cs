@@ -13,6 +13,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float spawnWaitTime = 2.5f; // Time before spawning enemies
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
+    int enemyRankCount; // The total ranking of enemies that are allowed to exist
     int enemyCount; // The current number of enemies that exist
     bool isRunning; // Denotes if the wave manager is currently active
 
@@ -20,7 +21,7 @@ public class WaveManager : MonoBehaviour
     public void StartWaves() {
         waveNumber = 0;
         GetComponent<ArenaShapeManager>().SwitchArena();
-        enemyCount = 0; 
+        enemyRankCount = 0; 
         isRunning = true; 
     }
 
@@ -33,10 +34,11 @@ public class WaveManager : MonoBehaviour
     {
         if(isRunning){
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
-            if(enemyCount <= 0){
+            if(enemyRankCount <= 0){
+                ClearProjectiles();
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
-                enemyCount = waveIntensity * waveNumber;
+                enemyRankCount = waveIntensity * waveNumber;
                 StartCoroutine(SpawnEnemies());
                 GetComponent<StageEffects>().WaveEndEffect();
             }
@@ -47,9 +49,9 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(spawnWaitTime);
         int rankCount = 0; // An enemys rank determines its worth during the wave
         RaycastHit spawnLocation;
-        while(rankCount < enemyCount){
+        while(rankCount < enemyRankCount){
             int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
-            if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyCount){
+            if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyRankCount){
                 //Move the spawner to a random location and cast a ray to spawn the enemy
                 Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
@@ -60,14 +62,18 @@ public class WaveManager : MonoBehaviour
 
                 Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
                 Debug.Log(spawnLocation.point);
+                enemyCount++;
             }
         }
+        GetComponent<StageEffects>().WaveStartEffect();
     }
 
 
     //remove from enemy count when enemy is destroyed
     public void UpdateEnemyCount(int value){
-        enemyCount += value;
+        enemyRankCount += value;
+        GetComponent<StageEffects>().UpdateEnemyCount(enemyCount, enemyCount-1);
+        enemyCount--;
         Debug.Log("enemy count: " + enemyCount);
     }
 
@@ -101,5 +107,9 @@ public class WaveManager : MonoBehaviour
 
     public int GetWaveNumber(){
         return waveNumber;
+    }
+
+    public int GetEnemyCount(){
+        return enemyCount;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class StageEffects : MonoBehaviour
 {
     [SerializeField] List<ParticleSystem> stageFlames = new List<ParticleSystem>();
+    [SerializeField] List<ScrollingScreen> scrollingScreens = new List<ScrollingScreen>();
 
     AudioPlayer audioPlayer;
 
@@ -13,7 +14,7 @@ public class StageEffects : MonoBehaviour
     }
 
     void Update(){
-        // will manage a scrolling info screen
+        
     }
 
     public void WaveEndEffect(){
@@ -21,7 +22,30 @@ public class StageEffects : MonoBehaviour
             flame.Play();
             audioPlayer.PlayFlamesClip(flame.transform.position);
         }
+
+        foreach(ScrollingScreen screen in scrollingScreens){
+            screen.ShowWaveText();
+        }
+
         audioPlayer.PlayWaveEnd(Vector3.zero);
+    }
+
+    public void WaveStartEffect(){
+        foreach(ScrollingScreen screen in scrollingScreens){
+            screen.ShowEnemyCountText();
+        }
+    }
+
+    public void UpdateEnemyCount(int oldCount, int newCount){
+        foreach(ScrollingScreen screen in scrollingScreens){
+            screen.UpdateEnemyCountText(oldCount.ToString(), newCount.ToString());
+        }
+    }
+
+    public void MainMenuEffect(){
+        foreach(ScrollingScreen screen in scrollingScreens){
+            screen.ShowMenuText();
+        }
     }
 
 }
