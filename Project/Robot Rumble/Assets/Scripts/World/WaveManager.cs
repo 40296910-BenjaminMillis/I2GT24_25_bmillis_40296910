@@ -39,6 +39,7 @@ public class WaveManager : MonoBehaviour
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
                 enemyRankCount = waveIntensity * waveNumber;
+                Debug.Log(enemyRankCount + " " + enemyCount); 
                 StartCoroutine(SpawnEnemies());
                 GetComponent<StageEffects>().WaveEndEffect();
             }
@@ -49,23 +50,28 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(spawnWaitTime);
         int rankCount = 0; // An enemys rank determines its worth during the wave
         RaycastHit spawnLocation;
-        while(rankCount < enemyRankCount){
-            int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
-            if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyRankCount){
-                //Move the spawner to a random location and cast a ray to spawn the enemy
-                Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
+        if(FindObjectOfType<PlayerControl>()){
+            while(rankCount < enemyRankCount){
+                int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
+                if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyRankCount){
+                    //Move the spawner to a random location and cast a ray to spawn the enemy
+                    Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
-                rankCount += enemySelection[randomEnemy].GetRank();
+                    rankCount += enemySelection[randomEnemy].GetRank();
 
-                ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
-                Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+                    ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
+                    Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
-                Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
-                Debug.Log(spawnLocation.point);
-                enemyCount++;
+                    Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
+                    Debug.Log(spawnLocation.point);
+                    enemyCount++;
+                }
             }
+            GetComponent<StageEffects>().WaveStartEffect();
         }
-        GetComponent<StageEffects>().WaveStartEffect();
+        else{
+            Debug.Log("huh whuhh???");
+        }
     }
 
 

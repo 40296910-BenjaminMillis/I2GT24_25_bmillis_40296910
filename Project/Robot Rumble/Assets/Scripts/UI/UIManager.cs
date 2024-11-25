@@ -122,6 +122,7 @@ public class UIManager : MonoBehaviour
         menuUI.enabled = true;
         menuCamera.GetComponent<AudioListener>().enabled = true;
         gameStateManager.GetComponent<WaveManager>().ClearAll();
+        FindObjectOfType<StageEffects>().MainMenuEffect();
     }
 
     public void TogglePauseMenu(){

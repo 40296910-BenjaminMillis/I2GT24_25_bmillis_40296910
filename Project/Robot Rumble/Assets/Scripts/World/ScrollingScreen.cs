@@ -12,7 +12,7 @@ public class ScrollingScreen : MonoBehaviour
     string text;
     float timer;
 
-    void Start(){
+    void Awake(){
         textField = GetComponent<TextMeshPro>();
         waveManager = FindObjectOfType<WaveManager>();
     }
@@ -35,12 +35,12 @@ public class ScrollingScreen : MonoBehaviour
 
     public void ShowEnemyCountText(){
         int enemyCount = waveManager.GetEnemyCount();
-        textField.text = " ENEMIES "+enemyCount+ " | ENEMIES "+88+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " |";
+        textField.text = " ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " |";
     }
 
     public void UpdateEnemyCountText(string oldCount, string newCount){
         string temp = textField.text;
-        string modified = temp.Replace(Convert.ToChar(oldCount), Convert.ToChar(newCount));
+        string modified = temp.Replace(oldCount, newCount);
         Debug.Log(modified);
         textField.text = modified;
     }
