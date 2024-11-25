@@ -129,9 +129,9 @@ GameObject:
   - component: {fileID: 8045368191082483080}
   - component: {fileID: 3339522957803730775}
   - component: {fileID: 5269522905831817017}
-  - component: {fileID: 1450380092130717640}
+  - component: {fileID: 6529379450439299079}
   m_Layer: 0
-  m_Name: DashPowerup
+  m_Name: InvincibilityPowerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1450380092130717640
+--- !u!114 &6529379450439299079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

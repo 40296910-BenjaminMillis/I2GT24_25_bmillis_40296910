@@ -9,7 +9,6 @@ public abstract class Powerup : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider) {
         if(collider.CompareTag("Player")){
-            Debug.Log("ping");
             StartCoroutine(SetPowerup(collider));
         }
     }
@@ -17,7 +16,7 @@ public abstract class Powerup : MonoBehaviour
     public virtual IEnumerator SetPowerup(Collider player){
         transform.position = Vector3.zero;
         decoration.SetActive(false);
-        StartCoroutine(player.GetComponent<PlayerHealth>().SetTempoaryInvincibility(duration));
+
         yield return new WaitForSeconds(duration+0.1f);
         Destroy(gameObject);
     }

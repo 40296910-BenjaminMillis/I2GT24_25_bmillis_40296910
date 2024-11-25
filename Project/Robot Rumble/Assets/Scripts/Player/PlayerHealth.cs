@@ -2,26 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : Health
 {
     [SerializeField] float invincibilityFrameLength = 0.5f;
     [SerializeField] PlayerCamera playerCamera;
+    [SerializeField] GameObject invincibilityBar;
     AudioPlayer audioPlayer;
     float invincibilityFrameTime = 0;
-    bool tempoaryInvincibility;
 
     void Awake(){
-        audioPlayer = FindObjectOfType<AudioPlayer>();  
+        audioPlayer = FindObjectOfType<AudioPlayer>(); 
     }
 
     void Update(){
-        if(invincibilityFrameTime > 0)
+        if(invincibilityFrameTime > 0){
             invincibilityFrameTime -= Time.deltaTime;
+            invincibilityBar.GetComponent<Slider>().value = invincibilityFrameTime;   
+        }
+        else{
+            invincibilityBar.SetActive(false);
+        }
     }
 
     public override void UpdateHealth(int value){
-        if(invincibilityFrameTime <= 0 && !tempoaryInvincibility){
+        if(invincibilityFrameTime <= 0){
             invincibilityFrameTime = invincibilityFrameLength;
             base.UpdateHealth(value);
             audioPlayer.PlayPlayerDamageClip(this.transform.position);
@@ -41,14 +47,18 @@ public class PlayerHealth : Health
         UpdateHealth(-1);
     }
 
-    public IEnumerator SetTempoaryInvincibility(float duration){
-    //check if invincibility is already in place
+    public void SetTemporaryInvincibility(float duration){
+        // Check if invincibility is already in place
         Debug.Log("invincibility of " + duration);
-        tempoaryInvincibility = true;
-        //set healthbar to blue? or do something at least tempoary to indicate invincibility
-        //could enable a ui element for "shield" bar over the healthbar, translucent
-        yield return new WaitForSeconds(duration);
-        Debug.Log("invincibility of " + duration + " seconds is over");
-        tempoaryInvincibility = false;
+        invincibilityFrameTime = duration;
+       
+        // Enable invincibility bar, indicates length of invincibility time
+        invincibilityBar.SetActive(true);
+        invincibilityBar.GetComponent<Slider>().maxValue = duration;
+        invincibilityBar.GetComponent<Slider>().value = duration;
+    }
+
+    public float GetInvincibilityFrameTime(){
+        return invincibilityFrameTime;
     }
 }

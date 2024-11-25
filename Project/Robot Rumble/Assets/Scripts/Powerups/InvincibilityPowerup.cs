@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplodePowerup : Powerup
+public class InvincibilityPowerup : Powerup
 {
     public override IEnumerator SetPowerup(Collider player){
-        // Toggle player explosion shots for set duration
-        StartCoroutine(player.GetComponent<PlayerControl>().SetExplodingShot(duration));
+        // Make the player invincible to all damage for set duration
+        player.GetComponent<PlayerHealth>().SetTemporaryInvincibility(duration);
         StartCoroutine(base.SetPowerup(player));
         yield return new WaitForSeconds(duration+0.1f);
     }

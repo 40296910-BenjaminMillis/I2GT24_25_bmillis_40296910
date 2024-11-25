@@ -107,7 +107,8 @@ public class PlayerControl : MonoBehaviour
     IEnumerator Dash(float duration){
         audioPlayer.PlayDashWooshClip(this.transform.position);
         dashCollider.enabled = true;
-        StartCoroutine(GetComponent<PlayerHealth>().SetTempoaryInvincibility(duration));
+        if(GetComponent<PlayerHealth>().GetInvincibilityFrameTime() <= 0)
+            GetComponent<PlayerHealth>().SetTemporaryInvincibility(duration);
         yield return new WaitForSeconds(duration);
         dashCollider.enabled = false;
     }
