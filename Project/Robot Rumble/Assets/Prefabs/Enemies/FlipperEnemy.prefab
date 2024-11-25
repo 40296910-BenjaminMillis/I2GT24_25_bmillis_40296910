@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 1
   launchForce: 1000
+  animator: {fileID: 6652215351861210115}
 --- !u!114 &5130946880330622676
 MonoBehaviour:
   m_ObjectHideFlags: 0
