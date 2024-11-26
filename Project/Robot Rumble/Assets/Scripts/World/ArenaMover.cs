@@ -7,6 +7,7 @@ public class ArenaMover : MonoBehaviour
     bool rising;
     bool lowering;
 
+    // Manage the movement of an arena, depending if it has been told to rise or lower
     void Update()
     {
         if(transform.position.y >= -0.5)

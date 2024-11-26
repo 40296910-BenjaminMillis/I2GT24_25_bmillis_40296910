@@ -18,6 +18,7 @@ public class Leaderboard : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
+    // Get a list of the top scores and display them
     public void GetLeaderboard(){
         LeaderboardCreator.GetLeaderboard(publicKey, (msg => {
             int listLength;
@@ -33,11 +34,9 @@ public class Leaderboard : MonoBehaviour
         }));
     }
     
-
+    // Add current score and name to leaderboard
     public void SetLeaderboardEntry(){
         LeaderboardCreator.UploadNewEntry(publicKey, playerName.text, scoreManager.GetScore(), (msg => {GetLeaderboard();}));
         GetLeaderboard();
     }
-
-
 }

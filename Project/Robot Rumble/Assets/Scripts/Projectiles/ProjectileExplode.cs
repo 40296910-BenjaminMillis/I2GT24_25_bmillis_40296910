@@ -16,7 +16,8 @@ public class ProjectileExplode : Projectile
     }
 
     protected override void RemoveProjectile(){
-        GameObject instance = Instantiate(explosion, transform.position, Quaternion.identity);
+        //Create an explosion at the impact point
+        GameObject instance = Instantiate(explosion, transform.position, Quaternion.identity); 
         base.RemoveProjectile();
     }
 

@@ -11,6 +11,6 @@ public class AttackFlame : AttackType
     }
     
     public override void Attack(){
-
+        // Currently does not require any scripting, as the flame particle effect automatically deals damage to the player
     }
 }

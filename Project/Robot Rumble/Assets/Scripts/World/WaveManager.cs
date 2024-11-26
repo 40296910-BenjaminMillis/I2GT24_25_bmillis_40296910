@@ -40,7 +40,7 @@ public class WaveManager : MonoBehaviour
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
                 enemyRankCount = waveIntensity * waveNumber;
-                Debug.Log(enemyRankCount + " " + enemyCount); 
+                Debug.Log("Enemy rank count: " + enemyRankCount + ", Enemy count: " + enemyCount); 
                 StartCoroutine(SpawnEnemies());
                 GetComponent<StageEffects>().WaveEndEffect();
             }
@@ -64,7 +64,7 @@ public class WaveManager : MonoBehaviour
                     Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
                     Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
-                    Debug.Log(spawnLocation.point);
+                    Debug.Log("Enemy spawned at: " + spawnLocation.point);
                     enemyCount++;
                 }
             }
@@ -72,13 +72,11 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-
     //remove from enemy count when enemy is destroyed
     public void UpdateEnemyCount(int value){
         enemyRankCount += value;
         GetComponent<StageEffects>().UpdateEnemyCount(enemyCount, enemyCount-1);
         enemyCount--;
-        Debug.Log("enemy count: " + enemyCount);
     }
 
     // Remove all enemies currently in the game. Used after game over

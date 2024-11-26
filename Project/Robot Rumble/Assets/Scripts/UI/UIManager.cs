@@ -51,12 +51,14 @@ public class UIManager : MonoBehaviour
             menuCamera.transform.Translate(menuCameraPanSpeed * Time.deltaTime);
         }
         else if(gameUI.enabled){
+            // Prevent the player from entering and exiting the pause menu too quickly
             if(Input.GetKey(KeyCode.Tab) && pauseCooldown <=0 && !settingsUI.enabled){
                 TogglePauseMenu();
                 pauseCooldown = 0.3f;
             }
             pauseCooldown -= Time.unscaledDeltaTime;
 
+            // Update player info
             healthBar.value = playerHealth.GetHealth();
             scoreText.text = scoreManager.GetScore().ToString();
             dashCooldownBar.GetComponent<Slider>().value = player.getDashCooldown();

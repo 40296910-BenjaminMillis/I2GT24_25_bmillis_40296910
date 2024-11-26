@@ -6,6 +6,7 @@ public class StageLight : MonoBehaviour
 {
     Transform target;
 
+    // Rotate to follow the players position
     void Update(){
         if(target != null){
             transform.LookAt(target.position);

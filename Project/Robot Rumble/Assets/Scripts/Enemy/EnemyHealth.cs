@@ -10,14 +10,14 @@ public class EnemyHealth : Health
     AudioPlayer audioPlayer;
     int rank;
     int pointsOnKill;
-    int scoreMultiplier = 1;
+    int scoreMultiplier = 1; // Certain actions, such as throw kills or killfloor kills grant score multiplier
 
     void Awake() {
         scoreManager = FindObjectOfType<ScoreManager>();
         waveManager = FindObjectOfType<WaveManager>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         rank = GetComponent<EnemyBehaviour>().GetRank();
-        pointsOnKill = rank * 100;
+        pointsOnKill = rank * 100; // Points granted based on rank of enemy
     }
 
     public override void UpdateHealth(int value){
@@ -25,7 +25,8 @@ public class EnemyHealth : Health
         base.UpdateHealth(value);
     }
 
-    public override void UpdateHealth(int value, int scoreMultiplier){
+    // Only used if a score multiplier is being added
+    public override void UpdateHealth(int value, int scoreMultiplier){ 
         this.scoreMultiplier = scoreMultiplier;
         base.UpdateHealth(value);
     }
@@ -36,7 +37,7 @@ public class EnemyHealth : Health
 
     public override void Die(){
         CalculateScore();
-        waveManager.UpdateEnemyCount(-rank);
+        waveManager.UpdateEnemyCount(-rank); // Remove enemy from the waveManager count
         audioPlayer.PlayEnemyDeathClip(this.transform.position);
         ParticleSystem instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);

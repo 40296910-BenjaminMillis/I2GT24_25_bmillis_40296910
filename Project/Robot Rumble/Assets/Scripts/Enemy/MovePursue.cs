@@ -20,20 +20,22 @@ public class MovePursue : MoveType
         if(distance > 5){
             enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
         }
-        //Stop before getting too close (to be not on top of the player)
+        // Stop before getting too close (to be not on top of the player)
         else{
             enemyRb.velocity = new Vector3(0, enemyRb.velocity.y, 0);
         }
     }
 
     protected override IEnumerator RotateTowardsPlayer(){
+        // Slight difference to the abstract method, that this method does not target the y position
         Quaternion targetRotation = Quaternion.LookRotation(
             new Vector3(playerTransform.position.x, 0, playerTransform.position.z) 
             - new Vector3(transform.position.x, 0, transform.position.z));
         float rotationTime = 0f;
-        while (rotationTime < turnSpeed)
+        while (rotationTime < turnDelay)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnSpeed);
+            // Rotate towards the player with a set delay
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnDelay);
             yield return null;
             rotationTime += Time.deltaTime;
         }

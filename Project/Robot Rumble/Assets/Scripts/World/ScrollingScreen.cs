@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ScrollingScreen : MonoBehaviour
 {
-    [SerializeField] float scrollSpeed = 0.5f;
+    [SerializeField] float scrollSpeed = 0.5f; // Speed that the text of the screen scrolls at
     TextMeshPro textField;
     WaveManager waveManager;
     string text;
@@ -17,6 +17,7 @@ public class ScrollingScreen : MonoBehaviour
         waveManager = FindObjectOfType<WaveManager>();
     }
 
+    // Scroll the text by moving the first character to the end of the string
     void FixedUpdate(){
         if(timer >= scrollSpeed){
             timer = 0;
@@ -26,7 +27,6 @@ public class ScrollingScreen : MonoBehaviour
         }
         timer += Time.deltaTime; 
     }
-
 
     public void ShowWaveText(){
         int waveNumber = waveManager.GetWaveNumber();
@@ -38,6 +38,7 @@ public class ScrollingScreen : MonoBehaviour
         textField.text = " ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " |";
     }
 
+    // Replace the enemy count number in the text string
     public void UpdateEnemyCountText(string oldCount, string newCount){
         string temp = textField.text;
         string modified = temp.Replace(oldCount, newCount);

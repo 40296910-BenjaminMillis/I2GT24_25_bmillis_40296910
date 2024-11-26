@@ -9,7 +9,7 @@ public class MoveRanged : MoveType
     [SerializeField] float followDistance = 30f; // How far they player is when they enemy starts following
 
     public override void Move(){
-        if(playerTransform == null){
+        if(playerTransform == null){ // If the player is not in the current scene, stop moving
             return;
         }
         StartCoroutine(RotateTowardsPlayer());

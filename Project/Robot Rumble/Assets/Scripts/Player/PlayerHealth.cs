@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerHealth : Health
 {
-    [SerializeField] float invincibilityFrameLength = 0.5f;
+    [SerializeField] float invincibilityFrameLength = 0.5f; // Length invincibility given to the player when taking damage, so that they do not recieve too much damage too quickly
     [SerializeField] PlayerCamera playerCamera;
-    [SerializeField] GameObject invincibilityBar;
+    [SerializeField] GameObject invincibilityBar; // Representation of invincibility time left, displayed over the healthbar
     AudioPlayer audioPlayer;
     float invincibilityFrameTime = 0;
 
@@ -17,8 +17,8 @@ public class PlayerHealth : Health
     }
 
     void Update(){
-        if(invincibilityFrameTime > 0){
-            invincibilityFrameTime -= Time.deltaTime;
+        if(invincibilityFrameTime > 0){ //Reduces invincibility counter and slider over time
+            invincibilityFrameTime -= Time.deltaTime; 
             invincibilityBar.GetComponent<Slider>().value = invincibilityFrameTime;   
         }
         else{
@@ -27,8 +27,8 @@ public class PlayerHealth : Health
     }
 
     public override void UpdateHealth(int value){
-        if(invincibilityFrameTime <= 0){
-            invincibilityFrameTime = invincibilityFrameLength;
+        if(invincibilityFrameTime <= 0){ // Only deal damage to the player when not invincible
+            invincibilityFrameTime = invincibilityFrameLength; // Give player a short burst of invincibility
             base.UpdateHealth(value);
             audioPlayer.PlayPlayerDamageClip(this.transform.position);
             StartCoroutine(playerCamera.ScreenShake());
@@ -43,6 +43,7 @@ public class PlayerHealth : Health
         gameStateManager.EndGame();
     }
 
+    // Any particle with colliders will trigger this (e.g. flames)
     void OnParticleCollision(){
         UpdateHealth(-1);
     }

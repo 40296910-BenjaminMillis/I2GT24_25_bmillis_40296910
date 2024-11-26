@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class MoveType : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 1000f;
-    [SerializeField] protected float turnSpeed = 0.5f;
+    [SerializeField] protected float moveSpeed = 1000f; // Speed an enemy will move
+    [SerializeField] protected float turnDelay = 0.5f; // The time it takes for the enemy to face the player. Larger values make the enemy take longer to turn
     protected Rigidbody enemyRb;
     protected Transform playerTransform;
 
@@ -22,9 +22,10 @@ public abstract class MoveType : MonoBehaviour
     {
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         float rotationTime = 0f;
-        while (rotationTime < turnSpeed)
+        while (rotationTime < turnDelay)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnSpeed);
+            // Rotate towards the player with a set delay
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationTime / turnDelay);
             yield return null;
             rotationTime += Time.deltaTime;
         }

@@ -13,8 +13,7 @@ public class Health : MonoBehaviour
     public virtual void UpdateHealth(int value){
         health += value;
         if(health <= 0 && !isDead){
-            Die();
-            Debug.Log("health: " + health);
+            Die(); // Remove the gameobject if 0 health
         }
     }
 

@@ -13,6 +13,7 @@ public abstract class Powerup : MonoBehaviour
         }
     }
 
+    // Make the powerup dissapear and destroy
     public virtual IEnumerator SetPowerup(Collider player){
         transform.position = Vector3.zero;
         decoration.SetActive(false);

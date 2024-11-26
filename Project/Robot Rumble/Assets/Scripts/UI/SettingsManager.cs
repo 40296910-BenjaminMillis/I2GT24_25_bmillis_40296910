@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [Header("Controls")]
-    [SerializeField] [Range(10, 500)] float sensitivityDefault;
+    [SerializeField] [Range(10, 500)] float sensitivityDefault; // Affects the speed the player camera moves
     [SerializeField] Slider sensitivitySlider;
 
     [Header("Sounds")]
@@ -16,7 +16,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] AudioPlayer audioPlayer;
 
     void Start(){
-        if(!PlayerPrefs.HasKey("sensitivity")){
+        if(!PlayerPrefs.HasKey("sensitivity")){ //If player prefs has no settings stored, set the settings to a default value
             PlayerPrefs.SetFloat("sensitivity", sensitivityDefault);
             PlayerPrefs.SetFloat("sfxVolume", audioDefault);
             FindObjectOfType<AudioPlayer>().SetVolumeLevel(PlayerPrefs.GetFloat("sfxVolume"));

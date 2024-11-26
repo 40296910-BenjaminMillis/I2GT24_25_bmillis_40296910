@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float projectileSpeed = 1f;
     [SerializeField] int projectileDamage = 1;
-    [SerializeField] float projectileLifetime = 20f;
+    [SerializeField] float projectileLifetime = 20f; // Time a projectile can exist before colliding with something
 
     Rigidbody rb;
 

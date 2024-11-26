@@ -14,14 +14,12 @@ public class AttackFlip : AttackType
         }
     }
 
+    // Flip the sucker! Launch the player away and up into the air, to attempt to throw them off of the arena
     void OnTriggerStay(Collider other){
-        // Flip the sucker!
-        if(attackCooldown <= 0){
-            if(other.tag == "Player"){
-                animator.SetTrigger("FlipTrigger");
-                // The player needs their own script to handle the force applied to them
-                other.GetComponent<ImpactReceiver>().AddImpact((transform.forward*1.5f) + Vector3.up, launchForce);
-            }
+        if(attackCooldown <= 0 && other.tag == "Player"){
+            animator.SetTrigger("FlipTrigger");
+            // The player needs their own script to handle the force applied to them
+            other.GetComponent<ImpactReceiver>().AddImpact((transform.forward*1.5f) + Vector3.up, launchForce);
             attackCooldown = attackDelay;
         }
     }

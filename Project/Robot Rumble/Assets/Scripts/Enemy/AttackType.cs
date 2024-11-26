@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class AttackType : MonoBehaviour
 {
-    [SerializeField] protected float attackDelay;
+    [SerializeField] protected float attackDelay; // The amount of time it takes between attacks
 
-    protected float attackCooldown;
+    protected float attackCooldown; // The countdown of attackDelay
     protected Transform playerTransform;
     protected AudioPlayer audioPlayer;
 
@@ -17,7 +17,7 @@ public abstract class AttackType : MonoBehaviour
     }
 
     public virtual void Attack(){
-        if(playerTransform == null){
+        if(playerTransform == null){ // If the player is not in the current scene, stop attacking
             return;
         }
     }

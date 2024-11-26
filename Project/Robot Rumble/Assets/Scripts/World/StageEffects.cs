@@ -17,6 +17,7 @@ public class StageEffects : MonoBehaviour
         
     }
 
+    // Effect to signal the end of a wave, when all enemies have been defeated
     public void WaveEndEffect(){
         foreach(ParticleSystem flame in stageFlames){
             flame.Play();
@@ -30,18 +31,21 @@ public class StageEffects : MonoBehaviour
         audioPlayer.PlayWaveEnd(Vector3.zero);
     }
 
+    // Effect during the start of a new wave
     public void WaveStartEffect(){
         foreach(ScrollingScreen screen in scrollingScreens){
             screen.ShowEnemyCountText();
         }
     }
 
+    // Effect when an enemy has been defeated
     public void UpdateEnemyCount(int oldCount, int newCount){
         foreach(ScrollingScreen screen in scrollingScreens){
             screen.UpdateEnemyCountText(oldCount.ToString(), newCount.ToString());
         }
     }
 
+    // Effect playing during the main menu
     public void MainMenuEffect(){
         foreach(ScrollingScreen screen in scrollingScreens){
             screen.ShowMenuText();

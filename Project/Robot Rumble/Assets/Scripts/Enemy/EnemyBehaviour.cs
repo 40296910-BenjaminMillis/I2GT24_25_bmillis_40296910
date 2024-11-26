@@ -5,27 +5,27 @@ using UnityEngine.UIElements;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] int rank = 1; //Determines the scoring of the enemy, from actual score to how they are weighted in spawning
+    [SerializeField] int rank = 1; // Determines how the enemy is weighted in spawning, and affects their actual score rewarded
     [SerializeField] float gravity = 10f;
-    [SerializeField] Collider proneTriggerCollider;
-    [SerializeField] bool immovable;
+    [SerializeField] Collider proneTriggerCollider; // Collider used for enemies while prone (being thrown/dashed into)
+    [SerializeField] bool immovable; // Whether or not an enemy can be moved or picked up
     [SerializeField] TrailRenderer trailRenderer;
 
     MoveType moveType;
     AttackType attackType;
+    ProneType proneType;
     Transform playerTransform;
     Rigidbody rb;
-    ProneType proneType;
 
     bool isActive = true;
 
     void Awake(){
-        playerTransform = FindObjectOfType<PlayerControl>().transform;
-        rb = GetComponent<Rigidbody>();
         moveType = GetComponent<MoveType>();
         attackType = GetComponent<AttackType>();
         proneType = GetComponent<ProneType>();
-    }
+        playerTransform = FindObjectOfType<PlayerControl>().transform;
+        rb = GetComponent<Rigidbody>();
+    }   
     
     void Update(){
         if(isActive){
@@ -33,8 +33,8 @@ public class EnemyBehaviour : MonoBehaviour
                 moveType.Move();
             if(attackType && playerTransform)
                 attackType.Attack();
-
-            rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); //Find a better way to increase gravity
+            // Enemy gravity is disabled when not active, to give them a proper flight path during a throw/dash
+            rb.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration); 
         }
     }
 
@@ -50,12 +50,11 @@ public class EnemyBehaviour : MonoBehaviour
         return immovable;
     }
 
-    // Activated when the enemy is sent flying by a dash or throw
+    // Activated when the enemy is sent flying by a dash or throw. Makes them unable to attack or move
     public IEnumerator MakeProne(){
         isActive = false;
         proneTriggerCollider.enabled = true;
         trailRenderer.enabled = true;
-        
         proneType.SetIsProne(true);
 
         yield return new WaitForSeconds(2);
