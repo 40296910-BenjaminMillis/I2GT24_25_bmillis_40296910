@@ -1,5 +1,7 @@
 "Spiderbot 1.0" by killyoverdrive licensed CC-BY-SA 3.0: https://opengameart.org/content/spiderbot-10
 "bomb_explosion_8bit" by Luke.RUSTLTD licensed CC0: https://opengameart.org/content/bombexplosion8bit
+dingding.wav by ljudman -- https://freesound.org/s/33244/ -- License: Sampling+
+"hardmetalimpact 19" and "fastwoosh" by ProductionCrate https://www.productioncrate.com/
 
 "Prototype Kit (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/prototype-kit
 "Space Kit (2.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/space-kit
@@ -7,3 +9,4 @@
 "Input Prompts (1.1b)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/input-prompts
 "Impact Sounds (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/sci-fi-sounds
 "Sci-Fi Sounds (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/impact-sounds
+"Crosshair pack" by Kenny (www.kenney.nl) licensed CC0: https://kenney.nl/assets/crosshair-pack
