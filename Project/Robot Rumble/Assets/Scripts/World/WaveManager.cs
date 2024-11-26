@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
         waveNumber = 0;
         GetComponent<ArenaShapeManager>().SwitchArena();
         enemyRankCount = 0; 
+        enemyCount = 0;
         isRunning = true; 
     }
 
@@ -68,9 +69,6 @@ public class WaveManager : MonoBehaviour
                 }
             }
             GetComponent<StageEffects>().WaveStartEffect();
-        }
-        else{
-            Debug.Log("huh whuhh???");
         }
     }
 

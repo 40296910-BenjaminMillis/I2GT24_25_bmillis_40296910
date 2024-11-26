@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201487566}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d83aa23c7f81ee41bc1e581f2c4528c, type: 3}
   m_Name: 
@@ -7333,6 +7333,7 @@ GameObject:
   - component: {fileID: 788284038}
   - component: {fileID: 788284042}
   - component: {fileID: 788284041}
+  - component: {fileID: 788284043}
   m_Layer: 0
   m_Name: KillFloor
   m_TagString: Untagged
@@ -7441,6 +7442,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788284037}
   m_Mesh: {fileID: -2896231023617955057, guid: 6923f5b6763e82048b3d32e998850e47, type: 3}
+--- !u!65 &788284043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788284037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Center: {x: 0, y: -1.2, z: 0}
 --- !u!1001 &792886836
 PrefabInstance:
   m_ObjectHideFlags: 0

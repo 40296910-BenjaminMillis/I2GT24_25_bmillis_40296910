@@ -14,7 +14,7 @@ public class KillFloor : MonoBehaviour
         audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
-    void OnTriggerStay(Collider other) {
+    void OnTriggerEnter(Collider other) {
         // Deplete all enemy health if they touch the killfloor
         if(other.CompareTag("Enemy")){
             ParticleSystem instance = Instantiate(smoke, other.transform.position + Vector3.up, smoke.transform.rotation);
@@ -32,7 +32,8 @@ public class KillFloor : MonoBehaviour
             RaycastHit respawnLocation;
             Physics.Raycast(locationToRespawn, Vector3.down, out respawnLocation, Mathf.Infinity);
 
-            other.transform.position = respawnLocation.point + Vector3.up;
+            //other.transform.position = respawnLocation.point + Vector3.up;
+            other.GetComponent<ImpactReceiver>().AddImpact(new Vector3(0, 40, 0) - other.transform.position, 1100);
         }
     }
 }
