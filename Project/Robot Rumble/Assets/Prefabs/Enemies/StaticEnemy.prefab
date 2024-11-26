@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1176253794713104238}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: FirePosition
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8791879590357300336}
   - component: {fileID: -6369307709169825874}
   - component: {fileID: 2168362307454866904}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: StaticEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 3296643609723127778}
   - component: {fileID: 6006690970315540108}
   - component: {fileID: 8423575599285592265}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 350768145222176415}
   - component: {fileID: 4934327821615225873}
   - component: {fileID: 4717097603367770240}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 778859480921287980}
   - component: {fileID: 5266399817601661586}
   - component: {fileID: 4030151204185409974}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

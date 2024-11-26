@@ -21,7 +21,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float lookXLimit = 90f; //restrict the angle you can move the camera up and down
 
     [Header("Shooting")]
-    [SerializeField] LayerMask layersToHit;
     [SerializeField] float fireCooldown = 0.5f;
     [SerializeField] Transform firePosition;
     [SerializeField] ParticleSystem hitSpark;
@@ -97,10 +96,10 @@ public class PlayerControl : MonoBehaviour
     }
 
     void RotateCamera(){
-        xRotation += -Input.GetAxis("Mouse Y") * lookSensitivity;
+        xRotation += -Input.GetAxis("Mouse Y") * lookSensitivity * Time.deltaTime;
         xRotation = Mathf.Clamp(xRotation, -lookXLimit, lookXLimit);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSensitivity, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSensitivity * Time.deltaTime, 0);
     }
 
     // Move the player forward temporarily at a faster speed

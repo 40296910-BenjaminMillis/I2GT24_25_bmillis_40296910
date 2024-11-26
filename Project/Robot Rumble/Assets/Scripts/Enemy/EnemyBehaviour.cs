@@ -55,6 +55,7 @@ public class EnemyBehaviour : MonoBehaviour
         isActive = false;
         proneTriggerCollider.enabled = true;
         trailRenderer.enabled = true;
+        
         proneType.SetIsProne(true);
 
         yield return new WaitForSeconds(2);

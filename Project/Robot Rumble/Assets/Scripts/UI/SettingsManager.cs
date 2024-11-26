@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [Header("Controls")]
-    [SerializeField] [Range(1, 10)] float sensitivityDefault;
+    [SerializeField] [Range(10, 500)] float sensitivityDefault;
     [SerializeField] Slider sensitivitySlider;
 
     [Header("Sounds")]

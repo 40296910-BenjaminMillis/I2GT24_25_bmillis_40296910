@@ -24,9 +24,11 @@ public class PlayerGrabAndThrow : MonoBehaviour
 
     GameObject heldObject = null;
     UIManager uiManager;
+    CharacterController characterController;
 
     private void Start() {
         throwChargeSlider.GetComponent<Slider>().maxValue = throwChargeBonusMax;
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update(){
@@ -88,10 +90,9 @@ public class PlayerGrabAndThrow : MonoBehaviour
         if(Input.GetMouseButtonUp(1)){
             Debug.Log("Throw charge: " + throwChargeBonus);
             heldObject.GetComponent<Collider>().enabled = true;
+            heldObject.transform.position = transform.position;
+            StartCoroutine(IgnoreEnemyColliders());
             heldObject.GetComponent<Rigidbody>().AddForce(((holdPosition.forward*2) + (holdPosition.up)) * (throwBaseSpeed + throwChargeBonus), ForceMode.Impulse);
-            //heldObject.GetComponent<Rigidbody>().AddTorque(throwChargeBonus, 0, throwChargeBonus, ForceMode.Impulse); 
-            //torque effects the angle it is thrown at
-            //probably want to only apply torque to the enemy model? maybe in .MakeProne?
 
             StartCoroutine(heldObject.GetComponent<EnemyBehaviour>().MakeProne());
 
@@ -106,6 +107,12 @@ public class PlayerGrabAndThrow : MonoBehaviour
         else{
             MoveHeldObject(holdPosition);
         }
-            
+    }
+
+    // Ignore enemy colliders when throwing an enemy
+    IEnumerator IgnoreEnemyColliders(){
+        characterController.excludeLayers = LayerMask.GetMask("Enemy");
+        yield return new WaitForSeconds(0.1f);
+        characterController.excludeLayers = LayerMask.GetMask("Nothing");
     }
 }

@@ -177,7 +177,7 @@ MonoBehaviour:
   turnSpeed: 0.5
   runAwayDistance: 15
   followDistance: 17
-  hoverHeight: 7.5
+  hoverHeight: 9
   hoverStrength: 5
 --- !u!114 &5986822111291365628
 MonoBehaviour:
