@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
         // While the menu is up, pan the menu camera around the arena
         if(menuCamera.enabled){
             menuCamera.transform.LookAt(Vector3.zero);
-            menuCamera.transform.Translate(menuCameraPanSpeed * Time.deltaTime);
+            menuCamera.transform.Translate(menuCameraPanSpeed);
         }
         else if(gameUI.enabled){
             // Prevent the player from entering and exiting the pause menu too quickly

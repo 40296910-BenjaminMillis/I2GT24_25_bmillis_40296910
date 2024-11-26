@@ -16158,7 +16158,7 @@ MonoBehaviour:
   settingsUI: {fileID: 392431540}
   gameStateManager: {fileID: 201487570}
   menuCamera: {fileID: 1571429066}
-  menuCameraPanSpeed: {x: 25, y: 0, z: 0}
+  menuCameraPanSpeed: {x: 0.5, y: 0, z: 0}
   healthBar: {fileID: 818391484}
   dashCooldownBar: {fileID: 1914486534}
   scoreText: {fileID: 401410127}
