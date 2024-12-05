@@ -2026,6 +2026,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267784625}
   m_CullTransparentMesh: 1
+--- !u!1 &273478922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273478923}
+  m_Layer: 0
+  m_Name: MenuCameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &273478923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273478922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1571429067}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &273499514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14937,12 +14969,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571429064}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 35, z: -90}
+  m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 0, z: -90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 273478923}
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!1001 &1571880741
 PrefabInstance:
@@ -16157,8 +16189,8 @@ MonoBehaviour:
   pauseUI: {fileID: 1289713607}
   settingsUI: {fileID: 392431540}
   gameStateManager: {fileID: 201487570}
-  menuCamera: {fileID: 1571429066}
-  menuCameraPanSpeed: {x: 0.5, y: 0, z: 0}
+  menuCamera: {fileID: 273478922}
+  menuCameraPanSpeed: {x: 0, y: -25, z: 0}
   healthBar: {fileID: 818391484}
   dashCooldownBar: {fileID: 1914486534}
   scoreText: {fileID: 401410127}
@@ -21167,7 +21199,7 @@ SceneRoots:
   - {fileID: 1583027324}
   - {fileID: 201487568}
   - {fileID: 1670878557}
-  - {fileID: 1571429067}
   - {fileID: 724184733}
   - {fileID: 5745848050643110135}
   - {fileID: 1380092918}
+  - {fileID: 273478923}

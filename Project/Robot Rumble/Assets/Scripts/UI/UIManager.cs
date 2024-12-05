@@ -17,8 +17,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameStateManager gameStateManager;
 
     [Header("Camera")]
-    [SerializeField] Camera menuCamera;
-    [SerializeField] Vector3 menuCameraPanSpeed = new Vector3(0.25f, 0, 0);
+    [SerializeField] GameObject menuCamera;
+    [SerializeField] Vector3 menuCameraPanSpeed = new Vector3(0, 1f, 0);
 
     [Header("Player Information")]
     [SerializeField] Slider healthBar;
@@ -46,9 +46,8 @@ public class UIManager : MonoBehaviour
 
     void Update(){
         // While the menu is up, pan the menu camera around the arena
-        if(menuCamera.enabled){
-            menuCamera.transform.LookAt(Vector3.zero);
-            menuCamera.transform.Translate(menuCameraPanSpeed);
+        if(menuCamera.activeSelf){
+            menuCamera.transform.Rotate(menuCameraPanSpeed * Time.deltaTime);
         }
         else if(gameUI.enabled){
             // Prevent the player from entering and exiting the pause menu too quickly
@@ -77,8 +76,7 @@ public class UIManager : MonoBehaviour
         // Disable menu and game over ui
         menuUI.enabled = false;
         gameOverUI.enabled = false;
-        menuCamera.enabled = false;
-        menuCamera.GetComponent<AudioListener>().enabled = false;
+        menuCamera.SetActive(false);
 
         // GameManager Setup
         gameStateManager.StartGame();
@@ -104,8 +102,7 @@ public class UIManager : MonoBehaviour
         gameUI.enabled = false;
         ToggleCursorOn();
         gameOverUI.enabled = true;
-        menuCamera.enabled = true;
-        menuCamera.GetComponent<AudioListener>().enabled = true;
+        menuCamera.SetActive(true);
         
         // Score text
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
@@ -115,14 +112,13 @@ public class UIManager : MonoBehaviour
         if(FindObjectOfType<PlayerControl>())
             Destroy(FindObjectOfType<PlayerControl>().gameObject);
 
-        menuCamera.enabled = true;
+        menuCamera.SetActive(true);
         ToggleCursorOn();
         Time.timeScale = 1f;
         gameOverUI.enabled = false;
         gameUI.enabled = false;
         pauseUI.enabled = false;
         menuUI.enabled = true;
-        menuCamera.GetComponent<AudioListener>().enabled = true;
         gameStateManager.GetComponent<WaveManager>().ClearAll();
         FindObjectOfType<StageEffects>().MainMenuEffect();
     }
