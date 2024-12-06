@@ -7,8 +7,6 @@ public class BossManager : MonoBehaviour
     MoveType moveType;
     Transform playerTransform;
 
-    bool isActive = true;
-
     void Start(){
         moveType = GetComponent<MoveType>();
         playerTransform = FindObjectOfType<PlayerControl>().transform;
