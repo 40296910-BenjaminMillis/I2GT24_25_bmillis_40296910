@@ -40,7 +40,7 @@ public class BossAttackSlam : BossAttack
     }
 
     void OnTriggerEnter(Collider other){
-        if(attackCooldown <= 0){
+        if(attackCooldown <= 0 && !finishingAttack){
             if(other.GetComponent<Health>()){
                 other.GetComponent<Health>().UpdateHealth(-1);
             }
