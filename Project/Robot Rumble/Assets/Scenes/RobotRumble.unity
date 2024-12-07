@@ -21226,11 +21226,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1258733045219606870, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1258733045219606870, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.711912
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1258733045219606870, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21263,30 +21263,6 @@ PrefabInstance:
     - target: {fileID: 1258733045219606870, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858544204210197439, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: hitDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858544204210197439, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: slamSpeed
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858544204210197439, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: aimPositionOffset.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944371668558638052, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: hitDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944371668558638052, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: slamSpeed
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944371668558638052, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-      propertyPath: aimPositionOffset.y
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6706885589691774090, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_Name

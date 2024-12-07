@@ -5,11 +5,13 @@ using UnityEngine;
 public abstract class BossAttack : AttackType
 {
     [Header("Boss Attack")]
+    [SerializeField] protected MeshRenderer warningZone; // Used to indicate to the player where they should avoid the attack
+    [SerializeField] protected float stopAimingTime = 1; // Time set during the attack cooldown where the boss stops tracking the player 
     [SerializeField] protected Vector3 aimPositionOffset; // Position of attack to the player
     [SerializeField] protected float hitDelay = 1f; // Time the attack waits between the end of the attack and returning to idle
     [SerializeField] protected float timeToNextAttack = 3f; // When the attack is done, the time it takes to move to the next boss attack
     protected Vector3 startPosition; // Idle position
-    bool isAttacking;
+    protected bool isAttacking;
     protected bool finishingAttack;
 
     void Start(){
