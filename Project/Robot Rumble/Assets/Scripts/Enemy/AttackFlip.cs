@@ -7,7 +7,7 @@ public class AttackFlip : AttackType
     [SerializeField] float launchForce;
     [SerializeField] Animator animator;
 
-     public override void Attack(){
+    public override void Attack(){
         base.Attack();
         if(attackCooldown > 0){
             attackCooldown -= Time.deltaTime;

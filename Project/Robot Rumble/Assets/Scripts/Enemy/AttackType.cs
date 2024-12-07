@@ -21,4 +21,8 @@ public abstract class AttackType : MonoBehaviour
             return;
         }
     }
+
+    public float GetAttackCooldown(){
+        return attackCooldown;
+    }
 }

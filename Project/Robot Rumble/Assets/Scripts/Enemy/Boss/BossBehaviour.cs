@@ -2,20 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossManager : MonoBehaviour
+public class BossBehaviour : MonoBehaviour
 {
-    MoveType moveType;
+    [SerializeField] List<BossAttackSlam> attacks = new List<BossAttackSlam>();
+    [SerializeField] MoveType head;
+    int selectedAttack = 0;
     Transform playerTransform;
 
     void Start(){
-        moveType = GetComponent<MoveType>();
         playerTransform = FindObjectOfType<PlayerControl>().transform;
     }
 
     void Update(){
         if(playerTransform){
-            if(moveType)
-                moveType.Move();
+            head.Move();
+
+        if(!attacks[selectedAttack].GetIsAttacking()){
+            // Move to the next attack and set it up
+            selectedAttack++;
+            if(selectedAttack > attacks.Count-1)
+                selectedAttack = 0;
+            attacks[selectedAttack].SetIsAttacking(true);
+        }
+
+            //track position in list?
+            //if selected attacks cooldown = 0
+                //select the next attack in the list
 
             //The boss will have (maybe) 3 attacks:
                 //slam the player from above
