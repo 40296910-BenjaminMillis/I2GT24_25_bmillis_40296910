@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
-    [SerializeField] List<BossAttackSlam> attacks = new List<BossAttackSlam>();
+    [SerializeField] List<BossAttack> attacks = new List<BossAttack>();
     [SerializeField] MoveType head;
     int selectedAttack = 0;
     Transform playerTransform;
