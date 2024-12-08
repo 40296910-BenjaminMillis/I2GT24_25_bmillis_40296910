@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201487566}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d83aa23c7f81ee41bc1e581f2c4528c, type: 3}
   m_Name: 
@@ -1442,6 +1442,8 @@ MonoBehaviour:
   - {fileID: 7154143831197801575, guid: 408fc36100ac2d444a9dd8fad258564e, type: 3}
   - {fileID: 7154143831197801575, guid: 98a1fd954e6b3c84494746c45212cf3e, type: 3}
   - {fileID: 7154143831197801575, guid: bec9d671c84c7ef4190d7b9539fd2da4, type: 3}
+  boss: {fileID: 2800886941791802200, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
+  bossSpawnWave: 2
   xSpread: 45
   zSpread: 45
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}
@@ -21267,6 +21269,10 @@ PrefabInstance:
     - target: {fileID: 6706885589691774090, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706885589691774090, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

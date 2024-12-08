@@ -42,7 +42,6 @@ public class ScrollingScreen : MonoBehaviour
     public void UpdateEnemyCountText(string oldCount, string newCount){
         string temp = textField.text;
         string modified = temp.Replace(oldCount, newCount);
-        Debug.Log(modified);
         textField.text = modified;
     }
 

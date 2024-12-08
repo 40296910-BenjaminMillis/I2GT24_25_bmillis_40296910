@@ -5,14 +5,17 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     [SerializeField] List<BossAttack> attacks = new List<BossAttack>();
-    [SerializeField] MoveType head;
+    [SerializeField] MoveBoss head;
     [SerializeField] float entryTime = 5f;
+    [SerializeField] Vector3 hoverPosition;
     int selectedAttack = 0;
     float entryCountdown = 0;
     Transform playerTransform;
+    Vector3 startPosition;
 
     void Start(){
         playerTransform = FindObjectOfType<PlayerControl>().transform;
+        startPosition = transform.position;
     }
 
     void Update(){

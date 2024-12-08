@@ -605,11 +605,11 @@ GameObject:
   - component: {fileID: 2800886941791802200}
   m_Layer: 9
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1258733045219606870
 Transform:
   m_ObjectHideFlags: 0
@@ -645,6 +645,7 @@ MonoBehaviour:
   - {fileID: 1957755106074388594}
   head: {fileID: 8706603246687520562}
   entryTime: 5
+  hoverPosition: {x: 0, y: 30, z: 0}
 --- !u!1 &7290864102334655028
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,9 +750,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2601544502316651656}
   - component: {fileID: 8706603246687520562}
+  - component: {fileID: 2006964481617994527}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -788,6 +790,21 @@ MonoBehaviour:
   turnDelay: 1
   hoverSpeed: 3
   hoverHeight: 3
+  hoverPosition: {x: 0, y: 30, z: 0}
+--- !u!114 &2006964481617994527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104597809410628454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f082b1416e83444191278600efe6d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
 --- !u!1001 &718678063436936080
 PrefabInstance:
   m_ObjectHideFlags: 0

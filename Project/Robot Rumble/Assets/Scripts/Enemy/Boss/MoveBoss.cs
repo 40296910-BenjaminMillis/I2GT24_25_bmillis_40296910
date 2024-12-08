@@ -6,20 +6,19 @@ public class MoveBoss : MoveType
 {
     [SerializeField] float hoverSpeed = 50f;
     [SerializeField] float hoverHeight = 5f;
-    Vector3 startPosition;
+    [SerializeField] Vector3 hoverPosition;
     bool rising = true;
 
     void Start()
     {
         playerTransform = FindObjectOfType<PlayerControl>().transform;
-        startPosition = transform.position;
     }
 
     private void Update(){
         // Make the boss hover in place
-        if(transform.position.y <= startPosition.y)
+        if(transform.position.y <= hoverPosition.y)
             rising = true;
-        if(transform.position.y >= startPosition.y + hoverHeight)
+        if(transform.position.y >= hoverPosition.y + hoverHeight)
             rising = false;
 
         if(rising)

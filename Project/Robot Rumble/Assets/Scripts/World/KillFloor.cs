@@ -16,7 +16,7 @@ public class KillFloor : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         // Deplete all enemy health if they touch the killfloor
-        if(other.CompareTag("Enemy")){
+        if(other.CompareTag("Enemy") && other.gameObject.layer != LayerMask.GetMask("Boss")){
             ParticleSystem instance = Instantiate(smoke, other.transform.position + Vector3.up, smoke.transform.rotation);
             Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
             Health targetHealth = other.GetComponent<Health>();

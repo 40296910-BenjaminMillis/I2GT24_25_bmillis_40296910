@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour
 {
     
     [SerializeField] List<EnemyBehaviour> enemySelection = new List<EnemyBehaviour>(); // A list that the wave manager chooses from to spawn new enemies
+    [SerializeField] BossBehaviour boss;
+    [SerializeField] int bossSpawnWave = 10;
     [SerializeField] int xSpread;
     [SerializeField] int zSpread;
     [SerializeField] ParticleSystem spawnEffect;
@@ -16,6 +18,7 @@ public class WaveManager : MonoBehaviour
     int enemyRankCount; // The total ranking of enemies that are allowed to exist
     int enemyCount; // The current number of enemies that exist
     bool isRunning; // Denotes if the wave manager is currently active
+    BossBehaviour currentBoss;
 
     // Reset values for a new game
     public void StartWaves() {
@@ -41,8 +44,17 @@ public class WaveManager : MonoBehaviour
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
                 enemyRankCount = waveIntensity * waveNumber;
                 Debug.Log("Enemy rank count: " + enemyRankCount + ", Enemy count: " + enemyCount); 
+
+                if(waveNumber % bossSpawnWave == 0 && currentBoss == null){
+                    Debug.Log("Spawning boss");
+                    SpawnBoss();
+                    // -TODO- add a warning effect and delay for the boss spawning,
+                }
+
+                else{
+                    GetComponent<StageEffects>().WaveEndEffect();
+                }
                 StartCoroutine(SpawnEnemies());
-                GetComponent<StageEffects>().WaveEndEffect();
             }
         }
     }
@@ -79,12 +91,22 @@ public class WaveManager : MonoBehaviour
         enemyCount--;
     }
 
+    void SpawnBoss(){
+        currentBoss = Instantiate(boss, boss.transform.position, boss.transform.rotation);
+    }
+
     // Remove all enemies currently in the game. Used after game over
     public void ClearEnemies(){
         EnemyBehaviour[] allEnemies = FindObjectsOfType<EnemyBehaviour>();
     	foreach(EnemyBehaviour enemy in allEnemies) {
         	Destroy(enemy.gameObject);
     	}
+        if(currentBoss)
+            Destroy(currentBoss.gameObject);
+                // BossBehaviour[] allBosses = FindObjectsOfType<BossBehaviour>();
+    	// foreach(BossBehaviour boss in allBosses) {
+        //     Destroy(boss);
+        // }
     }
 
     public void ClearProjectiles(){
