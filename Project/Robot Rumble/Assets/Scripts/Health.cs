@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] int health = 3;
+    [SerializeField] protected int health = 3;
 
     bool isDead = false;
 

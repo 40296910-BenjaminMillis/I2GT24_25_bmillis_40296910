@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [Header("Player Information")]
     [SerializeField] Slider healthBar;
     [SerializeField] GameObject dashCooldownBar;
+    [SerializeField] Slider bossHealthbar;
     PlayerControl player;
     PlayerHealth playerHealth;
 
@@ -69,6 +70,11 @@ public class UIManager : MonoBehaviour
             if(gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString() != waveText.text){
                 waveText.text = gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString();
             }
+
+            // Get boss info
+            if(bossHealthbar.gameObject.activeSelf){
+                bossHealthbar.value = FindObjectOfType<BossHealth>().GetHealth();
+            }
         }
     }
 
@@ -100,6 +106,7 @@ public class UIManager : MonoBehaviour
     public void LoadGameOver(){
         // Disable the game UI, enable game over UI
         gameUI.enabled = false;
+        ToggleBossHealthbarOff();
         ToggleCursorOn();
         gameOverUI.enabled = true;
         menuCamera.SetActive(true);
@@ -121,6 +128,7 @@ public class UIManager : MonoBehaviour
         menuUI.enabled = true;
         gameStateManager.GetComponent<WaveManager>().ClearAll();
         FindObjectOfType<StageEffects>().MainMenuEffect();
+        ToggleBossHealthbarOff();
     }
 
     public void TogglePauseMenu(){
@@ -166,5 +174,15 @@ public class UIManager : MonoBehaviour
     void ToggleCursorOff(){
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void ToggleBossHealthbarOn(int health){
+        bossHealthbar.gameObject.SetActive(true);
+        bossHealthbar.maxValue = health;
+        bossHealthbar.value = health;
+    }
+
+    public void ToggleBossHealthbarOff(){
+        bossHealthbar.gameObject.SetActive(false);
     }
 }

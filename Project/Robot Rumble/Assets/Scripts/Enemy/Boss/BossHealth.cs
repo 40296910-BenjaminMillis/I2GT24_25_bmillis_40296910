@@ -15,6 +15,7 @@ public class BossHealth : Health
         scoreManager = FindObjectOfType<ScoreManager>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         pointsOnKill = rank * 100; // Points granted based on rank of enemy
+        FindObjectOfType<UIManager>().ToggleBossHealthbarOn(health);
     }
 
     public override void UpdateHealth(int value){
@@ -33,6 +34,7 @@ public class BossHealth : Health
     }
 
     public override void Die(){
+        FindObjectOfType<UIManager>().ToggleBossHealthbarOff();
         CalculateScore();
         audioPlayer.PlayEnemyDeathClip(this.transform.position);
         ParticleSystem instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
