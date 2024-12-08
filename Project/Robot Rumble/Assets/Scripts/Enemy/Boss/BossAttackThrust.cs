@@ -17,17 +17,6 @@ public class BossAttackThrust : BossAttack
         startPosition = transform.localPosition;
     }
 
-    private void Update(){
-        if(isAttacking){
-            transform.rotation = Quaternion.Euler(-90, 0, 0);
-            Attack();
-        }
-        else{
-            //idle stuff
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-
     public override void Attack(){
         base.Attack();
 
