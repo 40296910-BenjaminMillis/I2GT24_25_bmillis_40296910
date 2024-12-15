@@ -66,7 +66,9 @@ public class WaveManager : MonoBehaviour
         if(FindObjectOfType<PlayerControl>()){
             while(rankCount < enemyRankCount){
                 int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
-                if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyRankCount){
+                int waveSpawnMin = (int)(enemySelection[randomEnemy].GetRank()*1.5f);
+
+                if(rankCount + enemySelection[randomEnemy].GetRank() <= enemyRankCount && waveSpawnMin <= waveNumber){
                     //Move the spawner to a random location and cast a ray to spawn the enemy
                     Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 

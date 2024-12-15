@@ -40,14 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4457398272841508619}
+  - component: {fileID: 7154143831197801575}
+  - component: {fileID: 9012478718237305783}
+  - component: {fileID: 2168362307454866904}
   - component: {fileID: 1122223867434519422}
   - component: {fileID: 1775320934111323785}
-  - component: {fileID: 9012478718237305783}
-  - component: {fileID: 7154143831197801575}
   - component: {fileID: 398680843506063859}
   - component: {fileID: 8791879590357300336}
-  - component: {fileID: -6369307709169825874}
-  - component: {fileID: 2168362307454866904}
   m_Layer: 8
   m_Name: StaticEnemy
   m_TagString: Enemy
@@ -72,6 +71,52 @@ Transform:
   - {fileID: 778859480921287980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7154143831197801575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rank: 4
+  gravity: 40
+  proneTriggerCollider: {fileID: 0}
+  immovable: 1
+  trailRenderer: {fileID: 0}
+--- !u!114 &9012478718237305783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f082b1416e83444191278600efe6d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
+--- !u!114 &2168362307454866904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087735306287288596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e49dabc16d319e4fbb97c0a23173c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelay: 5
+  projectile: {fileID: 1051956740289851221, guid: 62eed985f1b8aec4eb46c8066e7773e0, type: 3}
+  firePosition: {fileID: 247311239970431324}
 --- !u!33 &1122223867434519422
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,37 +152,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &9012478718237305783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f082b1416e83444191278600efe6d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
---- !u!114 &7154143831197801575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rank: 4
-  gravity: 40
-  proneTriggerCollider: {fileID: 0}
-  immovable: 1
-  trailRenderer: {fileID: 0}
 --- !u!65 &398680843506063859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,38 +286,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &-6369307709169825874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rank: 4
-  gravity: 10
-  proneTriggerCollider: {fileID: 0}
-  immovable: 0
-  trailRenderer: {fileID: 0}
---- !u!114 &2168362307454866904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087735306287288596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e49dabc16d319e4fbb97c0a23173c33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDelay: 5
-  projectile: {fileID: 1051956740289851221, guid: 62eed985f1b8aec4eb46c8066e7773e0, type: 3}
-  firePosition: {fileID: 247311239970431324}
 --- !u!1 &5945229995033781208
 GameObject:
   m_ObjectHideFlags: 0
