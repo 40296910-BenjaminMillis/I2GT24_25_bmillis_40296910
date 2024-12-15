@@ -45,7 +45,7 @@ public class PlayerGrabAndThrow : MonoBehaviour
     void Grab(){
         RaycastHit hit;
         if(Physics.Raycast(grabPosition.position, grabPosition.forward, out hit, grabPickupDistance)){ // Raycast a set distance
-            if (hit.transform.CompareTag("Enemy") && !hit.transform.gameObject.GetComponent<EnemyBehaviour>().GetImmovable()) {
+            if (hit.transform.gameObject.GetComponent<EnemyBehaviour>() && !hit.transform.gameObject.GetComponent<EnemyBehaviour>().GetImmovable()) {
                 // Update cursor to indacte we can pick up the enemy
                 crosshairGrab.enabled = true;
                 Debug.DrawRay(grabPosition.position, grabPosition.forward * hit.distance, Color.yellow);
