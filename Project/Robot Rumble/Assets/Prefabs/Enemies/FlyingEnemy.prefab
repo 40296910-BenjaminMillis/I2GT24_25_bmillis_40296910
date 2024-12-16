@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90135bbba832ae4429910ba5fc6bcc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rank: 2
+  rank: 1
   gravity: 1
   proneTriggerCollider: {fileID: 852269373168069223}
   immovable: 0
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6e586f7e81ab54c833bb7b0b982306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1500
-  turnSpeed: 0.5
+  moveSpeed: 7
+  turnDelay: 0.5
   runAwayDistance: 15
   followDistance: 17
   hoverHeight: 9

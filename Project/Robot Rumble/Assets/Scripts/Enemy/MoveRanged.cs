@@ -19,12 +19,12 @@ public class MoveRanged : MoveType
 
         // Run away from player if they get too close
         if(distance <= runAwayDistance){
-            enemyRb.AddForce(lookDirection * -moveSpeed * Time.deltaTime);
+            enemyRb.velocity = new Vector3(-lookDirection.x*moveSpeed, enemyRb.velocity.y, -lookDirection.z*moveSpeed);
         }
 
         // Run towards from player if they get too far
         else if(distance > followDistance){
-            enemyRb.AddForce(lookDirection * moveSpeed * Time.deltaTime);
+            enemyRb.velocity = new Vector3(lookDirection.x*moveSpeed, enemyRb.velocity.y, lookDirection.z*moveSpeed);
         }
 
         // Stop moving
