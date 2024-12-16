@@ -42,7 +42,10 @@ public class BossAttackSlam : BossAttack
     void OnTriggerEnter(Collider other){
         if(attackCooldown <= 0 && !finishingAttack){
             if(other.GetComponent<Health>()){
-                other.GetComponent<Health>().UpdateHealth(-1);
+                if(other.GetComponent<EnemyHealth>())
+                     other.GetComponent<Health>().UpdateHealth(-2, 2);
+                else
+                    other.GetComponent<Health>().UpdateHealth(-1);
             }
             rb.velocity = Vector3.zero;
             StartCoroutine(HitStop());
