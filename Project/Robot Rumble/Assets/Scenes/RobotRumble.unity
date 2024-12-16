@@ -1524,6 +1524,7 @@ MonoBehaviour:
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}
   waveIntensity: 3
   spawnWaitTime: 2.5
+  spawnDistanceFromPlayer: 50
 --- !u!114 &201487570
 MonoBehaviour:
   m_ObjectHideFlags: 0
