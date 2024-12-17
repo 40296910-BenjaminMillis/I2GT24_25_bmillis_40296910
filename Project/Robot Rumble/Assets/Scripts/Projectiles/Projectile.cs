@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float projectileSpeed = 1f;
+    [SerializeField] protected float projectileSpeed = 1f;
     [SerializeField] int projectileDamage = 1;
-    [SerializeField] float projectileLifetime = 20f; // Time a projectile can exist before colliding with something
+    [SerializeField] protected float projectileLifetime = 20f; // Time a projectile can exist before colliding with something
 
-    Rigidbody rb;
+    protected Rigidbody rb;
 
     void Start() {
         rb = GetComponent<Rigidbody>();

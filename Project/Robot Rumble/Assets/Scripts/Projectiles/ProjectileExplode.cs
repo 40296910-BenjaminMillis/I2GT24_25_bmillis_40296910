@@ -12,6 +12,10 @@ public class ProjectileExplode : Projectile
     }
 
     void Update(){
+        projectileLifetime -= Time.deltaTime;
+        if(projectileLifetime <= 0){
+            RemoveProjectile();
+        }
         moveType.Move();
     }
 

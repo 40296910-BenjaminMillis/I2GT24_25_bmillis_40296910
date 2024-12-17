@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5513774463658644844}
   - component: {fileID: 2364767149658436047}
   - component: {fileID: 5122210178885995316}
-  - component: {fileID: 1341701339458352773}
   - component: {fileID: 3621884216058019875}
+  - component: {fileID: 411444515800249396}
   m_Layer: 2
   m_Name: Rocket
   m_TagString: Untagged
@@ -101,7 +101,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -130,7 +130,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -138,24 +138,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1341701339458352773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051956740289851221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6e586f7e81ab54c833bb7b0b982306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
-  turnDelay: 1
-  runAwayDistance: 0
-  followDistance: 0
-  hoverHeight: 0
-  hoverStrength: 0
 --- !u!114 &3621884216058019875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +150,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968464f84794464eba922323638c7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 0
   projectileDamage: 1
-  projectileLifetime: 20
+  projectileLifetime: 10
   explosion: {fileID: 50811731492825968, guid: e30685459a9c1df4eb843cd53a723826, type: 3}
+--- !u!114 &411444515800249396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051956740289851221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8fb37b1b47d2746a34bfa475a1009e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  turnDelay: 0.6
 --- !u!1 &6145528764228884701
 GameObject:
   m_ObjectHideFlags: 0
