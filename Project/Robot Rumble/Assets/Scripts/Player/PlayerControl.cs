@@ -5,6 +5,7 @@ using System.Data;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform firePosition; // The position that the shot comes from
     [SerializeField] ParticleSystem hitSpark;
     [SerializeField] GameObject explosionSphere;
+    [SerializeField] GameObject explosiveShotBar; // Shows powerup length
 
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
@@ -39,7 +41,7 @@ public class PlayerControl : MonoBehaviour
     LineRenderer fireLine;
     AudioPlayer audioPlayer;
     Collider dashCollider;
-    bool hasExplodingShots;
+    float explodingShotsTime = 0;
 
     void Start(){
         audioPlayer = FindObjectOfType<AudioPlayer>();
@@ -59,6 +61,13 @@ public class PlayerControl : MonoBehaviour
             StartCoroutine(Dash(dashDuration));
         }
         dashCooldown -= Time.deltaTime;
+        if(explodingShotsTime > 0){
+            explodingShotsTime -= Time.deltaTime;
+            explosiveShotBar.GetComponent<Slider>().value = explodingShotsTime;
+        }
+        else{
+            explosiveShotBar.SetActive(false);
+        }
     }
 
     void Move(){
@@ -144,7 +153,7 @@ public class PlayerControl : MonoBehaviour
                 }
                 hitLocation = hit.point;
 
-                if(hasExplodingShots){ // If the explosive shot powerup has been picked up, add an explosion at the hit point
+                if(explodingShotsTime > 0){ // If the explosive shot powerup has been picked up, add an explosion at the hit point
                     GameObject instance = Instantiate(explosionSphere, hitLocation, Quaternion.identity);
                 }
             }
@@ -184,9 +193,13 @@ public class PlayerControl : MonoBehaviour
         lookSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
 
-    public IEnumerator SetExplodingShot(float duration){
-        hasExplodingShots = true;
-        yield return new WaitForSeconds(duration);
-        hasExplodingShots = false;
+    public void SetExplodingShot(float duration){
+        // Set cooldown of exploding shots. If powerup was already picked up, reset the cooldown
+        explodingShotsTime = duration;
+       
+        // Enable exploding shots bar, indicates length of powerup
+        explosiveShotBar.SetActive(true);
+        explosiveShotBar.GetComponent<Slider>().maxValue = duration;
+        explosiveShotBar.GetComponent<Slider>().value = duration;
     }
 }

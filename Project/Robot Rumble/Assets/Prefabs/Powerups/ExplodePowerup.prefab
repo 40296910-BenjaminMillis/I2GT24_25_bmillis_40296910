@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decoration: {fileID: 256251404834069460}
-  duration: 7
+  duration: 15
 --- !u!1 &5769083368507657497
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class PlayerHealth : Health
     }
 
     public void SetTemporaryInvincibility(float duration){
-        // Check if invincibility is already in place
+        // Set cooldown of invincibility. If powerup was already picked up, reset the cooldown
         Debug.Log("invincibility of " + duration);
         invincibilityFrameTime = duration;
        
