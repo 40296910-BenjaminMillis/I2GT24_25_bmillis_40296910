@@ -581,7 +581,7 @@ MonoBehaviour:
   - {fileID: 1957755106074388594}
   head: {fileID: 8706603246687520562}
   entryTime: 5
-  hoverPosition: {x: 0, y: 30, z: 0}
+  animator: {fileID: 2372564572439386539}
 --- !u!114 &7786212663598324112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +893,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 409587513408383874}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2372564572439386539}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2190211550423149384}
@@ -959,6 +962,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   bossHealth: {fileID: 7786212663598324112}
+--- !u!1 &376094781061402305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
+  m_PrefabInstance: {fileID: 718678063436936080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2372564572439386539
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376094781061402305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9bd31bb4372fe24488c3531024902e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &900624490429003263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8825110405995067793, guid: 99592334fe77c5f429fa44131177da8d, type: 3}

@@ -30,7 +30,17 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] float enemyDeathVolume = 1f;
     [SerializeField] AudioClip enemyKillfloorClip;
     [SerializeField] [Range(0f, 1f)] float enemyKillfloorVolume = 1f;
-    
+
+    [Header("Boss")]
+    [SerializeField] AudioClip bossLaughClip;
+    [SerializeField] [Range(0f, 1f)] float bossLaughVolume = 1f;
+    [SerializeField] AudioClip bossChargeClip;
+    [SerializeField] [Range(0f, 1f)] float bossChargeVolume = 1f;
+    [SerializeField] AudioClip bossThudClip;
+    [SerializeField] [Range(0f, 1f)] float bossThudVolume = 1f;
+    [SerializeField] AudioClip bossThrustClip;
+    [SerializeField] [Range(0f, 1f)] float bossThrustVolume = 1f;
+
     [Header("Flames")]
     [SerializeField] AudioClip flamesClip;
     [SerializeField] [Range(0f, 1f)] float flamesVolume = 1f;
@@ -84,8 +94,24 @@ public class AudioPlayer : MonoBehaviour
         PlayClip(enemyDeathClip, enemyDeathVolume, position);
     }
 
-        public void PlayEnemyKillfloorClip(Vector3 position){
+    public void PlayEnemyKillfloorClip(Vector3 position){
         PlayClip(enemyKillfloorClip, enemyKillfloorVolume, position);
+    }
+
+    public void PlayBossLaughClip(Vector3 position){
+        PlayClip(bossLaughClip, bossLaughVolume, position);
+    }
+
+    public void PlayBossChargeClip(Vector3 position){
+        PlayClip(bossChargeClip, bossChargeVolume, position);
+    }
+
+    public void PlayBossThudClip(Vector3 position){
+        PlayClip(bossThudClip, bossThudVolume, position);
+    }
+
+    public void PlayBossThrustClip(Vector3 position){
+        PlayClip(bossThrustClip, bossThrustVolume, position);
     }
 
     public void PlayFlamesClip(Vector3 position){

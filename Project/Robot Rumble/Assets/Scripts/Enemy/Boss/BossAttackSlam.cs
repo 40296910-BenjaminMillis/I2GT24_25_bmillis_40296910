@@ -48,6 +48,7 @@ public class BossAttackSlam : BossAttack
                     other.GetComponent<Health>().UpdateHealth(-1);
             }
             rb.velocity = Vector3.zero;
+            audioPlayer.PlayBossThudClip(transform.position);
             StartCoroutine(HitStop());
         }
     }

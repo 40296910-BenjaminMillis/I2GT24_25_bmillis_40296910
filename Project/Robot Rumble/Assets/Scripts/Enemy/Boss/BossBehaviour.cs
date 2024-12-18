@@ -7,15 +7,17 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] List<BossAttack> attacks = new List<BossAttack>();
     [SerializeField] MoveBoss head;
     [SerializeField] float entryTime = 5f;
-    [SerializeField] Vector3 hoverPosition;
+    [SerializeField] Animator animator;
     int selectedAttack = 0;
     float entryCountdown = 0;
     Transform playerTransform;
-    Vector3 startPosition;
+    AudioPlayer audioPlayer;
 
     void Start(){
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+        audioPlayer.PlayBossLaughClip(transform.position + Vector3.back*20 + Vector3.down*15);
+        animator.SetTrigger("Spawning");
         playerTransform = FindObjectOfType<PlayerControl>().transform;
-        startPosition = transform.position;
     }
 
     void Update(){

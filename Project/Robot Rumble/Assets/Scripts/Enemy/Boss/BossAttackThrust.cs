@@ -39,6 +39,7 @@ public class BossAttackThrust : BossAttack
                 }
                 else{
                     rb.AddForce(Vector3.back * thrustSpeed * Time.deltaTime);
+                    audioPlayer.PlayBossThrustClip(transform.position); // Currently plays this multiple times until the fist meets its end point
                 }
             }
         }

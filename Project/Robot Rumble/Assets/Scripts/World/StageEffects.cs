@@ -6,6 +6,8 @@ public class StageEffects : MonoBehaviour
 {
     [SerializeField] List<ParticleSystem> stageFlames = new List<ParticleSystem>();
     [SerializeField] List<ScrollingScreen> scrollingScreens = new List<ScrollingScreen>();
+    [SerializeField] GameObject warningLights;
+    [SerializeField] Vector3 warningLightSpinSpeed = new Vector3(0, 10f, 0);
 
     AudioPlayer audioPlayer;
 
@@ -14,7 +16,9 @@ public class StageEffects : MonoBehaviour
     }
 
     void Update(){
-        
+        if(warningLights.activeSelf){
+            warningLights.transform.Rotate(warningLightSpinSpeed * Time.deltaTime);
+        }
     }
 
     // Effect to signal the end of a wave, when all enemies have been defeated
@@ -52,4 +56,21 @@ public class StageEffects : MonoBehaviour
         }
     }
 
+    // Effect to signal a boss has spawned in the arena. Replaces the usual wave end effect
+    public void SpawnBossEffect(){
+        // Enable spinning red lights
+        StartCoroutine(StartWarningLights());
+
+        // Update text to display "WARNING"
+        foreach(ScrollingScreen screen in scrollingScreens){
+            screen.ShowWarningText();
+        }
+    }
+
+
+    IEnumerator StartWarningLights(){
+        warningLights.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        warningLights.SetActive(false);
+    }
 }

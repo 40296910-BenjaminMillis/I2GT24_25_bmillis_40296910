@@ -60,5 +60,7 @@ public abstract class BossAttack : AttackType
 
     public void SetIsAttacking(bool value){
         isAttacking = value;
+        if(isAttacking)
+            audioPlayer.PlayBossChargeClip(transform.position);
     }
 }

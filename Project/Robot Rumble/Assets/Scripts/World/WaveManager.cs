@@ -50,6 +50,7 @@ public class WaveManager : MonoBehaviour
                     Debug.Log("Spawning boss");
                     SpawnBoss();
                     // -TODO- add a warning effect and delay for the boss spawning,
+                    GetComponent<StageEffects>().SpawnBossEffect();
                 }
 
                 else{

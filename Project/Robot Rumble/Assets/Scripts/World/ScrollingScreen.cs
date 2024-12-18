@@ -48,4 +48,9 @@ public class ScrollingScreen : MonoBehaviour
     public void ShowMenuText(){
         textField.text = " ROBOT RUMBLE | ROBOT RUMBLE |";
     }
+
+    // Used during boss spawn
+    public void ShowWarningText(){
+        textField.text = " WARNING | WARNING | WARNING | WARNING |";
+    }
 }
