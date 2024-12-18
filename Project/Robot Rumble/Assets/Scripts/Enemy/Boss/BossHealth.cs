@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossHealth : Health
 {
-    [SerializeField] ParticleSystem deathEffect;
+    [SerializeField] GameObject deathEffect;
     [SerializeField] int rank;
     ScoreManager scoreManager;
     AudioPlayer audioPlayer;
@@ -36,9 +36,13 @@ public class BossHealth : Health
     public override void Die(){
         FindObjectOfType<UIManager>().ToggleBossHealthbarOff();
         CalculateScore();
-        audioPlayer.PlayEnemyDeathClip(this.transform.position);
-        ParticleSystem instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        audioPlayer.PlayBossDeathClip(this.transform.position);
+        GameObject instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        StartCoroutine(DelayedDeath());
+    }
+
+    IEnumerator DelayedDeath(){
+        yield return new WaitForSeconds(0.35f);
         base.Die();
     }
 }

@@ -31,7 +31,7 @@ public class Explosion : MonoBehaviour
             if(hit.GetComponent<Rigidbody>()){
                 hit.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, maxRadius, upwardsModifier, ForceMode.Impulse);
             }
-            if(hit.GetComponent<EnemyHealth>() || hit.GetComponent<PlayerHealth>()){ 
+            if((hit.GetComponent<EnemyHealth>() || hit.GetComponent<PlayerHealth>()) && damage > 0){ 
                 hit.gameObject.GetComponent<Health>().UpdateHealth(-damage);
             }
         }

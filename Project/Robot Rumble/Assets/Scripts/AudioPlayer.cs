@@ -40,6 +40,8 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] float bossThudVolume = 1f;
     [SerializeField] AudioClip bossThrustClip;
     [SerializeField] [Range(0f, 1f)] float bossThrustVolume = 1f;
+    [SerializeField] AudioClip bossDeathClip;
+    [SerializeField] [Range(0f, 1f)] float bossDeathVolume = 1f;
 
     [Header("Flames")]
     [SerializeField] AudioClip flamesClip;
@@ -112,6 +114,10 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayBossThrustClip(Vector3 position){
         PlayClip(bossThrustClip, bossThrustVolume, position);
+    }
+
+    public void PlayBossDeathClip(Vector3 position){
+        PlayClip(bossDeathClip, bossDeathVolume, position);
     }
 
     public void PlayFlamesClip(Vector3 position){

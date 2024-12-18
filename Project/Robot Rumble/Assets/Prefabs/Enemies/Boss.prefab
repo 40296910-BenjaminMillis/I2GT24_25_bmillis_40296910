@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
-  deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
+  deathEffect: {fileID: 984169875676399048, guid: cc35a79b944fc9b4f852c7ce47dace9f, type: 3}
   rank: 25
 --- !u!1 &7290864102334655028
 GameObject:

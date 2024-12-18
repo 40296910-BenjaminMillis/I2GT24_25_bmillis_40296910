@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    [SerializeField] ParticleSystem deathEffect;
+    [SerializeField] GameObject deathEffect;
     ScoreManager scoreManager;
     WaveManager waveManager;
     AudioPlayer audioPlayer;
@@ -39,8 +39,11 @@ public class EnemyHealth : Health
         CalculateScore();
         waveManager.UpdateEnemyCount(-rank); // Remove enemy from the waveManager count
         audioPlayer.PlayEnemyDeathClip(this.transform.position);
-        ParticleSystem instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        GameObject instance = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        
+        if(instance.GetComponent<ParticleSystem>())
+            Destroy(instance.gameObject, instance.GetComponent<ParticleSystem>().main.duration + instance.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
+        
         base.Die();
     }
 }

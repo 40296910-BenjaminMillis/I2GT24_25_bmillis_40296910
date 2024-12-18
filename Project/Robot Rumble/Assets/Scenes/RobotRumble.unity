@@ -12898,6 +12898,8 @@ MonoBehaviour:
   bossThudVolume: 1
   bossThrustClip: {fileID: 8300000, guid: 1e42d43ba48490344957e2a01124bc26, type: 3}
   bossThrustVolume: 1
+  bossDeathClip: {fileID: 8300000, guid: 892d08078a1976a42b284d2671c22bef, type: 3}
+  bossDeathVolume: 1
   flamesClip: {fileID: 8300000, guid: b9dd43ed01320b64bb845e78b85bb5e5, type: 3}
   flamesVolume: 1
   waveEndClip: {fileID: 8300000, guid: ebbffbbbecc66db4d932db0a398bf2b5, type: 3}
