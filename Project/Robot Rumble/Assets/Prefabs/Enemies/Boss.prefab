@@ -580,7 +580,7 @@ MonoBehaviour:
   - {fileID: 4858544204210197439}
   - {fileID: 1957755106074388594}
   head: {fileID: 8706603246687520562}
-  entryTime: 5
+  entryTime: 3.5
   animator: {fileID: 2372564572439386539}
 --- !u!114 &7786212663598324112
 MonoBehaviour:

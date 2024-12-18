@@ -8,6 +8,7 @@ public class BossAttackThrust : BossAttack
     [SerializeField] float thrustSpeed = 2000;
     [SerializeField] float thrustDistance = 120; // Based on the start position, how far the thrust can travel
     Rigidbody rb;
+    float sfxCooldown = 0;
 
     void Start(){
         attackCooldown = attackDelay;
@@ -38,8 +39,12 @@ public class BossAttackThrust : BossAttack
                     StartCoroutine(HitStop());
                 }
                 else{
+                    sfxCooldown -= Time.deltaTime;
                     rb.AddForce(Vector3.back * thrustSpeed * Time.deltaTime);
-                    audioPlayer.PlayBossThrustClip(transform.position); // Currently plays this multiple times until the fist meets its end point
+                    if(sfxCooldown <= 0){
+                        audioPlayer.PlayBossThrustClip(transform.position);
+                        sfxCooldown = 0.5f;
+                    }
                 }
             }
         }
