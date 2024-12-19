@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] AudioClip gameMusic;
+    [SerializeField] AudioClip menuMusic;
+    AudioSource audioSource;
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetVolumeLevel(float volumeLevel){
+        audioSource.volume = volumeLevel;
+    }
+
+    public void SetGameMusic(){
+        audioSource.clip = gameMusic;
+        audioSource.Play();
+    }
+
+    public void SetMenuMusic(){
+        audioSource.clip = menuMusic;
+        audioSource.Play();
     }
 }

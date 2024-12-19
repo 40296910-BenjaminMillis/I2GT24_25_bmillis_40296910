@@ -51,6 +51,12 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip waveEndClip;
     [SerializeField] [Range(0f, 1f)] float waveEndVolume = 1f;
 
+    [Header("Powerup")]
+    [SerializeField] AudioClip powerupFallClip;
+    [SerializeField] [Range(0f, 1f)] float powerupFallVolume = 1f;
+    [SerializeField] AudioClip powerupCollectClip;
+    [SerializeField] [Range(0f, 1f)] float powerupCollectVolume = 1f;
+
     float volumeLevel = 1;
     static AudioPlayer instance;
 
@@ -126,5 +132,13 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayWaveEnd(Vector3 position){
         PlayClip(waveEndClip, waveEndVolume, position);
+    }
+
+    public void PlayPowerupFallClip(Vector3 position){
+        PlayClip(powerupFallClip, powerupFallVolume, position);
+    }
+
+    public void PlayPowerupCollectClip(Vector3 position){
+        PlayClip(powerupCollectClip, powerupCollectVolume, position);
     }
 }

@@ -2201,7 +2201,7 @@ MonoBehaviour:
   - {fileID: 7154143831197801575, guid: 98a1fd954e6b3c84494746c45212cf3e, type: 3}
   - {fileID: 7154143831197801575, guid: bec9d671c84c7ef4190d7b9539fd2da4, type: 3}
   boss: {fileID: 2800886941791802200, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-  bossSpawnWave: 1
+  bossSpawnWave: 8
   xSpread: 45
   zSpread: 45
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}
@@ -4188,6 +4188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 361170810}
   - component: {fileID: 361170809}
+  - component: {fileID: 361170811}
   m_Layer: 0
   m_Name: MusicSource
   m_TagString: Untagged
@@ -4205,7 +4206,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4e724c16e4d95ac4eb2bf5df87848c2b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -4306,6 +4307,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &361170811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361170808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0e9335111fea3468806e573b69a1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMusic: {fileID: 8300000, guid: 4e724c16e4d95ac4eb2bf5df87848c2b, type: 3}
+  menuMusic: {fileID: 8300000, guid: 90988c7cbcf5803448b5868126cfb6a4, type: 3}
 --- !u!1 &365104329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4584,7 +4599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &392431536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4620,9 +4635,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityDefault: 220
   sensitivitySlider: {fileID: 1565206339}
-  audioDefault: 1
+  sfxDefault: 0
   audioSlider: {fileID: 1258147070}
   audioPlayer: {fileID: 1380092916}
+  musicDefault: 0
+  musicSlider: {fileID: 0}
+  musicPlayer: {fileID: 0}
 --- !u!114 &392431538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18006,6 +18024,10 @@ MonoBehaviour:
   flamesVolume: 1
   waveEndClip: {fileID: 8300000, guid: ebbffbbbecc66db4d932db0a398bf2b5, type: 3}
   waveEndVolume: 1
+  powerupFallClip: {fileID: 8300000, guid: 8f6165dd68416024ab28abe6f10d53f7, type: 3}
+  powerupFallVolume: 1
+  powerupCollectClip: {fileID: 8300000, guid: 11d248a2add7f90448922dfc20fb704c, type: 3}
+  powerupCollectVolume: 1
 --- !u!82 &1380092917
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18758,8 +18780,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1155035764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.08163265, y: 0}
+  m_AnchorMax: {x: 0.08163265, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20627,8 +20649,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1346333306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27534,7 +27556,7 @@ RectTransform:
   m_Father: {fileID: 1402560320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.08163265, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29032,7 +29054,7 @@ RectTransform:
   m_Father: {fileID: 1774648035}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

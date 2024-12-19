@@ -14,6 +14,7 @@ public class GameStateManager : MonoBehaviour
         waveManager = GetComponent<WaveManager>();
         leaderboard = FindObjectOfType<Leaderboard>();
         GetComponent<StageEffects>().MainMenuEffect();
+        Application.targetFrameRate = 60;
     }
 
 

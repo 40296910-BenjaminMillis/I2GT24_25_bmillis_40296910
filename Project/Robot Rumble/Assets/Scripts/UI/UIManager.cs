@@ -35,14 +35,13 @@ public class UIManager : MonoBehaviour
 
     float pauseCooldown = 0;
     Canvas lastCanvas;
+    MusicPlayer musicPlayer;
 
     void Start() {
-        menuUI.enabled = true;
-        gameUI.enabled = false;
-        gameOverUI.enabled = false;
-        pauseUI.enabled = false;
-        settingsUI.enabled = false;
+
         scoreManager = FindObjectOfType<ScoreManager>();
+        musicPlayer = FindObjectOfType<MusicPlayer>();
+        LoadMainMenu();
     }
 
     void Update(){
@@ -96,6 +95,8 @@ public class UIManager : MonoBehaviour
 
         ToggleCursorOff();
         gameUI.enabled = true;
+
+        musicPlayer.SetGameMusic();
     }
 
     // Currently unused, as the game is run on Unity Play and does not need one
@@ -122,13 +123,16 @@ public class UIManager : MonoBehaviour
         menuCamera.SetActive(true);
         ToggleCursorOn();
         Time.timeScale = 1f;
-        gameOverUI.enabled = false;
-        gameUI.enabled = false;
-        pauseUI.enabled = false;
         menuUI.enabled = true;
+        gameUI.enabled = false;
+        gameOverUI.enabled = false;
+        pauseUI.enabled = false;
+        settingsUI.enabled = false;
         gameStateManager.GetComponent<WaveManager>().ClearAll();
         FindObjectOfType<StageEffects>().MainMenuEffect();
         ToggleBossHealthbarOff();
+
+        musicPlayer.SetMenuMusic();
     }
 
     public void TogglePauseMenu(){
