@@ -2201,7 +2201,7 @@ MonoBehaviour:
   - {fileID: 7154143831197801575, guid: 98a1fd954e6b3c84494746c45212cf3e, type: 3}
   - {fileID: 7154143831197801575, guid: bec9d671c84c7ef4190d7b9539fd2da4, type: 3}
   boss: {fileID: 2800886941791802200, guid: 460f6972c7931de4ba07c5c0911534b5, type: 3}
-  bossSpawnWave: 8
+  bossSpawnWave: 1
   xSpread: 45
   zSpread: 45
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}

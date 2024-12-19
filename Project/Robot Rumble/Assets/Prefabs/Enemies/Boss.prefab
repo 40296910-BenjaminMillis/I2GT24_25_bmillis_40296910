@@ -268,6 +268,100 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 2
+--- !u!1 &3732092747579437238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7590771801236309103}
+  - component: {fileID: 2623941219192591769}
+  m_Layer: 9
+  m_Name: FiringLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7590771801236309103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732092747579437238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8, y: 1.262, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1041449276640285819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &2623941219192591769
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732092747579437238}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.6105407, b: 0.35294116, a: 1}
+  m_Intensity: 1
+  m_Range: 20
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &3738349857804422969
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,8 +776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - {fileID: 4858544204210197439}
+  - {fileID: 4612737547425835035}
   - {fileID: 1957755106074388594}
+  - {fileID: 4858544204210197439}
   head: {fileID: 8706603246687520562}
   entryTime: 3.5
   animator: {fileID: 2372564572439386539}
@@ -806,6 +901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2601544502316651656}
   - component: {fileID: 8706603246687520562}
+  - component: {fileID: 4612737547425835035}
   m_Layer: 9
   m_Name: Head
   m_TagString: Enemy
@@ -846,6 +942,28 @@ MonoBehaviour:
   hoverSpeed: 3
   hoverHeight: 3
   hoverPosition: {x: 0, y: 30, z: 0}
+--- !u!114 &4612737547425835035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104597809410628454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cff5d54d827432469403793c6234a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelay: 5
+  warningZone: {fileID: 0}
+  stopAimingTime: 0
+  aimPositionOffset: {x: 0, y: 0, z: 0}
+  hitDelay: 1
+  timeToNextAttack: 3
+  missile: {fileID: 8145162333343597453, guid: 12871fbebf1a041489bfef7001f11c40, type: 3}
+  firingLight: {fileID: 2623941219192591769}
+  lightBaseIntensity: 1
+  animator: {fileID: 2372564572439386539}
 --- !u!1001 &718678063436936080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -991,6 +1109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 865361266367486681}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7590771801236309103}
     - targetCorrespondingSourceObject: {fileID: -2484921068739079471, guid: 99592334fe77c5f429fa44131177da8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2361815387563966752}

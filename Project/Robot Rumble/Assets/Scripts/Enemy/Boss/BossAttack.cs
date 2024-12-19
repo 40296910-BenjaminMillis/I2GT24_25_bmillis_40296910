@@ -41,12 +41,12 @@ public abstract class BossAttack : AttackType
         }
     }
 
-    protected IEnumerator HitStop(){
+    protected virtual IEnumerator HitStop(){
         yield return new WaitForSeconds(hitDelay);
         finishingAttack = true;
     }
 
-    protected IEnumerator ReturnToStart(){
+    protected virtual IEnumerator ReturnToStart(){
         yield return new WaitForSeconds(timeToNextAttack);
         transform.localPosition = startPosition;
         finishingAttack = false;
