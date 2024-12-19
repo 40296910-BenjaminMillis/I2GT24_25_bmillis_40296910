@@ -36,6 +36,7 @@ public class BossHealth : Health
 
     public override void Die(){
         FindObjectOfType<UIManager>().ToggleBossHealthbarOff();
+        FindObjectOfType<WaveManager>().SetBossSpawnBufferTime(1); // Set a number of waves that have to pass before the next boss spawn
         CalculateScore();
         audioPlayer.PlayBossDeathClip(transform.position);
         GameObject instance = Instantiate(deathEffect, transform.position, Quaternion.identity);

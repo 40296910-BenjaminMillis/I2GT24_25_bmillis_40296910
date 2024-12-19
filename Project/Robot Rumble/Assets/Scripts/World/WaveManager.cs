@@ -19,6 +19,8 @@ public class WaveManager : MonoBehaviour
     int enemyCount; // The current number of enemies that exist
     bool isRunning; // Denotes if the wave manager is currently active
     BossBehaviour currentBoss;
+    int bossSpawnQueue = 0; // Number of bosses queued for spawning. Will build up if a boss still exists in the arena
+    int bossSpawnBufferTime = 0; // Wave delay for the next boss spawn if there is one still in currentBoss
 
     // Reset values for a new game
     public void StartWaves() {
@@ -46,13 +48,22 @@ public class WaveManager : MonoBehaviour
                 enemyRankCount = waveIntensity * waveNumber;
                 Debug.Log("Enemy rank count: " + enemyRankCount + ", Enemy count: " + enemyCount); 
 
-                if(waveNumber % bossSpawnWave == 0 && currentBoss == null){
+                // Add boss to queue
+                if(waveNumber % bossSpawnWave == 0){
+                    bossSpawnQueue++;
+                }
+
+                // Work out if a boss should spawn this wave
+                if(currentBoss == null && bossSpawnQueue > 0 && bossSpawnBufferTime <= 0){
+                    bossSpawnQueue--;
+                    
                     Debug.Log("Spawning boss");
                     SpawnBoss();
                     GetComponent<StageEffects>().SpawnBossEffect(spawnWaitTime);
                 }
 
                 else{
+                    bossSpawnBufferTime--;
                     GetComponent<StageEffects>().WaveEndEffect(spawnWaitTime);
                 }
                 StartCoroutine(SpawnEnemies());
@@ -107,10 +118,6 @@ public class WaveManager : MonoBehaviour
     	}
         if(currentBoss)
             Destroy(currentBoss.gameObject);
-                // BossBehaviour[] allBosses = FindObjectsOfType<BossBehaviour>();
-    	// foreach(BossBehaviour boss in allBosses) {
-        //     Destroy(boss);
-        // }
     }
 
     public void ClearProjectiles(){
@@ -140,5 +147,9 @@ public class WaveManager : MonoBehaviour
 
     public int GetEnemyCount(){
         return enemyCount;
+    }
+
+    public void SetBossSpawnBufferTime(int value){
+        bossSpawnBufferTime = value;
     }
 }
