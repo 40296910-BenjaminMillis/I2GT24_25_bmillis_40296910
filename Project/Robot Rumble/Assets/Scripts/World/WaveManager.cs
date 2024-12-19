@@ -13,7 +13,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField] ParticleSystem spawnEffect;
     [SerializeField] int waveIntensity = 3; // Affects how many enemies can spawn each round. Multiplied after each round
     [SerializeField] float spawnWaitTime = 2.5f; // Time before spawning enemies
-    [SerializeField] float spawnDistanceFromPlayer = 15;
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
     int enemyRankCount; // The total ranking of enemies that are allowed to exist
@@ -75,17 +74,14 @@ public class WaveManager : MonoBehaviour
                     //Move the spawner to a random location and cast a ray to spawn the enemy
                     Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
-                    // If the spawn location is far enough from the player, continue. Otherwise don't spawn
-                    //if(Vector3.Distance(spawnLocation.point, playerTransform.position) > spawnDistanceFromPlayer){
-                        rankCount += enemySelection[randomEnemy].GetRank();
+                    rankCount += enemySelection[randomEnemy].GetRank();
 
-                        ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
-                        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+                    ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
+                    Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
 
-                        Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
-                        Debug.Log("Enemy spawned at: " + spawnLocation.point);
-                        enemyCount++;
-                    //}
+                    Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
+                    Debug.Log("Enemy spawned at: " + spawnLocation.point);
+                    enemyCount++;
                 }
             }
             GetComponent<StageEffects>().WaveStartEffect();
@@ -122,6 +118,7 @@ public class WaveManager : MonoBehaviour
     	foreach(Projectile projectile in allProjectiles) {
         	Destroy(projectile.gameObject);
     	}
+        FindObjectOfType<LineRenderer>().enabled = false;
     }
 
     public void ClearPowerups(){

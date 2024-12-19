@@ -143,7 +143,7 @@ public class PlayerControl : MonoBehaviour
             Vector3 hitLocation;
 
             // Check if the raycast collides with anything
-            if(Physics.Raycast(firePosition.position, firePosition.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)){
+            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)){
                 Debug.Log("Shot Hit");
                 if(hit.collider.CompareTag("Enemy")){ // If the raycast hit an enemy, reduce the enemys health
                     Debug.Log("Shot Hit Enemy");
