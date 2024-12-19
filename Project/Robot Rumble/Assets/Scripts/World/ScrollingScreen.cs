@@ -30,12 +30,12 @@ public class ScrollingScreen : MonoBehaviour
 
     public void ShowWaveText(){
         int waveNumber = waveManager.GetWaveNumber();
-        textField.text = " WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+" |";
+        textField.text = " WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+" |";
     }
 
     public void ShowEnemyCountText(){
         int enemyCount = waveManager.GetEnemyCount();
-        textField.text = " ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " |";
+        textField.text = " ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " | ENEMIES "+enemyCount+ " |";
     }
 
     // Replace the enemy count number in the text string
@@ -46,11 +46,11 @@ public class ScrollingScreen : MonoBehaviour
     }
 
     public void ShowMenuText(){
-        textField.text = " ROBOT RUMBLE | ROBOT RUMBLE |";
+        textField.text = " ROBOT RUMBLE | ROBOT RUMBLE |";
     }
 
     // Used during boss spawn
     public void ShowWarningText(){
-        textField.text = " WARNING | WARNING | WARNING | WARNING |";
+        textField.text = " WARNING | WARNING | WARNING | WARNING |";
     }
 }

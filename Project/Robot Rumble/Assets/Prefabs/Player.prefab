@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0dbb805e92e65042909df180ce7d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  maxHealth: 5
   invincibilityFrameLength: 0.75
   playerCamera: {fileID: 6420304528165245617}
   invincibilityBar: {fileID: 4602449093278205284}

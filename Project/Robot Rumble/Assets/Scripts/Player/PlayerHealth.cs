@@ -14,6 +14,7 @@ public class PlayerHealth : Health
 
     void Awake(){
         audioPlayer = FindObjectOfType<AudioPlayer>(); 
+        health = maxHealth;
     }
 
     void Update(){
@@ -28,10 +29,15 @@ public class PlayerHealth : Health
 
     public override void UpdateHealth(int value){
         if(invincibilityFrameTime <= 0){ // Only deal damage to the player when not invincible
-            invincibilityFrameTime = invincibilityFrameLength; // Give player a short burst of invincibility
+            invincibilityFrameTime = invincibilityFrameLength; // Give player a short burst of invincibility            
             base.UpdateHealth(value);
-            audioPlayer.PlayPlayerDamageClip(this.transform.position);
-            StartCoroutine(playerCamera.ScreenShake());
+            if(value < 0){
+                audioPlayer.PlayPlayerDamageClip(this.transform.position);
+                StartCoroutine(playerCamera.ScreenShake());
+            }
+            if(health > maxHealth){ // If exceeding maxHealth, set health to max
+                health = maxHealth;
+            }
         }
     }
 

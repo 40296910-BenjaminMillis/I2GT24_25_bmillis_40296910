@@ -12,6 +12,7 @@ public class BossHealth : Health
     int scoreMultiplier = 1; // Certain actions, such as throw kills or killfloor kills grant score multiplier
 
     void Awake() {
+        health = maxHealth;
         scoreManager = FindObjectOfType<ScoreManager>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         pointsOnKill = rank * 100; // Points granted based on rank of enemy

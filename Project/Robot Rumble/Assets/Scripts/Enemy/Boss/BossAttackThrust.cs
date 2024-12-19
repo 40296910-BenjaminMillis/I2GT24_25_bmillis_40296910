@@ -27,13 +27,13 @@ public class BossAttackThrust : BossAttack
                 // Hover to the side of the player to aim, until 1 second remains
                 if(attackCooldown > stopAimingTime){
                     transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y-1, aimPositionOffset.z);
-                    warningZone.enabled = true;
+                    warningZone.SetActive(true);
                 }
             }
 
             else if(attackCooldown <= 0){
                 // Move towards targeted position, until reaching set thrust distance
-                warningZone.enabled = false;
+                warningZone.SetActive(false);
                 if(transform.localPosition.z >= startPosition.z + thrustDistance){
                     rb.velocity = Vector3.zero;
                     StartCoroutine(HitStop());

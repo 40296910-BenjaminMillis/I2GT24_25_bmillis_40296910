@@ -40,6 +40,7 @@ public class WaveManager : MonoBehaviour
         if(isRunning){
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
             if(enemyRankCount <= 0){
+                FindObjectOfType<PlayerHealth>().UpdateHealth(1); // Heal player 1 health every wave
                 ClearProjectiles();
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
@@ -49,7 +50,6 @@ public class WaveManager : MonoBehaviour
                 if(waveNumber % bossSpawnWave == 0 && currentBoss == null){
                     Debug.Log("Spawning boss");
                     SpawnBoss();
-                    // -TODO- add a warning effect and delay for the boss spawning,
                     GetComponent<StageEffects>().SpawnBossEffect(spawnWaitTime);
                 }
 
@@ -76,7 +76,7 @@ public class WaveManager : MonoBehaviour
                     Physics.Raycast(new Vector3(Random.Range(-xSpread, xSpread), 40, Random.Range(-zSpread, zSpread)), Vector3.down, out spawnLocation, Mathf.Infinity);
 
                     // If the spawn location is far enough from the player, continue. Otherwise don't spawn
-                    if(Vector3.Distance(spawnLocation.point, playerTransform.position) > spawnDistanceFromPlayer){
+                    //if(Vector3.Distance(spawnLocation.point, playerTransform.position) > spawnDistanceFromPlayer){
                         rankCount += enemySelection[randomEnemy].GetRank();
 
                         ParticleSystem instance = Instantiate(spawnEffect, spawnLocation.point, spawnEffect.transform.rotation);
@@ -85,7 +85,7 @@ public class WaveManager : MonoBehaviour
                         Instantiate(enemySelection[randomEnemy], spawnLocation.point + Vector3.up, transform.rotation);
                         Debug.Log("Enemy spawned at: " + spawnLocation.point);
                         enemyCount++;
-                    }
+                    //}
                 }
             }
             GetComponent<StageEffects>().WaveStartEffect();

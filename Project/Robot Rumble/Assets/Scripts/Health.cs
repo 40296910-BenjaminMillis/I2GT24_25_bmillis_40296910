@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] protected int health = 3;
+    [SerializeField] protected int maxHealth = 3;
 
+    protected int health;
     bool isDead = false;
+
+    void Start(){
+        health = maxHealth;
+    }
 
     // Pass in either positive or negative values to adjust health
     public virtual void UpdateHealth(int value){
