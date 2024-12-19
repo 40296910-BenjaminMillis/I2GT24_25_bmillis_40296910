@@ -42,6 +42,10 @@ public class EnemyBehaviour : MonoBehaviour
         this.isActive = isActive;
     }
 
+    public bool GetIsActive(){
+        return isActive;
+    }
+
     public int GetRank(){
         return rank;
     }
