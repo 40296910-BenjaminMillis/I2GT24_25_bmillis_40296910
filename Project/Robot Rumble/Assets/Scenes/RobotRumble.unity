@@ -236,7 +236,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 128, y: -10, z: 0}
-  m_LocalScale: {x: 50, y: 20, z: 220}
+  m_LocalScale: {x: 50, y: 20, z: 255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241195621}
@@ -793,11 +793,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47592091}
+  - component: {fileID: 47592095}
   - component: {fileID: 47592094}
   - component: {fileID: 47592093}
   - component: {fileID: 47592092}
   m_Layer: 0
-  m_Name: AudienceRow (2)
+  m_Name: AudienceRow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 47592090}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 130.00002, y: 31, z: -0.000015258789}
+  m_LocalPosition: {x: 130.00002, y: 33, z: -0.000015258789}
   m_LocalScale: {x: 26, y: 2.1666698, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -890,6 +891,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47592090}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &47592095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47592090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 23, z: 0}
 --- !u!1 &51932920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,11 +1875,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172923677}
+  - component: {fileID: 172923681}
   - component: {fileID: 172923680}
   - component: {fileID: 172923679}
   - component: {fileID: 172923678}
   m_Layer: 0
-  m_Name: AudienceRow (2)
+  m_Name: AudienceRow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1877,7 +1895,7 @@ Transform:
   m_GameObject: {fileID: 172923676}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -130.00002, y: 31, z: -0.000015258789}
+  m_LocalPosition: {x: -130.00002, y: 33, z: -0.000015258789}
   m_LocalScale: {x: 26, y: 2.1666698, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1955,6 +1973,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172923676}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &172923681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172923676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 23, z: 0}
 --- !u!4 &184197847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3cb047a13b41a444196dc8c31f4fabf4, type: 3}
@@ -2508,11 +2542,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224398350}
+  - component: {fileID: 224398354}
   - component: {fileID: 224398353}
   - component: {fileID: 224398352}
   - component: {fileID: 224398351}
   m_Layer: 0
-  m_Name: AudienceRow (1)
+  m_Name: AudienceRow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2527,7 +2562,7 @@ Transform:
   m_GameObject: {fileID: 224398349}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -120.000015, y: 28.9, z: -0.000015258789}
+  m_LocalPosition: {x: -120.000015, y: 28, z: -0.000015258789}
   m_LocalScale: {x: 23, y: 2.4999995, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2605,6 +2640,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224398349}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &224398354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224398349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 18, z: 0}
 --- !u!1001 &238025317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3551,7 +3602,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 128, y: -10, z: 0}
-  m_LocalScale: {x: 50, y: 20, z: 220}
+  m_LocalScale: {x: 50, y: 20, z: 255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 645784134}
@@ -3987,7 +4038,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 128, y: -10, z: 0}
-  m_LocalScale: {x: 50, y: 20, z: 220}
+  m_LocalScale: {x: 50, y: 20, z: 255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1452508455}
@@ -7886,7 +7937,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 128, y: -10, z: 0}
-  m_LocalScale: {x: 50, y: 20, z: 220}
+  m_LocalScale: {x: 50, y: 20, z: 255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1836390580}
@@ -9531,11 +9582,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 751456069}
+  - component: {fileID: 751456073}
   - component: {fileID: 751456072}
   - component: {fileID: 751456071}
   - component: {fileID: 751456070}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9550,7 +9602,7 @@ Transform:
   m_GameObject: {fileID: 751456068}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -110.000015, y: 25, z: -0.000015258789}
+  m_LocalPosition: {x: -110.000015, y: 22, z: -0.000015258789}
   m_LocalScale: {x: 18, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9628,6 +9680,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751456068}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &751456073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751456068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 12, z: 0}
 --- !u!1 &754203257
 GameObject:
   m_ObjectHideFlags: 0
@@ -11178,11 +11246,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857114600}
+  - component: {fileID: 857114604}
   - component: {fileID: 857114603}
   - component: {fileID: 857114602}
   - component: {fileID: 857114601}
   m_Layer: 0
-  m_Name: AudienceRow (1)
+  m_Name: AudienceRow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11197,7 +11266,7 @@ Transform:
   m_GameObject: {fileID: 857114599}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 28.9, z: -120}
+  m_LocalPosition: {x: 0, y: 28, z: -120}
   m_LocalScale: {x: 23, y: 2.4999995, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11275,6 +11344,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857114599}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &857114604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857114599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 18, z: 0}
 --- !u!1 &862621068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11554,11 +11639,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 885172525}
+  - component: {fileID: 885172529}
   - component: {fileID: 885172528}
   - component: {fileID: 885172527}
   - component: {fileID: 885172526}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11573,7 +11659,7 @@ Transform:
   m_GameObject: {fileID: 885172524}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 25, z: -110}
+  m_LocalPosition: {x: 0, y: 22, z: -110}
   m_LocalScale: {x: 18, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11651,6 +11737,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885172524}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &885172529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885172524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 12, z: 0}
 --- !u!1 &889550854
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,11 +12347,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974082348}
+  - component: {fileID: 974082352}
   - component: {fileID: 974082351}
   - component: {fileID: 974082350}
   - component: {fileID: 974082349}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12264,7 +12367,7 @@ Transform:
   m_GameObject: {fileID: 974082347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 30, z: 120}
+  m_LocalPosition: {x: 0, y: 28, z: 120}
   m_LocalScale: {x: 23, y: 2.4999998, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12342,6 +12445,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974082347}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &974082352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974082347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 18, z: 0}
 --- !u!1 &976716660
 GameObject:
   m_ObjectHideFlags: 0
@@ -13656,11 +13775,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1088473217}
+  - component: {fileID: 1088473221}
   - component: {fileID: 1088473220}
   - component: {fileID: 1088473219}
   - component: {fileID: 1088473218}
   m_Layer: 0
-  m_Name: AudienceRow (3)
+  m_Name: AudienceRow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13675,7 +13795,7 @@ Transform:
   m_GameObject: {fileID: 1088473216}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 31, z: -140}
+  m_LocalPosition: {x: 0, y: 37, z: -140}
   m_LocalScale: {x: 28.5, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13753,6 +13873,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088473216}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1088473221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088473216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 27, z: 0}
 --- !u!1 &1096737399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6923f5b6763e82048b3d32e998850e47, type: 3}
@@ -14713,11 +14849,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1169666151}
+  - component: {fileID: 1169666155}
   - component: {fileID: 1169666154}
   - component: {fileID: 1169666153}
   - component: {fileID: 1169666152}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14732,7 +14869,7 @@ Transform:
   m_GameObject: {fileID: 1169666150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 25, z: 110}
+  m_LocalPosition: {x: 0, y: 22, z: 110}
   m_LocalScale: {x: 18, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14810,6 +14947,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169666150}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1169666155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169666150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 12, z: 0}
 --- !u!1 &1181855517
 GameObject:
   m_ObjectHideFlags: 0
@@ -15435,11 +15588,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220317117}
+  - component: {fileID: 1220317121}
   - component: {fileID: 1220317120}
   - component: {fileID: 1220317119}
   - component: {fileID: 1220317118}
   m_Layer: 0
-  m_Name: AudienceRow (3)
+  m_Name: AudienceRow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15454,7 +15608,7 @@ Transform:
   m_GameObject: {fileID: 1220317116}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 140.00002, y: 31, z: -0.000015258789}
+  m_LocalPosition: {x: 140.00002, y: 37, z: -0.000015258789}
   m_LocalScale: {x: 28.5, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15532,6 +15686,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220317116}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1220317121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220317116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 27, z: 0}
 --- !u!1 &1235059348
 GameObject:
   m_ObjectHideFlags: 0
@@ -15782,11 +15952,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248937696}
+  - component: {fileID: 1248937700}
   - component: {fileID: 1248937699}
   - component: {fileID: 1248937698}
   - component: {fileID: 1248937697}
   m_Layer: 0
-  m_Name: AudienceRow (1)
+  m_Name: AudienceRow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15801,7 +15972,7 @@ Transform:
   m_GameObject: {fileID: 1248937695}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 120.000015, y: 28.9, z: -0.000015258789}
+  m_LocalPosition: {x: 120.000015, y: 28, z: -0.000015258789}
   m_LocalScale: {x: 23, y: 2.4999995, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15879,6 +16050,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248937695}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1248937700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248937695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 18, z: 0}
 --- !u!1 &1249019969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17949,11 +18136,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383146448}
+  - component: {fileID: 1383146452}
   - component: {fileID: 1383146451}
   - component: {fileID: 1383146450}
   - component: {fileID: 1383146449}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18046,6 +18234,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383146447}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1383146452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383146447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 23, z: 0}
 --- !u!1 &1402560319
 GameObject:
   m_ObjectHideFlags: 0
@@ -22002,11 +22206,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1647638786}
+  - component: {fileID: 1647638790}
   - component: {fileID: 1647638789}
   - component: {fileID: 1647638788}
   - component: {fileID: 1647638787}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22021,7 +22226,7 @@ Transform:
   m_GameObject: {fileID: 1647638785}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 35, z: 140}
+  m_LocalPosition: {x: 0, y: 37, z: 140}
   m_LocalScale: {x: 28.5, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22099,6 +22304,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647638785}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1647638790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647638785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 27, z: 0}
 --- !u!1 &1653179460
 GameObject:
   m_ObjectHideFlags: 0
@@ -23908,11 +24129,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1821211587}
+  - component: {fileID: 1821211591}
   - component: {fileID: 1821211590}
   - component: {fileID: 1821211589}
   - component: {fileID: 1821211588}
   m_Layer: 0
-  m_Name: AudienceRow
+  m_Name: AudienceRow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23927,7 +24149,7 @@ Transform:
   m_GameObject: {fileID: 1821211586}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 110.000015, y: 25, z: -0.000015258789}
+  m_LocalPosition: {x: 110.000015, y: 22, z: -0.000015258789}
   m_LocalScale: {x: 18, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24005,6 +24227,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821211586}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1821211591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821211586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 12, z: 0}
 --- !u!1001 &1821947055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25506,11 +25744,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914749949}
+  - component: {fileID: 1914749953}
   - component: {fileID: 1914749952}
   - component: {fileID: 1914749951}
   - component: {fileID: 1914749950}
   m_Layer: 0
-  m_Name: AudienceRow (3)
+  m_Name: AudienceRow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25525,7 +25764,7 @@ Transform:
   m_GameObject: {fileID: 1914749948}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -140.00002, y: 31, z: -0.000015258789}
+  m_LocalPosition: {x: -140.00002, y: 37, z: -0.000015258789}
   m_LocalScale: {x: 28.5, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25603,6 +25842,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914749948}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1914749953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914749948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 27, z: 0}
 --- !u!1 &1918672657
 GameObject:
   m_ObjectHideFlags: 0
@@ -26057,11 +26312,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930518757}
+  - component: {fileID: 1930518761}
   - component: {fileID: 1930518760}
   - component: {fileID: 1930518759}
   - component: {fileID: 1930518758}
   m_Layer: 0
-  m_Name: AudienceRow (2)
+  m_Name: AudienceRow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26076,7 +26332,7 @@ Transform:
   m_GameObject: {fileID: 1930518756}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 31, z: -130}
+  m_LocalPosition: {x: 0, y: 33, z: -130}
   m_LocalScale: {x: 26, y: 2.1666698, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26154,6 +26410,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930518756}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1930518761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930518756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756db38820f01e4a9a4d60cd95c19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMoveSpeed: 5
+  applauseSpeed: 15
+  hoverHeight: 3
+  hoverPosition: {x: 0, y: 23, z: 0}
 --- !u!1 &1933436170
 GameObject:
   m_ObjectHideFlags: 0

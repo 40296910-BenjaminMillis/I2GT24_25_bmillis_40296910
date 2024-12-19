@@ -9,9 +9,11 @@ public class StageEffects : MonoBehaviour
     [SerializeField] GameObject warningLights;
     [SerializeField] Vector3 warningLightSpinSpeed = new Vector3(0, 10f, 0);
 
+    List<Audience> audiences;
     AudioPlayer audioPlayer;
 
     void Start(){
+        audiences = new List<Audience>(FindObjectsOfType<Audience>());
         audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
@@ -22,11 +24,9 @@ public class StageEffects : MonoBehaviour
     }
 
     // Effect to signal the end of a wave, when all enemies have been defeated
-    public void WaveEndEffect(){
-        foreach(ParticleSystem flame in stageFlames){
-            flame.Play();
-            audioPlayer.PlayFlamesClip(flame.transform.position);
-        }
+    public void WaveEndEffect(float time){
+        PlayFlames();
+        PlayAudience(time);
 
         foreach(ScrollingScreen screen in scrollingScreens){
             screen.ShowWaveText();
@@ -57,9 +57,12 @@ public class StageEffects : MonoBehaviour
     }
 
     // Effect to signal a boss has spawned in the arena. Replaces the usual wave end effect
-    public void SpawnBossEffect(){
+    public void SpawnBossEffect(float time){
+        PlayFlames();
+        PlayAudience(time);
+
         // Enable spinning red lights
-        StartCoroutine(StartWarningLights());
+        StartCoroutine(StartWarningLights(time));
 
         // Update text to display "WARNING"
         foreach(ScrollingScreen screen in scrollingScreens){
@@ -68,9 +71,23 @@ public class StageEffects : MonoBehaviour
     }
 
 
-    IEnumerator StartWarningLights(){
+    IEnumerator StartWarningLights(float time){
         warningLights.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(time);
         warningLights.SetActive(false);
+    }
+    
+    void PlayFlames(){
+        foreach(ParticleSystem flame in stageFlames){
+            flame.Play();
+            audioPlayer.PlayFlamesClip(flame.transform.position);
+        }
+    }
+
+    void PlayAudience(float time){
+        // Make audience move faster for given time
+        foreach(Audience audience in audiences){
+            StartCoroutine(audience.Applause(time));
+        }
     }
 }
