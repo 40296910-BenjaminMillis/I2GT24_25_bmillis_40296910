@@ -4633,7 +4633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776ba95a7456ffe46a06fc4009b6a5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityDefault: 220
+  sensitivityDefault: 100
   sensitivitySlider: {fileID: 1565206339}
   sfxDefault: 1
   audioSlider: {fileID: 1258147070}
@@ -18172,7 +18172,7 @@ MonoBehaviour:
   enemyDeathClip: {fileID: 8300000, guid: 6e2a9c579d1f4fa45a82ffbe48bbdf1e, type: 3}
   enemyDeathVolume: 1
   enemyKillfloorClip: {fileID: 8300000, guid: c5d52c46a5fd0ae42926f570a84b1545, type: 3}
-  enemyKillfloorVolume: 1
+  enemyKillfloorVolume: 0.7
   bossLaughClip: {fileID: 8300000, guid: f98ed001947bcec438fb814973c6cdfc, type: 3}
   bossLaughVolume: 1
   bossChargeClip: {fileID: 8300000, guid: cf2069303e16f14479c0613bf9bb043f, type: 3}
@@ -20761,8 +20761,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 2007632627}
   m_HandleRect: {fileID: 1428920220}
   m_Direction: 0
-  m_MinValue: 10
-  m_MaxValue: 500
+  m_MinValue: 5
+  m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 50
   m_OnValueChanged:

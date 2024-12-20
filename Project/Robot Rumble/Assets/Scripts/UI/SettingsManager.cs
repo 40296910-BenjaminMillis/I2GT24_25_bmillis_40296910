@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [Header("Controls")]
-    [SerializeField] [Range(10, 500)] float sensitivityDefault; // Affects the speed the player camera moves
+    [SerializeField] [Range(5, 100)] float sensitivityDefault; // Affects the speed the player camera moves
     [SerializeField] Slider sensitivitySlider;
 
     [Header("SFX")]
