@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31be16d498b11d41826b0004e9d125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 12
   turnDelay: 0.65
 --- !u!114 &6347980873609660764
 MonoBehaviour:
@@ -530,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1046a1782fa641447878720378030e97, type: 2}
+    - target: {fileID: -1526964690268444965, guid: dc6401f4244123448af6cac9eaeb4050, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 5414164181812653564, guid: dc6401f4244123448af6cac9eaeb4050, type: 3}
     - target: {fileID: 919132149155446097, guid: dc6401f4244123448af6cac9eaeb4050, type: 3}
       propertyPath: m_Name
       value: SPIDBOT1
