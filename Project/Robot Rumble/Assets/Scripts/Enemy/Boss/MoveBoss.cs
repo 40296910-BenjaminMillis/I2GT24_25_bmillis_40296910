@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MoveBoss : MoveType
 {
-    [SerializeField] float hoverSpeed = 50f;
-    [SerializeField] float hoverHeight = 5f;
-    [SerializeField] Vector3 hoverPosition;
+    [SerializeField] float hoverSpeed = 50f; // Speed that the boss moves up-down
+    [SerializeField] float hoverHeight = 5f; // The up-down hover distance
+    [SerializeField] Vector3 hoverPosition; // World position that the boss tries to remain at during hover
     bool rising = true;
 
     void Start()

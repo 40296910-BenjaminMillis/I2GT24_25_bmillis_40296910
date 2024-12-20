@@ -6,7 +6,7 @@ using UnityEngine;
 public class BossAttackSlam : BossAttack
 {
     [Header("Slam")]
-    [SerializeField] float slamSpeed = 2000;
+    [SerializeField] float slamSpeed = 2000; // Fall speed of the attack
     Rigidbody rb;
 
     void Start(){
@@ -23,7 +23,7 @@ public class BossAttackSlam : BossAttack
         if(!finishingAttack){
             if(attackCooldown > 0){
                 attackCooldown -= Time.deltaTime;
-                // Hover above the player to aim, until 1 second remains
+                // Hover above the player to aim, until a set time (stopAimingTime) remains in attackCooldown
                 if(attackCooldown > stopAimingTime){
                     transform.position = playerTransform.position + aimPositionOffset;
                     warningZone.SetActive(true);

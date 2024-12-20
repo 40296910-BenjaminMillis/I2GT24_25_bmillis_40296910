@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDamageReciever : Health
+public class BossDamageReciever : Health // Damage recievers respond to boss health when being hit. Helps to manage the different meshes of the boss head
 {
     [SerializeField] Health bossHealth;
 

@@ -7,8 +7,8 @@ public class Audience : MonoBehaviour
     [SerializeField] float baseMoveSpeed = 5; // Speed when no events happening
     [SerializeField] float applauseSpeed = 15; // Speed during end of wave events
 
-    [SerializeField] float hoverHeight;
-    [SerializeField] Vector3 hoverPosition;
+    [SerializeField] float hoverHeight; // Height the audience moves up to
+    [SerializeField] Vector3 hoverPosition; // Position the audience tries to stay above
 
     float moveSpeed;
     bool rising = true;
@@ -31,6 +31,7 @@ public class Audience : MonoBehaviour
             transform.position += new Vector3(0, -moveSpeed, 0) * Time.deltaTime;
     }
 
+    // Speed up the move speed for a set time
     public IEnumerator Applause(float time){
         moveSpeed = applauseSpeed;
         yield return new WaitForSeconds(time);

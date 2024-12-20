@@ -29,9 +29,9 @@ public class BossBehaviour : MonoBehaviour
 
         if(playerTransform){
             head.Move();
-
+            // If attack has finished (is no longer attacking) then change attack
             if(!attacks[selectedAttack].GetIsAttacking()){
-                // Move to the next attack and set it up
+                // Move to the next attack in the list and set it up
                 selectedAttack++;
                 if(selectedAttack > attacks.Count-1)
                     selectedAttack = 0;

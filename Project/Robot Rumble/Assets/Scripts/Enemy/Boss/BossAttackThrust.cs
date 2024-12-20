@@ -24,7 +24,7 @@ public class BossAttackThrust : BossAttack
         if(!finishingAttack){
             if(attackCooldown > 0){
                 attackCooldown -= Time.deltaTime;
-                // Hover to the side of the player to aim, until 1 second remains
+                // Hover to the side of the player to aim, until a set time (stopAimingTime) remains in attackCooldown
                 if(attackCooldown > stopAimingTime){
                     transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y-1, aimPositionOffset.z);
                     warningZone.SetActive(true);
@@ -53,7 +53,7 @@ public class BossAttackThrust : BossAttack
     void OnTriggerEnter(Collider other){
         if(attackCooldown <= 0 && !finishingAttack){
             if(other.GetComponent<Health>()){
-                if(other.GetComponent<EnemyHealth>())
+                if(other.GetComponent<EnemyHealth>()) // Deal more damage and score to enemies
                      other.GetComponent<Health>().UpdateHealth(-2, 2);
                 else
                     other.GetComponent<Health>().UpdateHealth(-1);
