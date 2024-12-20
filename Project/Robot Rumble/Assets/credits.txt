@@ -1,12 +1,24 @@
+Models:
 "Spiderbot 1.0" by killyoverdrive licensed CC-BY-SA 3.0: https://opengameart.org/content/spiderbot-10
-"bomb_explosion_8bit" by Luke.RUSTLTD licensed CC0: https://opengameart.org/content/bombexplosion8bit
-dingding.wav by ljudman -- https://freesound.org/s/33244/ -- License: Sampling+
-"hardmetalimpact 19" and "fastwoosh" by ProductionCrate https://www.productioncrate.com/
-
 "Prototype Kit (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/prototype-kit
 "Space Kit (2.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/space-kit
 "Blaster Kit 1.1" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/blaster-kit
+
+Images:
 "Input Prompts (1.1b)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/input-prompts
+"Crosshair pack" by Kenny (www.kenney.nl) licensed CC0: https://kenney.nl/assets/crosshair-pack
+crowd from shutterstock.com 1171591861 https://www.shutterstock.com/image-vector/seamless-pattern-applause-audience-crowd-260nw-1171591861.jpg
+
+Music:
+"Blind Shift" by PetterTheSturgeon licensed CC-BY 3.0 https://opengameart.org/content/space-music-blind-shift
+"Omega Droid - Airborne" by Umplix licensed CC0 https://opengameart.org/content/omega-droid-airborne
+
+SFX:
+"bomb_explosion_8bit" by Luke.RUSTLTD licensed CC0: https://opengameart.org/content/bombexplosion8bit
+dingding.wav by ljudman -- https://freesound.org/s/33244/ -- License: Sampling+
+Robotic - Evil Laugh! by vultraz168 -- https://freesound.org/s/334665/ -- License: Creative Commons 0
+HQ Explosion by Quaker540 -- https://freesound.org/s/245372/ -- License: Creative Commons 0
+"hardmetalimpact 19", "fastwoosh", "fiery-missile-1", "Rattling_Metal_Impact_32", "synth-power-down",
+"Charge_Up_25", "bright-sword-4", "Bleep_Charge_Up_4" by ProductionCrate https://www.productioncrate.com/
 "Impact Sounds (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/sci-fi-sounds
 "Sci-Fi Sounds (1.0)" by Kenney (www.kenney.nl) licensed CC0: https://kenney.nl/assets/impact-sounds
-"Crosshair pack" by Kenny (www.kenney.nl) licensed CC0: https://kenney.nl/assets/crosshair-pack

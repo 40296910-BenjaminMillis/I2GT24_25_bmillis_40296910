@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7154143831197801575}
   - component: {fileID: 7434374228991496197}
   - component: {fileID: 2324780164542006472}
-  - component: {fileID: 5130946880330622676}
+  - component: {fileID: -1611381566400221068}
   m_Layer: 6
   m_Name: FlipperEnemy
   m_TagString: Enemy
@@ -274,7 +274,7 @@ MonoBehaviour:
   attackDelay: 0.5
   launchForce: 1000
   animator: {fileID: 6652215351861210115}
---- !u!114 &5130946880330622676
+--- !u!114 &-1611381566400221068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
