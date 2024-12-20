@@ -794,7 +794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc41309a80ffc049bda560df9fb3c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 35
+  health: 0
   deathEffect: {fileID: 984169875676399048, guid: cc35a79b944fc9b4f852c7ce47dace9f, type: 3}
   rank: 120
 --- !u!1 &7290864102334655028
@@ -1187,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  health: 0
   bossHealth: {fileID: 7786212663598324112}
 --- !u!1 &376094781061402305 stripped
 GameObject:
@@ -1254,6 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  health: 0
   bossHealth: {fileID: 7786212663598324112}
 --- !u!4 &1041449276640285819 stripped
 Transform:
@@ -1305,6 +1308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  health: 0
   bossHealth: {fileID: 7786212663598324112}
 --- !u!1 &9213815316898534051 stripped
 GameObject:
@@ -1346,6 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  health: 0
   bossHealth: {fileID: 7786212663598324112}
 --- !u!1001 &2712672169140519185
 PrefabInstance:
