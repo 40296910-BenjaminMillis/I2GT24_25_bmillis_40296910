@@ -76,7 +76,6 @@ public class WaveManager : MonoBehaviour
         int rankCount = 0; // An enemys rank determines its worth during the wave
         RaycastHit spawnLocation;
         if(FindObjectOfType<PlayerControl>()){
-            Transform playerTransform = FindObjectOfType<PlayerControl>().transform;
             while(rankCount < enemyRankCount){
                 int randomEnemy = Random.Range(0, enemySelection.Count); //Select a random enemy type to spawn, and check if they have the correct rank space to be added
                 int waveSpawnMin = (int)(enemySelection[randomEnemy].GetRank()*1.5f);

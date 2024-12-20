@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f082b1416e83444191278600efe6d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 3
   deathEffect: {fileID: 7962589181138354880, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
 --- !u!114 &7154143831197801575
 MonoBehaviour:
@@ -158,6 +158,7 @@ MonoBehaviour:
   gravity: 1
   proneTriggerCollider: {fileID: 852269373168069223}
   immovable: 0
+  trailRenderer: {fileID: 0}
 --- !u!96 &8791879590357300336
 TrailRenderer:
   serializedVersion: 3
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1000
-  turnSpeed: 0.5
+  turnDelay: 0.5
 --- !u!1 &4609599072426316513
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,14 +20,21 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] MusicPlayer musicPlayer;
 
-    void Start(){
-        if(!PlayerPrefs.HasKey("musicVolume")){ //If player prefs has no settings stored, set the settings to a default value
+    public void StartSettings(){
+        //If player prefs has no settings stored, set the settings to a default value
+        if(!PlayerPrefs.HasKey("musicVolume")){
             PlayerPrefs.SetFloat("sensitivity", sensitivityDefault);
-            PlayerPrefs.SetFloat("sfxVolume", sfxDefault);
-            PlayerPrefs.SetFloat("musicVolume", musicDefault);
-            audioPlayer.SetVolumeLevel(PlayerPrefs.GetFloat("sfxVolume"));
-            musicPlayer.SetVolumeLevel(PlayerPrefs.GetFloat("musicVolume"));
         }
+
+        if(!PlayerPrefs.HasKey("musicVolume")){
+            PlayerPrefs.SetFloat("musicVolume", musicDefault);
+        }
+        musicPlayer.SetVolumeLevel(PlayerPrefs.GetFloat("musicVolume"));
+
+        if(!PlayerPrefs.HasKey("sfxVolume")){
+            PlayerPrefs.SetFloat("sfxVolume", sfxDefault);            
+        }
+        audioPlayer.SetVolumeLevel(PlayerPrefs.GetFloat("sfxVolume"));
     }
 
     public void SetSensitivity(float sensitivity){

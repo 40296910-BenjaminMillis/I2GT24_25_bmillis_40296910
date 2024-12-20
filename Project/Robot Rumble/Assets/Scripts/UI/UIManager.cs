@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
     MusicPlayer musicPlayer;
 
     void Start() {
-
+        settingsUI.GetComponent<SettingsManager>().StartSettings();
         scoreManager = FindObjectOfType<ScoreManager>();
         musicPlayer = FindObjectOfType<MusicPlayer>();
         LoadMainMenu();
