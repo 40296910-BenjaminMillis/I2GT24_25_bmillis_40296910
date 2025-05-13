@@ -456,6 +456,8 @@ MonoBehaviour:
   lookSensitivity: 5
   lookXLimit: 90
   fireCooldown: 0.5
+  fireLineDuration: 0.25
+  fireLineShrinkAmount: 0.35
   firePosition: {fileID: 3024599101689686512}
   hitSpark: {fileID: 6535403625793782721, guid: c20a2b7b970a5eb40bb72dd7eea272d2, type: 3}
   explosionSphere: {fileID: 50811731492825968, guid: bec2c2e63b4d9f543809a51863af352a, type: 3}
@@ -477,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  health: 0
   invincibilityFrameLength: 0.75
   playerCamera: {fileID: 6420304528165245617}
   invincibilityBar: {fileID: 4602449093278205284}

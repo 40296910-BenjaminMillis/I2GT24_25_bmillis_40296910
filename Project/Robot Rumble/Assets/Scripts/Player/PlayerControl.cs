@@ -23,10 +23,14 @@ public class PlayerControl : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] float fireCooldown = 0.5f; // Time delay between each shot
+    [SerializeField] float fireLineDuration = 0.1f; // Time that the line renderer shows the shot
+    [SerializeField] float fireLineShrinkAmount = 0.1f; // Make the fire line shrink after being shown
     [SerializeField] Transform firePosition; // The position that the shot comes from
     [SerializeField] ParticleSystem hitSpark;
     [SerializeField] GameObject explosionSphere;
     [SerializeField] GameObject explosiveShotBar; // Shows powerup length
+    float fireDuration = 0;
+    float fireLineWidth;
 
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
@@ -50,6 +54,7 @@ public class PlayerControl : MonoBehaviour
         fireLine.enabled = false;
         dashCollider = GetComponent<BoxCollider>();
         SetLookSensitivity();
+        fireLineWidth = fireLine.endWidth;
     }
 
     void FixedUpdate(){
@@ -61,6 +66,13 @@ public class PlayerControl : MonoBehaviour
             StartCoroutine(Dash(dashDuration));
         }
         dashCooldown -= Time.deltaTime;
+
+        if(fireDuration > 0){  
+            fireDuration -= Time.deltaTime;
+            fireLine.startWidth -= fireLineShrinkAmount * Time.deltaTime;
+            fireLine.endWidth -= fireLineShrinkAmount * Time.deltaTime;
+        }
+
         if(explodingShotsTime > 0){
             explodingShotsTime -= Time.deltaTime;
             explosiveShotBar.GetComponent<Slider>().value = explodingShotsTime;
@@ -138,7 +150,8 @@ public class PlayerControl : MonoBehaviour
     // I might want to have this in its own script, if I want more than 1 gun
     // Let the player shoot a ray and hurt enemies
     void Shoot(){
-        if(Input.GetButton("Fire1") && !fireLine.enabled){
+        if(Input.GetButton("Fire1") && fireDuration <= 0){
+            fireDuration = fireCooldown;
             RaycastHit hit;
             Vector3 hitLocation;
 
@@ -171,8 +184,10 @@ public class PlayerControl : MonoBehaviour
         fireLine.enabled = true;
         fireLine.SetPosition(0, firePosition.position);
         fireLine.SetPosition(1, hitLocation);
-        yield return new WaitForSeconds(fireCooldown);
+        yield return new WaitForSeconds(fireLineDuration);
         fireLine.enabled = false;
+        fireLine.startWidth = fireLineWidth;
+        fireLine.endWidth = fireLineWidth;
     }
 
     // Play impact point effect when hitting an enemy

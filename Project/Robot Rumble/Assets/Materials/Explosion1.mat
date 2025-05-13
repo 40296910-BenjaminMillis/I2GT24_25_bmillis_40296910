@@ -22,7 +22,7 @@ Material:
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _SmoothnessTextureChannel
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -82,5 +82,5 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 0.59342825, b: 0, a: 0.39215687}
-    - _EmissionColor: {r: 1, g: 0.5045663, b: 0, a: 1}
+    - _EmissionColor: {r: 2, g: 1.0091323, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -50,7 +50,10 @@ MonoBehaviour:
   force: 20
   upwardsModifier: 5
   maxRadius: 25
-  growSpeed: 1.25
+  growSpeed: 1.4
+  slowdownSpeed: 0.08
+  growTest: 0
+  fadeSpeed: 0.04
 --- !u!1 &1304036264174808320
 GameObject:
   m_ObjectHideFlags: 0
