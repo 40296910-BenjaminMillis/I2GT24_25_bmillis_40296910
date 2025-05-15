@@ -14,8 +14,10 @@ public class Leaderboard : MonoBehaviour
     string publicKey = "632e3b40381162e0dce02359a5568bf0a0665a3a2ea89b7ccc8d0dbc9ed24135";
     ScoreManager scoreManager;
 
-    void Start() {
+    void Start()
+    {
         scoreManager = FindObjectOfType<ScoreManager>();
+        GetLeaderboard();
     }
 
     // Get a list of the top scores and display them

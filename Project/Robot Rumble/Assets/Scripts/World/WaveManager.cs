@@ -124,7 +124,7 @@ public class WaveManager : MonoBehaviour
     	foreach(Projectile projectile in allProjectiles) {
         	Destroy(projectile.gameObject);
     	}
-        FindObjectOfType<LineRenderer>().enabled = false;
+        
     }
 
     public void ClearPowerups(){

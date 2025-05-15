@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -29,6 +28,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] ParticleSystem hitSpark;
     [SerializeField] GameObject explosionSphere;
     [SerializeField] GameObject explosiveShotBar; // Shows powerup length
+    [SerializeField] GameObject gunModel;
+    [SerializeField] float animationSpeed = 0.1f;
     float fireDuration = 0;
     float fireLineWidth;
 
@@ -151,6 +152,10 @@ public class PlayerControl : MonoBehaviour
     // Let the player shoot a ray and hurt enemies
     void Shoot(){
         if(Input.GetButton("Fire1") && fireDuration <= 0){
+
+            //make the gun turn up, then back down??
+            StartCoroutine(PlayGunRecoilAnim());
+
             fireDuration = fireCooldown;
             RaycastHit hit;
             Vector3 hitLocation;
@@ -194,6 +199,17 @@ public class PlayerControl : MonoBehaviour
     void PlayHitEffect(Vector3 hitLocation){
         ParticleSystem instance = Instantiate(hitSpark, hitLocation, Quaternion.identity);
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+    }
+
+    // Make the gun model move up and down, to look like recoil
+    IEnumerator PlayGunRecoilAnim()
+    {
+        gunModel.transform.Rotate(new Vector3(12, 0, 0));
+        gunModel.transform.localPosition = new Vector3(0.45f, -0.25f, 0.79f);
+
+        yield return new WaitForSeconds(animationSpeed);
+        gunModel.transform.Rotate(new Vector3(-12, 0, 0));
+        gunModel.transform.localPosition = new Vector3(0.450000763f, -0.350000024f, 0.82f);
     }
 
     public float getDashCooldown(){

@@ -46,7 +46,6 @@ public class LocalLeaderboard : MonoBehaviour
             entry.name = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
             entry.score = PlayerPrefs.GetInt(PlayerPrefsBaseKey + "[" + i + "].score", 0);
 
-            Debug.Log(entry.name);
             entries.Add(entry);
         }
 
