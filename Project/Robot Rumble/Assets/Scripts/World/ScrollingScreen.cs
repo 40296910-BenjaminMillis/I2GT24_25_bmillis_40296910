@@ -30,7 +30,7 @@ public class ScrollingScreen : MonoBehaviour
 
     public void ShowWaveText(){
         int waveNumber = waveManager.GetWaveNumber();
-        textField.text = " WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+" |";
+        textField.text = " WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+ " | WAVE "+waveNumber+" |";
     }
 
     public void ShowEnemyCountText(){
@@ -42,6 +42,14 @@ public class ScrollingScreen : MonoBehaviour
     public void UpdateEnemyCountText(string oldCount, string newCount){
         string temp = textField.text;
         string modified = temp.Replace(oldCount, newCount);
+
+        // Fixing a somewhat specific bug, where the enemy count does not replace correctly when a value is wrapping around
+        // Will not work for values greater than 99
+        if(oldCount.Length > 1 && modified[0] == oldCount[oldCount.Length-1] && modified[modified.Length-1] == oldCount[0]){
+            // Get a substring that will remove the buggered value, then add the correct value
+            modified = modified.Substring(modified.IndexOf(' '), modified.LastIndexOf(' '));
+            modified += newCount;
+        }
         textField.text = modified;
     }
 

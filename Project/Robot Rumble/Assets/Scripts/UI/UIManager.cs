@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas gameOverUI;
     [SerializeField] Canvas pauseUI;
     [SerializeField] Canvas settingsUI;
+    [SerializeField] Canvas leaderboardUI;
+    [SerializeField] Canvas leaderboardEntryUI;
 
     [Header("State Manager")]
     [SerializeField] GameStateManager gameStateManager;
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] TextMeshProUGUI entryScore;
     ScoreManager scoreManager;
 
     float pauseCooldown = 0;
@@ -109,13 +112,29 @@ public class UIManager : MonoBehaviour
         gameUI.enabled = false;
         ToggleBossHealthbarOff();
         ToggleCursorOn();
-        gameOverUI.enabled = true;
+
+        // Only show the leaderboard on gameover if a score above the lowest score was achieved
+        if(scoreManager.GetScore() > FindObjectOfType<LocalLeaderboard>().GetLowestScore()){
+            leaderboardUI.enabled = true;
+            leaderboardEntryUI.enabled = true;
+        }
+        else{
+            gameOverUI.enabled = true;
+        }
         menuCamera.SetActive(true);
         
         // Score text
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
+        entryScore.text = "SCORE: " + scoreManager.GetScore();
     }
 
+    // Hide leaderboard and show gameover screen as normal
+    public void CompleteLeaderboardEntry(){
+        leaderboardUI.enabled = false;
+        leaderboardEntryUI.enabled = false;
+        gameOverUI.enabled = true;
+    }
+    
     public void LoadMainMenu(){
         if(FindObjectOfType<PlayerControl>())
             Destroy(FindObjectOfType<PlayerControl>().gameObject);
@@ -128,6 +147,7 @@ public class UIManager : MonoBehaviour
         gameOverUI.enabled = false;
         pauseUI.enabled = false;
         settingsUI.enabled = false;
+        leaderboardUI.enabled = false;
         gameStateManager.GetComponent<WaveManager>().ClearAll();
         FindObjectOfType<StageEffects>().MainMenuEffect();
         ToggleBossHealthbarOff();
@@ -188,5 +208,21 @@ public class UIManager : MonoBehaviour
 
     public void ToggleBossHealthbarOff(){
         bossHealthbar.gameObject.SetActive(false);
+    }
+
+    public void ToggleLeaderboard(){
+        if(!leaderboardUI.enabled){
+            menuUI.enabled = false;
+            lastCanvas = menuUI;
+            
+            leaderboardUI.enabled = true;
+            GameObject returnButton = GameObject.Find("ReturnLeaderboard");
+            returnButton.GetComponent<Canvas>().enabled = true;
+        }
+        else{
+            leaderboardUI.enabled = false;
+            GameObject returnButton = GameObject.Find("ReturnLeaderboard");
+            returnButton.GetComponent<Canvas>().enabled = false;
+        }
     }
 }

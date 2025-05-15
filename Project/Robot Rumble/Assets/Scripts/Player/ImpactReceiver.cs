@@ -23,6 +23,7 @@ public class ImpactReceiver : MonoBehaviour {
 	
 	// Call this function to add an impact force to the character controller
 	public void AddImpact(Vector3 dir, float force){
+		impact = Vector3.zero;
 		dir.Normalize();
 		impact = dir.normalized * force / mass;
 	}
