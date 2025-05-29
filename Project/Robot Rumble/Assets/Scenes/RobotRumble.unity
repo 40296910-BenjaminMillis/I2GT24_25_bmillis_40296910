@@ -38271,11 +38271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1155643031787613565, guid: 1d508af74f9be60498057af4de312938, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.81626123
+      value: 0.84214014
       objectReference: {fileID: 0}
     - target: {fileID: 1155643031787613565, guid: 1d508af74f9be60498057af4de312938, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 1.0058823
+      value: 0.7866233
       objectReference: {fileID: 0}
     - target: {fileID: 1155643031787613565, guid: 1d508af74f9be60498057af4de312938, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inWeight

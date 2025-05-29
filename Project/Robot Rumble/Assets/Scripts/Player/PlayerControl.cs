@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] float animationSpeed = 0.1f;
     float fireDuration = 0;
-    float fireLineWidth;
+    float fireLineWidth = 0.15f;
 
     [Header("Dashing")]
     [SerializeField] float dashSpeed = 25f;
@@ -55,7 +55,6 @@ public class PlayerControl : MonoBehaviour
         fireLine.enabled = false;
         dashCollider = GetComponent<BoxCollider>();
         SetLookSensitivity();
-        fireLineWidth = fireLine.endWidth;
     }
 
     void FixedUpdate(){
@@ -186,6 +185,8 @@ public class PlayerControl : MonoBehaviour
 
     // A line to represent a laser blast, from the fire position to the set hit location
     IEnumerator PlayFireLineEffect(Vector3 hitLocation){
+        fireLine.startWidth = fireLineWidth;
+        fireLine.endWidth = fireLineWidth;
         fireLine.enabled = true;
         fireLine.SetPosition(0, firePosition.position);
         fireLine.SetPosition(1, hitLocation);
