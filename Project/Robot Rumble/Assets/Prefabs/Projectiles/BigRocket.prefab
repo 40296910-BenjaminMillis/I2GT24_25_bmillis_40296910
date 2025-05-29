@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3699491000356473444}
   - component: {fileID: 8862862978615849866}
   - component: {fileID: 7448296124013894905}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: RocketSmokeTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4845,9 +4845,10 @@ GameObject:
   - component: {fileID: 7306638535916458696}
   - component: {fileID: 4783505713369759484}
   - component: {fileID: 8965779100821776513}
-  m_Layer: 2
+  - component: {fileID: 820213297471321394}
+  m_Layer: 6
   m_Name: BigRocket
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4997,8 +4998,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8fb37b1b47d2746a34bfa475a1009e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 18
   turnDelay: 0.4
+--- !u!114 &820213297471321394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145162333343597453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f082b1416e83444191278600efe6d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  health: 0
+  deathEffect: {fileID: 6428278226594376061, guid: 53b155ab2556c5644bd7f6a8ac6af3bd, type: 3}
 --- !u!1001 &3318994338519207532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5067,9 +5083,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 3bfc7d36d71428649a66f00bcd94e46b, type: 2}
+    - target: {fileID: 635547659545568360, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
       propertyPath: m_Name
       value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334658658706714759, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2653984132991634491, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5079,6 +5107,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3bfc7d36d71428649a66f00bcd94e46b, type: 2}
+    - target: {fileID: 7652156064992446980, guid: 459abaa362ae4494e8e49d2bed2e28f8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

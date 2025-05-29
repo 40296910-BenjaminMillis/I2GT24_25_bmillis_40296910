@@ -9,8 +9,14 @@ public class BossAttackSlam : BossAttack
     [SerializeField] float slamSpeed = 2000; // Fall speed of the attack
     Rigidbody rb;
 
-    void Start(){
-        attackCooldown = attackDelay;
+    void Awake(){
+        DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
+        attackDelay /= difficultySettings.GetEnemySpeed();
+        stopAimingTime /= difficultySettings.GetEnemySpeed();
+        hitDelay /= difficultySettings.GetEnemySpeed();
+        timeToNextAttack /= difficultySettings.GetEnemySpeed();
+        slamSpeed *= difficultySettings.GetEnemySpeed();
+
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         audioPlayer = FindObjectOfType<AudioPlayer>();
         rb = GetComponent<Rigidbody>();

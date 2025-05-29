@@ -39,11 +39,13 @@ public class UIManager : MonoBehaviour
     float pauseCooldown = 0;
     Canvas lastCanvas;
     MusicPlayer musicPlayer;
+    DifficultySettings difficultySettings;
 
     void Start() {
         settingsUI.GetComponent<SettingsManager>().StartSettings();
         scoreManager = FindObjectOfType<ScoreManager>();
         musicPlayer = FindObjectOfType<MusicPlayer>();
+        difficultySettings = FindObjectOfType<DifficultySettings>();
         LoadMainMenu();
     }
 
@@ -93,7 +95,7 @@ public class UIManager : MonoBehaviour
         player = FindObjectOfType<PlayerControl>();
         dashCooldownBar.GetComponent<Slider>().maxValue = player.getDashDelay();
         playerHealth = player.GetComponent<PlayerHealth>();
-        healthBar.maxValue = playerHealth.GetHealth();
+        healthBar.maxValue = playerHealth.GetMaxHealth();
         healthBar.value = playerHealth.GetHealth();
 
         ToggleCursorOff();
@@ -141,7 +143,7 @@ public class UIManager : MonoBehaviour
 
         menuCamera.SetActive(true);
         ToggleCursorOn();
-        Time.timeScale = 1f;
+        Time.timeScale = difficultySettings.GetGameSpeed();
         menuUI.enabled = true;
         gameUI.enabled = false;
         gameOverUI.enabled = false;
@@ -163,7 +165,7 @@ public class UIManager : MonoBehaviour
         }
         else{
             ToggleCursorOff();
-            Time.timeScale = 1f;
+            Time.timeScale = difficultySettings.GetGameSpeed();
             pauseUI.enabled = false;
         }
     }

@@ -10,8 +10,14 @@ public class BossAttackThrust : BossAttack
     Rigidbody rb;
     float sfxCooldown = 0;
 
-    void Start(){
-        attackCooldown = attackDelay;
+    void Awake(){
+        DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
+        attackDelay /= difficultySettings.GetEnemySpeed();
+        stopAimingTime /= difficultySettings.GetEnemySpeed();
+        hitDelay /= difficultySettings.GetEnemySpeed();
+        timeToNextAttack /= difficultySettings.GetEnemySpeed();
+        thrustSpeed *= difficultySettings.GetEnemySpeed();
+
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         audioPlayer = FindObjectOfType<AudioPlayer>();
         rb = GetComponent<Rigidbody>();

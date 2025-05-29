@@ -11,25 +11,38 @@ public class BossAttackMissile : BossAttack
 
     bool fired = false;
 
-    public override void Attack(){
+
+    void Awake()
+    {
+        DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
+        attackDelay /= difficultySettings.GetEnemySpeed();
+        stopAimingTime /= difficultySettings.GetEnemySpeed();
+        timeToNextAttack /= difficultySettings.GetEnemySpeed();
+    }
+
+    public override void Attack()
+    {
         base.Attack();
 
-        if(!finishingAttack){
-            if(attackCooldown > 0){
+        if (!finishingAttack)
+        {
+            if (attackCooldown > 0)
+            {
                 animator.SetBool("StartAttack", true);
                 firingLight.enabled = true;
                 attackCooldown -= Time.deltaTime;
                 // Increase intensity of the firing light
-                firingLight.intensity += Time.deltaTime*2;
+                firingLight.intensity += Time.deltaTime * 2;
             }
 
             // Spawn the missile
-            else if(!fired){
+            else if (!fired)
+            {
                 Instantiate(missile, firingLight.transform.position, transform.rotation);
                 fired = true;
                 firingLight.intensity = lightBaseIntensity;
                 firingLight.enabled = false;
-                StartCoroutine(HitStop()); 
+                StartCoroutine(HitStop());
             }
         }
     }

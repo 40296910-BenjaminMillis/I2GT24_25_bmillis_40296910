@@ -12,6 +12,7 @@ public abstract class AttackType : MonoBehaviour
     protected EnemyBehaviour enemyBehaviour;
 
     void Start(){
+        attackDelay /= FindObjectOfType<DifficultySettings>().GetEnemySpeed();
         attackCooldown = Random.Range(attackDelay, attackDelay*1.5f); // Randomise the cooldown on start to make enemies not attack at the same time
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         audioPlayer = FindObjectOfType<AudioPlayer>();

@@ -2624,6 +2624,7 @@ GameObject:
   - component: {fileID: 201487569}
   - component: {fileID: 201487570}
   - component: {fileID: 201487571}
+  - component: {fileID: 201487573}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2685,7 +2686,6 @@ MonoBehaviour:
   xSpread: 45
   zSpread: 45
   spawnEffect: {fileID: 8012666983115269352, guid: 6ef2ad9a4c1fac944acb3d2f4be152d9, type: 3}
-  waveIntensity: 2
   spawnWaitTime: 2.5
 --- !u!114 &201487570
 MonoBehaviour:
@@ -2742,6 +2742,23 @@ MonoBehaviour:
   - {fileID: 1897744251}
   warningLights: {fileID: 365104329}
   warningLightSpinSpeed: {x: 0, y: 180, z: 0}
+--- !u!114 &201487573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201487566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b294d71a961670d4892f3a1dcf4c82ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 1
+  enemySpawnAmount: 2
+  playerMaxHealth: 5
+  playerHealing: 1
+  gameSpeed: 1
 --- !u!1001 &207945557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13419,7 +13436,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791333910}
@@ -20466,9 +20483,9 @@ MonoBehaviour:
   enemyKillfloorClip: {fileID: 8300000, guid: c5d52c46a5fd0ae42926f570a84b1545, type: 3}
   enemyKillfloorVolume: 1
   bossLaughClip: {fileID: 8300000, guid: f98ed001947bcec438fb814973c6cdfc, type: 3}
-  bossLaughVolume: 1
+  bossLaughVolume: 0.3
   bossChargeClip: {fileID: 8300000, guid: cf2069303e16f14479c0613bf9bb043f, type: 3}
-  bossChargeVolume: 1
+  bossChargeVolume: 0.5
   bossThudClip: {fileID: 8300000, guid: a867dfe654c6e4b4ea27b1233a615b56, type: 3}
   bossThudVolume: 1
   bossThrustClip: {fileID: 8300000, guid: 1e42d43ba48490344957e2a01124bc26, type: 3}
@@ -20495,7 +20512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: e25cfcf515e20c14280d3bf2f0f9b1a4, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21945,10 +21962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -30181,10 +30198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

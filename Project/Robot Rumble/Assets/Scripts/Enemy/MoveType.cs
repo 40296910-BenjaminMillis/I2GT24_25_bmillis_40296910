@@ -9,9 +9,13 @@ public abstract class MoveType : MonoBehaviour
     protected Rigidbody enemyRb;
     protected Transform playerTransform;
 
-    void Start(){
+    void Start()
+    {
         enemyRb = gameObject.GetComponent<Rigidbody>();
         playerTransform = FindObjectOfType<PlayerControl>().transform;
+        DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
+        moveSpeed *= difficultySettings.GetEnemySpeed();
+        turnDelay /= difficultySettings.GetEnemySpeed();
     }
 
     public virtual void Move(){

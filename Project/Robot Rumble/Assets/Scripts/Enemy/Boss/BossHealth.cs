@@ -31,7 +31,7 @@ public class BossHealth : Health
     }
 
     void CalculateScore(){
-        scoreManager.UpdateScore(pointsOnKill * scoreMultiplier);
+        scoreManager.UpdateScore((int)(pointsOnKill * (scoreMultiplier * FindObjectOfType<DifficultySettings>().GetTotalMult())));
     }
 
     public override void Die(){

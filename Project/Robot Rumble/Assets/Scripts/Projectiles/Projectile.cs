@@ -11,8 +11,11 @@ public class Projectile : MonoBehaviour
 
     protected Rigidbody rb;
 
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
+        DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
+        projectileSpeed *= difficultySettings.GetEnemySpeed();
     }
     
     void Update(){

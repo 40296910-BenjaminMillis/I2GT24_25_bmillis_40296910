@@ -59,9 +59,12 @@ public class AudioPlayer : MonoBehaviour
 
     float volumeLevel = 1;
     static AudioPlayer instance;
+    AudioSource audioSource;
 
-    private void Awake() {
+    private void Awake()
+    {
         instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetVolumeLevel(float volumeLevel){
@@ -107,11 +110,13 @@ public class AudioPlayer : MonoBehaviour
     }
 
     public void PlayBossLaughClip(Vector3 position){
-        PlayClip(bossLaughClip, bossLaughVolume, position);
+        audioSource.pitch = 1;
+        audioSource.PlayOneShot(bossLaughClip, bossLaughVolume);
     }
 
-    public void PlayBossChargeClip(Vector3 position){
-        PlayClip(bossChargeClip, bossChargeVolume, position);
+    public void PlayBossChargeClip(){
+        audioSource.pitch = 1 * FindObjectOfType<DifficultySettings>().GetEnemySpeed();
+        audioSource.PlayOneShot(bossChargeClip, bossChargeVolume);
     }
 
     public void PlayBossThudClip(Vector3 position){

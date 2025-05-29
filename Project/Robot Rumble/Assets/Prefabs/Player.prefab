@@ -463,7 +463,7 @@ MonoBehaviour:
   explosionSphere: {fileID: 50811731492825968, guid: bec2c2e63b4d9f543809a51863af352a, type: 3}
   explosiveShotBar: {fileID: 5293307203623442947}
   gunModel: {fileID: 5861983951442689009}
-  animationSpeed: 0.3
+  animationSpeed: 0.2
   dashSpeed: 65
   dashForce: 13.5
   dashDuration: 0.4

@@ -9,28 +9,39 @@ public class Health : MonoBehaviour
     [SerializeField] protected int health;
     bool isDead = false;
 
-    void Start(){
+    void Start()
+    {
         health = maxHealth;
     }
 
     // Pass in either positive or negative values to adjust health
-    public virtual void UpdateHealth(int value){
+    public virtual void UpdateHealth(int value)
+    {
         health += value;
-        if(health <= 0 && !isDead){
+        if (health <= 0 && !isDead)
+        {
             Die(); // Remove the gameobject if 0 health
         }
     }
 
-    public virtual void UpdateHealth(int value, int scoreMultiplier){
-    
+    public virtual void UpdateHealth(int value, int scoreMultiplier)
+    {
+
     }
 
-    public virtual void Die(){
+    public virtual void Die()
+    {
         isDead = true;
         Destroy(gameObject);
     }
 
-    public int GetHealth(){
+    public int GetHealth()
+    {
         return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

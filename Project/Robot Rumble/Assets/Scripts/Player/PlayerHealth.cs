@@ -11,9 +11,13 @@ public class PlayerHealth : Health
     [SerializeField] GameObject invincibilityBar; // Representation of invincibility time left, displayed over the healthbar
     AudioPlayer audioPlayer;
     float invincibilityFrameTime = 0;
+    DifficultySettings difficultySettings;
 
-    void Awake(){
-        audioPlayer = FindObjectOfType<AudioPlayer>(); 
+    void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+        difficultySettings = FindObjectOfType<DifficultySettings>();
+        maxHealth = difficultySettings.GetPlayerMaxHealth();
         health = maxHealth;
     }
 
@@ -34,7 +38,7 @@ public class PlayerHealth : Health
         } 
 
         else if(invincibilityFrameTime <= 0){ // Only deal damage to the player when not invincible
-            invincibilityFrameTime = invincibilityFrameLength; // Give player a short burst of invincibility            
+            invincibilityFrameTime = invincibilityFrameLength; // Give player a short burst of invincibility
             base.UpdateHealth(value);
             audioPlayer.PlayPlayerDamageClip(this.transform.position);
             StartCoroutine(playerCamera.ScreenShake());
@@ -50,6 +54,7 @@ public class PlayerHealth : Health
         //Get the game manager to end the game
         GameStateManager gameStateManager = FindObjectOfType<GameStateManager>();
         gameStateManager.EndGame();
+        FindObjectOfType<LineRenderer>().enabled = false; // Remove the fire line if it was shot during player death
     }
 
     // Any particle with colliders will trigger this (e.g. flames)

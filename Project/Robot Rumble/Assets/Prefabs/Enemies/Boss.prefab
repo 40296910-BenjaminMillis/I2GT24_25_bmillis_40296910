@@ -128,11 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 5
   warningZone: {fileID: 5915573835275087712}
-  stopAimingTime: 1.5
+  stopAimingTime: 1
   aimPositionOffset: {x: 0, y: 0, z: 75.5}
   hitDelay: 2
   timeToNextAttack: 3
-  thrustSpeed: 5000
+  thrustSpeed: 8000
   thrustDistance: 125
 --- !u!1 &1875777009193949537
 GameObject:
@@ -236,11 +236,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 5
   warningZone: {fileID: 7101210882792838211}
-  stopAimingTime: 1.5
+  stopAimingTime: 1
   aimPositionOffset: {x: 0, y: 40, z: 0}
   hitDelay: 2
   timeToNextAttack: 3
-  slamSpeed: 4000
+  slamSpeed: 5500
 --- !u!54 &5642595192038199077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc41309a80ffc049bda560df9fb3c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 35
+  maxHealth: 50
   health: 0
   deathEffect: {fileID: 984169875676399048, guid: cc35a79b944fc9b4f852c7ce47dace9f, type: 3}
   rank: 120

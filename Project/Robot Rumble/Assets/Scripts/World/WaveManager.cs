@@ -11,7 +11,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int xSpread;
     [SerializeField] int zSpread;
     [SerializeField] ParticleSystem spawnEffect;
-    [SerializeField] int waveIntensity = 3; // Affects how many enemies can spawn each round. Multiplied after each round
     [SerializeField] float spawnWaitTime = 2.5f; // Time before spawning enemies
 
     int waveNumber; // Represents the number of enemy waves that has passed, Multiplies how many enemies are added after each wave
@@ -41,11 +40,11 @@ public class WaveManager : MonoBehaviour
         if(isRunning){
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
             if(enemyRankCount <= 0){
-                FindObjectOfType<PlayerHealth>().UpdateHealth(1); // Heal player 1 health every wave
+                FindObjectOfType<PlayerHealth>().UpdateHealth(GetComponent<DifficultySettings>().GetPlayerHealing()); // Heal player health every wave
                 ClearProjectiles();
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
-                enemyRankCount = waveIntensity * waveNumber;
+                enemyRankCount = GetComponent<DifficultySettings>().GetEnemySpawnAmount() * waveNumber;
                 Debug.Log("Enemy rank count: " + enemyRankCount + ", Enemy count: " + enemyCount); 
 
                 // Add boss to queue
@@ -124,7 +123,6 @@ public class WaveManager : MonoBehaviour
     	foreach(Projectile projectile in allProjectiles) {
         	Destroy(projectile.gameObject);
     	}
-        
     }
 
     public void ClearPowerups(){

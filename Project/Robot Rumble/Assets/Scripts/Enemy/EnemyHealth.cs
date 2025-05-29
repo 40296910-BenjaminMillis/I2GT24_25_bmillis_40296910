@@ -10,13 +10,14 @@ public class EnemyHealth : Health
     AudioPlayer audioPlayer;
     int rank;
     int pointsOnKill;
-    int scoreMultiplier = 1; // Certain actions, such as throw kills or killfloor kills grant score multiplier
+    float scoreMultiplier = 1; // Certain actions, such as throw kills or killfloor kills grant score multiplier
 
     void Awake() {
         scoreManager = FindObjectOfType<ScoreManager>();
         waveManager = FindObjectOfType<WaveManager>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
-        rank = GetComponent<EnemyBehaviour>().GetRank();
+        if(GetComponent<EnemyBehaviour>())
+            rank = GetComponent<EnemyBehaviour>().GetRank();
         pointsOnKill = rank * 100; // Points granted based on rank of enemy
     }
 
@@ -32,7 +33,7 @@ public class EnemyHealth : Health
     }
 
     void CalculateScore(){
-        scoreManager.UpdateScore(pointsOnKill * scoreMultiplier);
+        scoreManager.UpdateScore((int)(pointsOnKill * (scoreMultiplier * FindObjectOfType<DifficultySettings>().GetTotalMult())));
     }
 
     public override void Die(){
