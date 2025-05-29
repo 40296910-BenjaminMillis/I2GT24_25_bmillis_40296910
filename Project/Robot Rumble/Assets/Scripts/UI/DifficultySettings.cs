@@ -33,7 +33,7 @@ public class DifficultySettings : MonoBehaviour
     [SerializeField][Range(0, 15)] float playerHealingHard = 0;
 
     [Header("Game Modifiers")]
-    [SerializeField][Range(0.5f, 1f)] float gameSpeed = 1;
+    [SerializeField][Range(0.5f, 1f)] float gameSpeed = 1; // Adjusts game speed. Currently unused as enemy speed basically serves the same purpose
 
     [Header("Sliders and Text")]
     [SerializeField] Slider enemySpeedSlider;
@@ -47,6 +47,7 @@ public class DifficultySettings : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreMultText;
 
     float enemySpeedMult;
+    float enemySpawnMult;
 
     float playerHealthMult;
     float playerHealingMult;
@@ -55,7 +56,7 @@ public class DifficultySettings : MonoBehaviour
 
     void Start()
     {
-        SetSliderValues();
+        NormalDifficulty();
     }
 
     public void SetSliderValues()
@@ -105,33 +106,12 @@ public class DifficultySettings : MonoBehaviour
         return enemySpeed;
     }
 
-    float interval = 0.1f;
-
     public void SetEnemySpeed(float value)
     {
-        value = Mathf.Round(value / interval) * interval;
+        value = Mathf.Round(value / 0.1f) * 0.1f;
         enemySpeed = value;
         enemySpeedText.text = enemySpeed.ToString();
-
-        if (enemySpeed > 1)
-        {
-            if (enemySpeed > 2)
-            {
-                enemySpeedMult = 0.4f;
-            }
-            else
-            {
-                enemySpeedMult = 0.2f;
-            }
-        }
-        else if (enemySpeed < 1)
-        {
-            enemySpeedMult = -0.1f;
-        }
-        else
-        {
-            enemySpeedMult = 0;
-        }
+        enemySpeedMult = (value - enemySpeedNormal) / 4;
         scoreMultText.text = GetTotalMult().ToString();
     }
 
@@ -144,6 +124,8 @@ public class DifficultySettings : MonoBehaviour
     {
         enemySpawnAmount = (int)value;
         enemySpawnText.text = enemySpawnAmount.ToString();
+        enemySpawnMult = (value - enemySpawnAmountNormal) / 8;
+        scoreMultText.text = GetTotalMult().ToString();
     }
 
     // Player
@@ -157,18 +139,12 @@ public class DifficultySettings : MonoBehaviour
         playerHealth = (int)value;
         playerHealthText.text = playerHealth.ToString();
 
-        if (playerHealth <= 3)
-        {
-            playerHealthMult = 0.2f;
-        }
-        else if (playerHealth >= 7)
-        {
-            playerHealthMult = -0.2f;
-        }
+        if(value > playerHealthNormal)
+            playerHealthMult = -(value - playerHealthNormal) / 10;
         else
-        {
-            playerHealthMult = 0;
-        }
+            playerHealthMult = -(value - playerHealthNormal) / 4;
+
+
         scoreMultText.text = GetTotalMult().ToString();
     }
 
@@ -182,18 +158,11 @@ public class DifficultySettings : MonoBehaviour
         playerHealing = (int)value;
         playerHealingText.text = playerHealing.ToString();
 
-        if (playerHealing == 0)
-        {
-            playerHealingMult = 0.2f;
-        }
-        else if (playerHealing > 1)
-        {
-            playerHealingMult = -0.1f;
-        }
+        if(value > playerHealingNormal)
+            playerHealingMult = -(value - playerHealingNormal) / 12;
         else
-        {
-            playerHealingMult = 0;
-        }
+            playerHealingMult = -(value - playerHealingNormal) / 2;
+
         scoreMultText.text = GetTotalMult().ToString();
     }
 
@@ -240,6 +209,10 @@ public class DifficultySettings : MonoBehaviour
 
     public float GetTotalMult()
     {
-        return 1 + enemySpeedMult + playerHealthMult + playerHealingMult + gameSpeedMult;
+        float totalMult = 1 + enemySpeedMult + enemySpawnMult + playerHealthMult + playerHealingMult + gameSpeedMult;
+        if (totalMult < 0.5f)
+            return 0.5f;
+        else
+            return totalMult;
     }
 }
