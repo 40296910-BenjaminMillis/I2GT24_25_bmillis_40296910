@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas settingsUI;
     [SerializeField] Canvas leaderboardUI;
     [SerializeField] Canvas leaderboardEntryUI;
+    [SerializeField] Canvas difficultyUI;
 
     [Header("State Manager")]
     [SerializeField] GameStateManager gameStateManager;
@@ -41,7 +42,8 @@ public class UIManager : MonoBehaviour
     MusicPlayer musicPlayer;
     DifficultySettings difficultySettings;
 
-    void Start() {
+    void Start()
+    {
         settingsUI.GetComponent<SettingsManager>().StartSettings();
         scoreManager = FindObjectOfType<ScoreManager>();
         musicPlayer = FindObjectOfType<MusicPlayer>();
@@ -49,14 +51,18 @@ public class UIManager : MonoBehaviour
         LoadMainMenu();
     }
 
-    void Update(){
+    void Update()
+    {
         // While the menu is up, pan the menu camera around the arena
-        if(menuCamera.activeSelf){
+        if (menuCamera.activeSelf)
+        {
             menuCamera.transform.Rotate(menuCameraPanSpeed * Time.deltaTime);
         }
-        else if(gameUI.enabled){
+        else if (gameUI.enabled)
+        {
             // Prevent the player from entering and exiting the pause menu too quickly
-            if(Input.GetKey(KeyCode.Tab) && pauseCooldown <=0 && !settingsUI.enabled){
+            if (Input.GetKey(KeyCode.Tab) && pauseCooldown <= 0 && !settingsUI.enabled)
+            {
                 TogglePauseMenu();
                 pauseCooldown = 0.3f;
             }
@@ -66,25 +72,28 @@ public class UIManager : MonoBehaviour
             healthBar.value = playerHealth.GetHealth();
             scoreText.text = scoreManager.GetScore().ToString();
             dashCooldownBar.GetComponent<Slider>().value = player.getDashCooldown();
-            if(dashCooldownBar.GetComponent<Slider>().value == 0)
+            if (dashCooldownBar.GetComponent<Slider>().value == 0)
                 dashCooldownBar.SetActive(false);
             else
                 dashCooldownBar.SetActive(true);
 
-            if(gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString() != waveText.text){
+            if (gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString() != waveText.text)
+            {
                 waveText.text = gameStateManager.GetComponent<WaveManager>().GetWaveNumber().ToString();
             }
 
             // Get boss info
-            if(bossHealthbar.gameObject.activeSelf){
+            if (bossHealthbar.gameObject.activeSelf)
+            {
                 bossHealthbar.value = FindObjectOfType<BossHealth>().GetHealth();
             }
         }
     }
 
-    public void StartGame(){
+    public void StartGame()
+    {
         // Disable menu and game over ui
-        menuUI.enabled = false;
+        difficultyUI.enabled = false;
         gameOverUI.enabled = false;
         menuCamera.SetActive(false);
 
@@ -105,40 +114,46 @@ public class UIManager : MonoBehaviour
     }
 
     // Currently unused, as the game is run on Unity Play and does not need one
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Application.Quit();
     }
 
-    public void LoadGameOver(){
+    public void LoadGameOver()
+    {
         // Disable the game UI, enable game over UI
         gameUI.enabled = false;
         ToggleBossHealthbarOff();
         ToggleCursorOn();
 
         // Only show the leaderboard on gameover if a score above the lowest score was achieved
-        if(scoreManager.GetScore() > FindObjectOfType<LocalLeaderboard>().GetLowestScore()){
+        if (scoreManager.GetScore() > FindObjectOfType<LocalLeaderboard>().GetLowestScore())
+        {
             leaderboardUI.enabled = true;
             leaderboardEntryUI.enabled = true;
         }
-        else{
+        else
+        {
             gameOverUI.enabled = true;
         }
         menuCamera.SetActive(true);
-        
+
         // Score text
         finalScoreText.text = "SCORE: " + scoreManager.GetScore();
         entryScore.text = "SCORE: " + scoreManager.GetScore();
     }
 
     // Hide leaderboard and show gameover screen as normal
-    public void CompleteLeaderboardEntry(){
+    public void CompleteLeaderboardEntry()
+    {
         leaderboardUI.enabled = false;
         leaderboardEntryUI.enabled = false;
         gameOverUI.enabled = true;
     }
-    
-    public void LoadMainMenu(){
-        if(FindObjectOfType<PlayerControl>())
+
+    public void LoadMainMenu()
+    {
+        if (FindObjectOfType<PlayerControl>())
             Destroy(FindObjectOfType<PlayerControl>().gameObject);
 
         menuCamera.SetActive(true);
@@ -157,74 +172,104 @@ public class UIManager : MonoBehaviour
         musicPlayer.SetMenuMusic();
     }
 
-    public void TogglePauseMenu(){
-        if(!pauseUI.enabled){
+    public void TogglePauseMenu()
+    {
+        if (!pauseUI.enabled)
+        {
             ToggleCursorOn();
             Time.timeScale = 0f;
             pauseUI.enabled = true;
         }
-        else{
+        else
+        {
             ToggleCursorOff();
             Time.timeScale = difficultySettings.GetGameSpeed();
             pauseUI.enabled = false;
         }
     }
 
-    public void ToggleSettingsMenu(){
-        if(!settingsUI.enabled){
-            if(pauseUI.enabled){
+    public void ToggleSettingsMenu()
+    {
+        if (!settingsUI.enabled)
+        {
+            if (pauseUI.enabled)
+            {
                 pauseUI.enabled = false;
                 lastCanvas = pauseUI;
             }
-            else if(menuUI.enabled){
+            else if (menuUI.enabled)
+            {
                 menuUI.enabled = false;
                 lastCanvas = menuUI;
             }
             settingsUI.GetComponent<SettingsManager>().LoadSettingsValues();
             settingsUI.enabled = true;
         }
-        else{
+        else
+        {
             settingsUI.enabled = false;
         }
     }
 
-    public void Return(){
+    public void Return()
+    {
         lastCanvas.enabled = true;
     }
 
-    void ToggleCursorOn(){
+    void ToggleCursorOn()
+    {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    void ToggleCursorOff(){
+    void ToggleCursorOff()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    public void ToggleBossHealthbarOn(int health){
+    public void ToggleBossHealthbarOn(int health)
+    {
         bossHealthbar.gameObject.SetActive(true);
         bossHealthbar.maxValue = health;
         bossHealthbar.value = health;
     }
 
-    public void ToggleBossHealthbarOff(){
+    public void ToggleBossHealthbarOff()
+    {
         bossHealthbar.gameObject.SetActive(false);
     }
 
-    public void ToggleLeaderboard(){
-        if(!leaderboardUI.enabled){
+    public void ToggleLeaderboard()
+    {
+        if (!leaderboardUI.enabled)
+        {
             menuUI.enabled = false;
             lastCanvas = menuUI;
-            
+
             leaderboardUI.enabled = true;
             GameObject returnButton = GameObject.Find("ReturnLeaderboard");
             returnButton.GetComponent<Canvas>().enabled = true;
         }
-        else{
+        else
+        {
             leaderboardUI.enabled = false;
             GameObject returnButton = GameObject.Find("ReturnLeaderboard");
             returnButton.GetComponent<Canvas>().enabled = false;
+        }
+    }
+
+    public void ToggleDifficultyUI()
+    { 
+         if (!difficultyUI.enabled)
+        {
+            menuUI.enabled = false;
+            lastCanvas = menuUI;
+            difficultyUI.enabled = true;
+        }
+        else
+        {
+            difficultyUI.enabled = false;
         }
     }
 }

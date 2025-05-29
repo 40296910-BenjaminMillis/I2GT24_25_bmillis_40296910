@@ -40,11 +40,11 @@ public class WaveManager : MonoBehaviour
         if(isRunning){
             // When the enemy count reaches 0, the wave number increases and new enemies are spawned
             if(enemyRankCount <= 0){
-                FindObjectOfType<PlayerHealth>().UpdateHealth(GetComponent<DifficultySettings>().GetPlayerHealing()); // Heal player health every wave
+                FindObjectOfType<PlayerHealth>().UpdateHealth(FindObjectOfType<DifficultySettings>().GetPlayerHealing()); // Heal player health every wave
                 ClearProjectiles();
                 waveNumber++;
                 StartCoroutine(GetComponent<ArenaShapeManager>().SwitchArena());
-                enemyRankCount = GetComponent<DifficultySettings>().GetEnemySpawnAmount() * waveNumber;
+                enemyRankCount = FindObjectOfType<DifficultySettings>().GetEnemySpawnAmount() * waveNumber;
                 Debug.Log("Enemy rank count: " + enemyRankCount + ", Enemy count: " + enemyCount); 
 
                 // Add boss to queue

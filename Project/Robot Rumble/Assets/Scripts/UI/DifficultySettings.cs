@@ -1,28 +1,103 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DifficultySettings : MonoBehaviour
 {
     // enemies will look for this script on start. Store in variable on start
-    [Header("Enemy Modifiers")]
+    [Header("Enemy Speed")]
     [SerializeField][Range(0.5f, 3)] float enemySpeed = 1; // Multiply base move speed and projectile speed
-    [SerializeField][Range(1, 5)] int enemySpawnAmount = 2; // Affects how many enemies can spawn each round. Multiplied by the wave number after each round
+    [SerializeField][Range(0.5f, 3)] float enemySpeedEasy = 0.5f;
+    [SerializeField][Range(0.5f, 3)] float enemySpeedNormal = 1f;
+    [SerializeField][Range(0.5f, 3)] float enemySpeedHard = 2f;
 
-    [Header("Player Modifiers")]
-    [SerializeField][Range(1, 15)] int playerMaxHealth = 5; // Set max health of player
+    [Header("Enemy Spawn Amount")]
+    [SerializeField][Range(1, 5)] int enemySpawnAmount = 3; // Affects how many enemies can spawn each round. Multiplied by the wave number after each round
+    [SerializeField][Range(1, 5)] float enemySpawnAmountEasy = 1;
+    [SerializeField][Range(1, 5)] float enemySpawnAmountNormal = 3;
+    [SerializeField][Range(1, 5)] float enemySpawnAmountHard = 5;
+
+    [Header("Player Health")]
+    [SerializeField][Range(1, 15)] int playerHealth = 5; // Set max health of player
+    [SerializeField][Range(1, 15)] float playerHealthEasy = 10;
+    [SerializeField][Range(1, 15)] float playerHealthNormal = 5;
+    [SerializeField][Range(1, 15)] float playerHealthHard = 3;
+
+    [Header("Player Healing")]
     [SerializeField][Range(0, 15)] int playerHealing = 1; // Amount healed between waves
+    [SerializeField][Range(0, 15)] float playerHealingEasy = 5;
+    [SerializeField][Range(0, 15)] float playerHealingNormal = 1;
+    [SerializeField][Range(0, 15)] float playerHealingHard = 0;
 
     [Header("Game Modifiers")]
     [SerializeField][Range(0.5f, 1f)] float gameSpeed = 1;
 
+    [Header("Sliders and Text")]
+    [SerializeField] Slider enemySpeedSlider;
+    [SerializeField] TextMeshProUGUI enemySpeedText;
+    [SerializeField] Slider enemySpawnSlider;
+    [SerializeField] TextMeshProUGUI enemySpawnText;
+    [SerializeField] Slider playerHealthSlider;
+    [SerializeField] TextMeshProUGUI playerHealthText;
+    [SerializeField] Slider playerHealingSlider;
+    [SerializeField] TextMeshProUGUI playerHealingText;
+    [SerializeField] TextMeshProUGUI scoreMultText;
+
     float enemySpeedMult;
 
-    float playerMaxHealthMult;
+    float playerHealthMult;
     float playerHealingMult;
 
     float gameSpeedMult;
 
+    void Start()
+    {
+        SetSliderValues();
+    }
+
+    public void SetSliderValues()
+    {
+        enemySpeedSlider.value = enemySpeed;
+        enemySpawnSlider.value = enemySpawnAmount;
+        playerHealthSlider.value = playerHealth;
+        playerHealingSlider.value = playerHealing;
+        enemySpeedText.text = enemySpeed.ToString();
+        enemySpawnText.text = enemySpawnAmount.ToString();
+        playerHealthText.text = playerHealth.ToString();
+        playerHealingText.text = playerHealing.ToString();
+        scoreMultText.text = GetTotalMult().ToString();
+    }
+
+
+    public void EasyDifficulty()
+    {
+        SetEnemySpeed(enemySpeedEasy);
+        SetEnemySpawnAmount(enemySpawnAmountEasy);
+        SetPlayerMaxHealth(playerHealthEasy);
+        SetPlayerHealing(playerHealingEasy);
+        SetSliderValues();
+    }
+
+    public void NormalDifficulty()
+    {
+        SetEnemySpeed(enemySpeedNormal);
+        SetEnemySpawnAmount(enemySpawnAmountNormal);
+        SetPlayerMaxHealth(playerHealthNormal);
+        SetPlayerHealing(playerHealingNormal);
+        SetSliderValues();
+    }
+
+    public void HardDifficulty()
+    {
+        SetEnemySpeed(enemySpeedHard);
+        SetEnemySpawnAmount(enemySpawnAmountHard);
+        SetPlayerMaxHealth(playerHealthHard);
+        SetPlayerHealing(playerHealingHard);
+        SetSliderValues();
+    }
 
     // Enemies
     public float GetEnemySpeed()
@@ -30,9 +105,13 @@ public class DifficultySettings : MonoBehaviour
         return enemySpeed;
     }
 
+    float interval = 0.1f;
+
     public void SetEnemySpeed(float value)
     {
+        value = Mathf.Round(value / interval) * interval;
         enemySpeed = value;
+        enemySpeedText.text = enemySpeed.ToString();
 
         if (enemySpeed > 1)
         {
@@ -53,6 +132,7 @@ public class DifficultySettings : MonoBehaviour
         {
             enemySpeedMult = 0;
         }
+        scoreMultText.text = GetTotalMult().ToString();
     }
 
     public int GetEnemySpawnAmount()
@@ -60,32 +140,36 @@ public class DifficultySettings : MonoBehaviour
         return enemySpawnAmount;
     }
 
-    public void SetEnemySpawnAmount(int value)
+    public void SetEnemySpawnAmount(float value)
     {
-        enemySpawnAmount = value;
+        enemySpawnAmount = (int)value;
+        enemySpawnText.text = enemySpawnAmount.ToString();
     }
 
     // Player
     public int GetPlayerMaxHealth()
     {
-        return playerMaxHealth;
+        return playerHealth;
     }
 
-    public void SetPlayerMaxHealth(int value)
+    public void SetPlayerMaxHealth(float value)
     {
-        playerMaxHealth = value;
-        if (playerMaxHealth <= 3)
+        playerHealth = (int)value;
+        playerHealthText.text = playerHealth.ToString();
+
+        if (playerHealth <= 3)
         {
-            playerMaxHealthMult = 0.2f;
+            playerHealthMult = 0.2f;
         }
-        else if (playerMaxHealth >= 7)
+        else if (playerHealth >= 7)
         {
-            playerMaxHealthMult = -0.2f;
+            playerHealthMult = -0.2f;
         }
         else
         {
-            playerMaxHealthMult = 0;
+            playerHealthMult = 0;
         }
+        scoreMultText.text = GetTotalMult().ToString();
     }
 
     public int GetPlayerHealing()
@@ -93,9 +177,11 @@ public class DifficultySettings : MonoBehaviour
         return playerHealing;
     }
 
-    public void SetPlayerHealing(int value)
+    public void SetPlayerHealing(float value)
     {
-        playerHealing = value;
+        playerHealing = (int)value;
+        playerHealingText.text = playerHealing.ToString();
+
         if (playerHealing == 0)
         {
             playerHealingMult = 0.2f;
@@ -108,6 +194,7 @@ public class DifficultySettings : MonoBehaviour
         {
             playerHealingMult = 0;
         }
+        scoreMultText.text = GetTotalMult().ToString();
     }
 
     // Game
@@ -148,10 +235,11 @@ public class DifficultySettings : MonoBehaviour
         {
             gameSpeedMult = 0;
         }
+        scoreMultText.text = GetTotalMult().ToString();
     }
 
     public float GetTotalMult()
     {
-        return 1 + enemySpeedMult + playerMaxHealthMult + playerHealingMult + gameSpeedMult;
+        return 1 + enemySpeedMult + playerHealthMult + playerHealingMult + gameSpeedMult;
     }
 }
