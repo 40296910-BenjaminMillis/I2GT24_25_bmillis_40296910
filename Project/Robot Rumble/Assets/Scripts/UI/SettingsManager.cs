@@ -35,6 +35,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetFloat("sfxVolume", sfxDefault);            
         }
         audioPlayer.SetVolumeLevel(PlayerPrefs.GetFloat("sfxVolume"));
+        audioPlayer.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("sfxVolume");
     }
 
     public void SetSensitivity(float sensitivity){
@@ -47,6 +48,7 @@ public class SettingsManager : MonoBehaviour
     public void SetSfxVolume(float volume){
         PlayerPrefs.SetFloat("sfxVolume", volume);
         audioPlayer.SetVolumeLevel(volume);
+        audioPlayer.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("sfxVolume");
     }
 
     public void SetMusicVolume(float volume){
