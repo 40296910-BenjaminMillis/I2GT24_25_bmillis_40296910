@@ -14,8 +14,8 @@ public abstract class MoveType : MonoBehaviour
         enemyRb = gameObject.GetComponent<Rigidbody>();
         playerTransform = FindObjectOfType<PlayerControl>().transform;
         DifficultySettings difficultySettings = FindObjectOfType<DifficultySettings>();
-        moveSpeed *= difficultySettings.GetEnemySpeed()/2;
-        turnDelay /= difficultySettings.GetEnemySpeed()/2;
+        moveSpeed *= difficultySettings.GetEnemySpeed();
+        turnDelay /= difficultySettings.GetEnemySpeed();
     }
 
     public virtual void Move(){

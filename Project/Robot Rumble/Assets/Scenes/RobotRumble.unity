@@ -12679,7 +12679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  locationToRespawn: {x: 0, y: 40, z: -40}
+  launchLocation: {x: 0, y: 50, z: 0}
+  impactForce: 1500
   smoke: {fileID: 1130821251424896919, guid: 0ebaeb75224a85e448f1f891974b4956, type: 3}
 --- !u!4 &788284040
 Transform:
@@ -22772,14 +22773,16 @@ MonoBehaviour:
   playerDamageVolume: 0.45
   enemyProjectileClip: {fileID: 8300000, guid: 9552d22c2c6b6e64fa03a469cefbafc5, type: 3}
   enemyProjectileVolume: 0.9
+  enemyFlipClip: {fileID: 8300000, guid: e24e01731d58f014398643df5c933bee, type: 3}
+  enemyFlipVolume: 0.8
   enemyDeathClip: {fileID: 8300000, guid: 6e2a9c579d1f4fa45a82ffbe48bbdf1e, type: 3}
   enemyDeathVolume: 1
   enemyKillfloorClip: {fileID: 8300000, guid: c5d52c46a5fd0ae42926f570a84b1545, type: 3}
   enemyKillfloorVolume: 1
   bossLaughClip: {fileID: 8300000, guid: f98ed001947bcec438fb814973c6cdfc, type: 3}
-  bossLaughVolume: 0.3
+  bossLaughVolume: 0.025
   bossChargeClip: {fileID: 8300000, guid: cf2069303e16f14479c0613bf9bb043f, type: 3}
-  bossChargeVolume: 0.5
+  bossChargeVolume: 0.05
   bossThudClip: {fileID: 8300000, guid: a867dfe654c6e4b4ea27b1233a615b56, type: 3}
   bossThudVolume: 1
   bossThrustClip: {fileID: 8300000, guid: 1e42d43ba48490344957e2a01124bc26, type: 3}

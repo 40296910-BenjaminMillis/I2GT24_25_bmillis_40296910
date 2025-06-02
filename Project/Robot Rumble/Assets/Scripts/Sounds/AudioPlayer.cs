@@ -26,6 +26,8 @@ public class AudioPlayer : MonoBehaviour
     [Header("Enemy")]
     [SerializeField] AudioClip enemyProjectileClip;
     [SerializeField] [Range(0f, 1f)] float enemyProjectileVolume = 1f;
+    [SerializeField] AudioClip enemyFlipClip;
+    [SerializeField] [Range(0f, 1f)] float enemyFlipVolume = 1f;
     [SerializeField] AudioClip enemyDeathClip;
     [SerializeField] [Range(0f, 1f)] float enemyDeathVolume = 1f;
     [SerializeField] AudioClip enemyKillfloorClip;
@@ -99,6 +101,10 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayEnemyProjectileClip(Vector3 position){
         PlayClip(enemyProjectileClip, enemyProjectileVolume, position);
+    }
+
+    public void PlayEnemyFlipClip(Vector3 position){
+        PlayClip(enemyFlipClip, enemyFlipVolume, position);
     }
 
     public void PlayEnemyDeathClip(Vector3 position){

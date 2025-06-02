@@ -5,7 +5,8 @@ using UnityEngine;
 public class KillFloor : MonoBehaviour
 {  
     [SerializeField] int damage = 1;
-    [SerializeField] Vector3 locationToRespawn = new Vector3(0, 40, 0); 
+    [SerializeField] Vector3 launchLocation = new Vector3(0, 80, 0);
+    [SerializeField] float impactForce = 1500;
     [SerializeField] ParticleSystem smoke;
 
     AudioPlayer audioPlayer;
@@ -24,16 +25,12 @@ public class KillFloor : MonoBehaviour
             audioPlayer.PlayEnemyKillfloorClip(other.transform.position);
         }
 
-        // The player will lose some of health if they touch the floor, and respawn at the center of the stage
+        // The player will lose some of health if they touch the floor, and be flung towards the center of the stage
         else if(other.CompareTag("Player")){
             Health targetHealth = other.GetComponent<Health>();
             targetHealth.UpdateHealth(-damage); 
 
-            RaycastHit respawnLocation;
-            Physics.Raycast(locationToRespawn, Vector3.down, out respawnLocation, Mathf.Infinity);
-
-            //other.transform.position = respawnLocation.point + Vector3.up;
-            other.GetComponent<ImpactReceiver>().AddImpact(new Vector3(0, 40, 0) - other.transform.position, 1100);
+            other.GetComponent<ImpactReceiver>().AddImpact(launchLocation - other.transform.position, impactForce);
         }
     }
 }
